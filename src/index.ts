@@ -1,6 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { safeMcpResponse } from "./helper.js";
+import { z } from "zod";
 import { introspect } from "./tools/introspect.js";
 
 const server = new McpServer({
@@ -33,9 +34,21 @@ server.resource(
 );
 
 server.tool(
-  'introspect',
-  "List all available GraphQL queries and mutations",
+  'introspect-graphql',
+  "Introspect the Sitecore GraphQL schema, use this tool before doing a query to get the schema information if you do not have it available as a resource already.",
   {},
+  () => {
+    return safeMcpResponse(introspect(conf))
+  }
+)
+
+server.tool(
+  'query-graphql',
+  "Query a Sitecore GraphQL endpoint with the given query and variables.",
+  {
+    query: z.string(),
+		variables: z.string().optional(),
+  },
   () => {
     return safeMcpResponse(introspect(conf))
   }
