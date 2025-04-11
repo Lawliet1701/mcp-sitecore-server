@@ -1,0 +1,49 @@
+{
+  
+  "files": [
+  
+    
+  "dist",
+  
+    
+  "README.md",
+  
+    
+  "LICENSE"
+  
+  ],
+  
+  "type": "module",
+  
+  "scripts": {
+  
+    
+  "build": "tsc && node -e \"require('fs').chmodSync('dist/src/index.js', '755')\"",
+  
+    
+  "prepare": "npm run build",
+  
+    
+  "watch": "tsc ./src/index.ts --watch",
+  
+    
+  "inspector": "npx @modelcontextprotocol/inspector dist/src/index.js"
+  
+  },
+  
+  "dependencies": {
+  
+    
+  "@modelcontextprotocol/sdk": "^1.9.0",
+  
+    
+  "@types/node": "^20.17.30",
+  
+    
+  "graphql": "^16.10.0",
+  
+    
+  "typescript": "^5.8.3"
+  
+  }
+}
