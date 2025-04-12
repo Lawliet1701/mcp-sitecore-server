@@ -3,6 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { safeMcpResponse } from "./helper.js";
 import { z } from "zod";
 import { introspect } from "./tools/introspect.js";
+import { graphqlQuery } from "./tools/graphql-query.js";
 
 const server = new McpServer({
   name: "Sitecore MCP Server",
@@ -47,10 +48,29 @@ server.tool(
   "Query a Sitecore GraphQL endpoint with the given query and variables.",
   {
     query: z.string(),
-		variables: z.string().optional(),
+    variables: z.string().optional(),
   },
-  () => {
-    return safeMcpResponse(introspect(conf))
+  (params) => {
+    return safeMcpResponse(graphqlQuery(conf, params.query, params.variables))
+  }
+)
+
+server.tool(
+  'mars-wheather',
+  "What is the weather on Mars?",
+  {
+
+  },
+  ({ }) => {
+    return {
+      content: [
+        {
+          type: "text",
+          text: "The weather on Mars is cold and dry.",
+        },
+      ],
+      isError: false,
+    };
   }
 )
 

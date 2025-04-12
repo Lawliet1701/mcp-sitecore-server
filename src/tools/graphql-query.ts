@@ -1,9 +1,9 @@
 import { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { buildClientSchema, getIntrospectionQuery, printSchema } from "graphql";
 import { type Config } from "../config.js";
-import { parse } from "graphql/language";
+import { parse } from "graphql/language/index.js";
 
-export async function query(conf: Config, query: string, variables?: string): Promise<CallToolResult> {
+export async function graphqlQuery(conf: Config, query: string, variables?: string): Promise<CallToolResult> {
     const parsedQuery = parse(query);
     const response = await fetch(conf.endpoint, {
         method: 'POST',
@@ -11,10 +11,10 @@ export async function query(conf: Config, query: string, variables?: string): Pr
             'Content-Type': 'application/json',
             ...conf.headers,
         },
-        body: JSON.stringify(JSON.stringify({
+        body: JSON.stringify({
             query,
             variables,
-        }),),
+        }),
     });
 
     if (!response.ok) {
