@@ -3,7 +3,7 @@ import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import express from "express";
 import type { Request, Response } from "express";
 
-import { getServer } from "./server.ts";
+import { getServer } from "./server.js";
 const server = getServer();   
 
 const app = express();

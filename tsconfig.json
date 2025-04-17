@@ -12,12 +12,12 @@
     "resolveJsonModule": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "noEmit": true,
     "types": ["node"],
-    "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
-    "incremental": true
+    "incremental": false,
+    "sourceMap": true,
+    "declaration": true,
   },
-  "include": ["**/*.ts"],
+  "include": ["./src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

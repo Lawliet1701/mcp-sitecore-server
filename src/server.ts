@@ -1,9 +1,9 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { safeMcpResponse } from "./helper.ts";
+import { safeMcpResponse } from "./helper.js";
 import { z } from "zod";
-import { introspect } from "./tools/introspect.ts";
-import { graphqlQuery } from "./tools/graphql-query.ts";
-import { getItemById } from "./tools/item-service/get-item.ts";
+import { introspect } from "./tools/introspect.js";
+import { graphqlQuery } from "./tools/graphql-query.js";
+import { getItemById } from "./tools/item-service/get-item.js";
 
 
 export function getServer(): McpServer {

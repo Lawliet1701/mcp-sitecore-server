@@ -1,7 +1,7 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import { type Config } from "../../config.ts";
+import { type Config } from "../../config.js";
 import { get } from "http";
-import SitecoreRestfulItemServiceClient from "./client.ts";
+import SitecoreRestfulItemServiceClient from "./client.js";
 
 export async function getItemById(conf: Config,
     id: string, options: {
