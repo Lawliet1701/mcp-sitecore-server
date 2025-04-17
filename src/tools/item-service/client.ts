@@ -168,6 +168,54 @@ class SitecoreRestfulItemServiceClient {
         }
     }
 
+    /**
+     * Retrieves a Sitecore item by its path using the ItemService RESTful API.
+     * @param {string} path - The content path of the Sitecore item to retrieve.
+     * @param {Object} [options] - Optional parameters for the request.
+     * @returns {Promise<Object>} - The retrieved Sitecore item.
+     */
+    async getItemByPath(path: string, options: {
+        database?: string;
+        language?: string;
+        version?: string;
+        includeStandardTemplateFields?: boolean;
+        includeMetadata?: boolean;
+        fields?: string[];
+    } = {}): Promise<Object> {
+
+        if (!this.isInitialized) {
+            await this.initialize();
+        }
+
+        // Encode the path parameter to make it URL-safe
+        const encodedPath = encodeURIComponent(path);
+        const params = new URLSearchParams(options as Record<string, string>);
+
+        if (options.fields) {
+            params.set('fields', options.fields.join(','));
+        }
+
+        const url = `${this.serverUrl}/sitecore/api/ssc/item?path=${encodedPath}&${params.toString()}`;
+
+        try {
+            const response = await fetch(url, {
+                headers: { 'Cookie': `.AspNet.Cookies=${this.authCookie}` }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            return await response.json() as unknown as Object;
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(`Failed to retrieve item by path: ${error.message}`);
+            } else {
+                throw new Error('Failed to retrieve item by path: An unknown error occurred');
+            }
+        }
+    }
+
 }
 
 export default SitecoreRestfulItemServiceClient;

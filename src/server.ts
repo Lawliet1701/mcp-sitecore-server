@@ -5,6 +5,7 @@ import { introspect } from "./tools/introspect.js";
 import { graphqlQuery } from "./tools/graphql-query.js";
 import { getItemById } from "./tools/item-service/get-item.js";
 import { getItemChildren } from "./tools/item-service/get-item-children.js";
+import { getItemByPath } from "./tools/item-service/get-item-by-path.js";
 
 export function getServer(): McpServer {
     const server = new McpServer({
@@ -117,6 +118,25 @@ export function getServer(): McpServer {
         },
         async (params) => {
             return safeMcpResponse(getItemChildren(conf, params.id, params.options || {}));
+        }
+    )
+
+    server.tool(
+        'item-service-get-item-by-path',
+        "Get a Sitecore item by its path.",
+        {
+            path: z.string(),
+            options: z.object({
+                database: z.string().optional(),
+                language: z.string().optional(),
+                version: z.string().optional(),
+                includeStandardTemplateFields: z.boolean().optional(),
+                includeMetadata: z.boolean().optional(),
+                fields: z.array(z.string()).optional(),
+            }).optional(),
+        },
+        async (params) => {
+            return safeMcpResponse(getItemByPath(conf, params.path, params.options || {}));
         }
     )
 
