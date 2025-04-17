@@ -6,15 +6,21 @@
   ],
   "type": "module",
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('dist/src/index.js', '755')\"",
+    "build": "tsc",
     "prepare": "npm run build",
-    "watch": "tsc ./src/index.ts --watch",
-    "inspector": "npx @modelcontextprotocol/inspector dist/src/index.js"
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector dist/src/index.js",
+    "start": "node --experimental-transform-types ./src/app.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
     "@types/node": "^20.17.30",
     "graphql": "^16.10.0",
     "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "express": "^5.1.0",
+    "ts-node": "^10.9.2"
   }
 }

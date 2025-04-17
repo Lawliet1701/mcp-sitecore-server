@@ -1,6 +1,7 @@
-import { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
+import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { buildClientSchema, getIntrospectionQuery, printSchema } from "graphql";
-import { type Config } from "../config.js";
+import { type IntrospectionQuery } from "graphql";
+import { type Config } from "../config.ts";
 import { parse } from "graphql/language/index.js";
 
 export async function graphqlQuery(conf: Config, query: string, variables?: string): Promise<CallToolResult> {
@@ -21,7 +22,7 @@ export async function graphqlQuery(conf: Config, query: string, variables?: stri
         throw new Error(`GraphQL request failed: ${response.statusText}`);
     }
 
-    const responseJson = await response.json();
+    const responseJson = await response.json() as unknown as { data: IntrospectionQuery };
     // Transform to a schema object
     const schema = buildClientSchema(responseJson.data);
 
