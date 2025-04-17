@@ -6,6 +6,7 @@ import { graphqlQuery } from "./tools/graphql-query.js";
 import { getItemById } from "./tools/item-service/get-item.js";
 import { getItemChildren } from "./tools/item-service/get-item-children.js";
 import { getItemByPath } from "./tools/item-service/get-item-by-path.js";
+import { getLanguages } from "./tools/item-service/get-languages.js";
 
 export function getServer(): McpServer {
     const server = new McpServer({
@@ -137,6 +138,15 @@ export function getServer(): McpServer {
         },
         async (params) => {
             return safeMcpResponse(getItemByPath(conf, params.path, params.options || {}));
+        }
+    )
+
+    server.tool(
+        'get-languages',
+        "Get Sitecore languages.",
+        {},
+        async () => {
+            return safeMcpResponse(getLanguages(conf));
         }
     )
 
