@@ -122,6 +122,52 @@ class SitecoreRestfulItemServiceClient {
         }
     }
 
+    /**
+     * Retrieves the children of a Sitecore item by its ID using the ItemService RESTful API.
+     * @param {string} id - The GUID of the Sitecore item whose children to retrieve.
+     * @param {Object} [options] - Optional parameters for the request.
+     * @returns {Promise<Object>} - The retrieved Sitecore item children.
+     */
+    async getItemChildren(id: string, options: {
+        database?: string;
+        language?: string;
+        version?: string;
+        includeStandardTemplateFields?: boolean;
+        includeMetadata?: boolean;
+        fields?: string[];
+    } = {}): Promise<Object> {
+
+        if (!this.isInitialized) {
+            await this.initialize();
+        }
+
+        const params = new URLSearchParams(options as Record<string, string>);
+
+        if (options.fields) {
+            params.set('fields', options.fields.join(','));
+        }
+
+        const url = `${this.serverUrl}/sitecore/api/ssc/item/${id}/children?${params.toString()}`;
+
+        try {
+            const response = await fetch(url, {
+                headers: { 'Cookie': `.AspNet.Cookies=${this.authCookie}` }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            return await response.json() as unknown as Object;
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(`Failed to retrieve item children: ${error.message}`);
+            } else {
+                throw new Error('Failed to retrieve item children: An unknown error occurred');
+            }
+        }
+    }
+
 }
 
 export default SitecoreRestfulItemServiceClient;
