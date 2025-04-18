@@ -317,6 +317,50 @@ class SitecoreRestfulItemServiceClient {
         }
     }
 
+    /**
+     * Deletes a Sitecore item by its ID using the ItemService RESTful API.
+     * @param {string} id - The GUID of the Sitecore item to delete.
+     * @param {Object} [options] - Optional parameters for the request (database, language, version).
+     * @returns {Promise<Object>} - The response from the delete operation.
+     */
+    async deleteItem(id: string, options: {
+        database?: string;
+        language?: string;
+        version?: string;
+    } = {}): Promise<Object> {
+        if (!this.isInitialized) {
+            await this.initialize();
+        }
+
+        const params = new URLSearchParams(options as Record<string, string>);
+        const url = `${this.serverUrl}/sitecore/api/ssc/item/${id}?${params.toString()}`;
+
+        try {
+            const response = await fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Cookie': `.AspNet.Cookies=${this.authCookie}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            return {
+                "Status": "Success",
+                "Code": response.status,
+                "Message": "Item deleted successfully",
+            };
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(`Failed to delete item: ${error.message}`);
+            } else {
+                throw new Error('Failed to delete item: An unknown error occurred');
+            }
+        }
+    }
+
 }
 
 export default SitecoreRestfulItemServiceClient;

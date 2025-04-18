@@ -9,6 +9,7 @@ import { getItemByPath } from "./tools/item-service/get-item-by-path.js";
 import { getLanguages } from "./tools/item-service/get-languages.js";
 import { createItem } from "./tools/item-service/create-item.js";
 import { editItem } from "./tools/item-service/edit-item.js";
+import { deleteItem } from "./tools/item-service/delete-item.js";
 
 export function getServer(): McpServer {
     const server = new McpServer({
@@ -193,6 +194,22 @@ export function getServer(): McpServer {
         },
         async (params) => {
             return safeMcpResponse(editItem(conf, params.id, params.data, params.options || {}));
+        }
+    )
+
+    server.tool(
+        'item-service-delete-item',
+        "Delete a Sitecore item by its ID.",
+        {
+            id: z.string(),
+            options: z.object({
+                database: z.string().optional(),
+                language: z.string().optional(),
+                version: z.string().optional(),
+            }).optional(),
+        },
+        async (params) => {
+            return safeMcpResponse(deleteItem(conf, params.id, params.options || {}));
         }
     )
 
