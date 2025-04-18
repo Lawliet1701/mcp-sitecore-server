@@ -1,6 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { safeMcpResponse } from "./helper.js";
-import { z } from "zod";
+import { string, z } from "zod";
 import { introspect } from "./tools/introspect.js";
 import { graphqlQuery } from "./tools/graphql-query.js";
 import { getItemById } from "./tools/item-service/get-item.js";
@@ -8,6 +8,7 @@ import { getItemChildren } from "./tools/item-service/get-item-children.js";
 import { getItemByPath } from "./tools/item-service/get-item-by-path.js";
 import { getLanguages } from "./tools/item-service/get-languages.js";
 import { createItem } from "./tools/item-service/create-item.js";
+import { editItem } from "./tools/item-service/edit-item.js";
 
 export function getServer(): McpServer {
     const server = new McpServer({
@@ -156,10 +157,10 @@ export function getServer(): McpServer {
         "Create a new Sitecore item under parent path with name using template id.",
         {
             parentPath: z.string(),
-            data: z.object({
+            data: z.intersection(z.object({
                 ItemName: z.string(),
                 TemplateID: z.string(),
-            }),
+            }), z.record(z.string(), z.any())),
             options: z.object({
                 database: z.string().optional(),
                 language: z.string().optional(),
@@ -167,6 +168,23 @@ export function getServer(): McpServer {
         },
         async (params) => {
             return safeMcpResponse(createItem(conf, params.parentPath, params.data, params.options || {}));
+        }
+    )
+
+    server.tool(
+        'item-service-edit-item',
+        "Edit a Sitecore item by its ID.",
+        {
+            id: z.string(),
+            data: z.record(z.string(), z.any()),
+            options: z.object({
+                database: z.string().optional(),
+                language: z.string().optional(),
+                version: z.string().optional(),
+            }).optional(),
+        },
+        async (params) => {
+            return safeMcpResponse(editItem(conf, params.id, params.data, params.options || {}));
         }
     )
 

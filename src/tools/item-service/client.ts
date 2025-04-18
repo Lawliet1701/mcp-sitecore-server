@@ -264,6 +264,51 @@ class SitecoreRestfulItemServiceClient {
         }
     }
 
+    /**
+     * Edits a Sitecore item using the ItemService RESTful API.
+     * @param {string} id - The GUID of the Sitecore item to edit.
+     * @param {object} data - The data to update (fields, etc).
+     * @param {object} [options] - Optional parameters for the request (database, language, version).
+     * @returns {Promise<Object>} - The updated Sitecore item response.
+     */
+    async editItem(id: string, data: {
+        [key: string]: any;
+    }, options: {
+        database?: string;
+        language?: string;
+        version?: string;
+    } = {}): Promise<Object> {
+        if (!this.isInitialized) {
+            await this.initialize();
+        }
+
+        const params = new URLSearchParams(options as Record<string, string>);
+        const url = `${this.serverUrl}/sitecore/api/ssc/item/${id}?${params.toString()}`;
+
+        try {
+            const response = await fetch(url, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cookie': `.AspNet.Cookies=${this.authCookie}`
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            return await response.json() as unknown as Object;
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(`Failed to edit item: ${error.message}`);
+            } else {
+                throw new Error('Failed to edit item: An unknown error occurred');
+            }
+        }
+    }
+
 }
 
 export default SitecoreRestfulItemServiceClient;
