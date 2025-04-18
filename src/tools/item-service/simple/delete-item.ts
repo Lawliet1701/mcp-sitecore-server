@@ -1,17 +1,16 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import SitecoreRestfulItemServiceClient from "./client.js";
+import { type Config } from "../../../config.js";
+import SitecoreRestfulItemServiceClient from "../client.js";
 
 /**
- * Edit a Sitecore item by ID using the RESTful ItemService API.
+ * Delete a Sitecore item by ID using the RESTful ItemService API.
  * @param conf - Sitecore connection config
- * @param id - The GUID of the Sitecore item to edit
- * @param data - The data to update (fields, etc)
+ * @param id - The GUID of the Sitecore item to delete
  * @param options - Optional parameters (database, language, version)
  */
-export async function editItem(
-    conf: any,
+export async function deleteItem(
+    conf: Config,
     id: string,
-    data: { [key: string]: any },
     options: { database?: string; language?: string; version?: string } = {}
 ): Promise<CallToolResult> {
     const client = new SitecoreRestfulItemServiceClient(
@@ -20,7 +19,7 @@ export async function editItem(
         conf.itemService.password,
         conf.itemService.domain
     );
-    const response = await client.editItem(id, data, options);
+    const response = await client.deleteItem(id, options);
     return {
         content: [
             {

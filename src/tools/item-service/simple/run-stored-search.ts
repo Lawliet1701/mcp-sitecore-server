@@ -1,6 +1,6 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import { type Config } from "../../config.js";
-import SitecoreRestfulItemServiceClient from "./client.js";
+import { type Config } from "../../../config.js";
+import SitecoreRestfulItemServiceClient from "../client.js";
 
 /**
  * Calls the Sitecore RESTful ItemService to run a stored search.

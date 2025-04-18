@@ -1,8 +1,9 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import { type Config } from "../../config.js";
-import SitecoreRestfulItemServiceClient from "./client.js";
+import { type Config } from "../../../config.js";
+import { get } from "http";
+import SitecoreRestfulItemServiceClient from "../client.js";
 
-export async function getItemChildren(conf: Config,
+export async function getItemById(conf: Config,
     id: string, options: {
         database?: string;
         language?: string;
@@ -18,7 +19,7 @@ export async function getItemChildren(conf: Config,
         conf.itemService.domain,
     );
 
-    const response = await client.getItemChildren(id, options);
+    const response = await client.getItemById(id, options);
 
     return {
         content: [
