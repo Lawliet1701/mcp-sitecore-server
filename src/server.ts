@@ -152,22 +152,29 @@ export function getServer(): McpServer {
         }
     )
 
+    // It seems that union types are not supported in the current version of AI agents
+    // I tried to use z.intersection() but it does not work
+    // z.union doesn't work either
+    // z.passthrough() doesn't work either
+    // So, data object will be split into required and optional
+    // And as it is the API for the AI agent, not for people, it is not a big deal
+
     server.tool(
         'item-service-create-item',
         "Create a new Sitecore item under parent path with name using template id.",
         {
             parentPath: z.string(),
-            data: z.intersection(z.object({
-                ItemName: z.string(),
-                TemplateID: z.string(),
-            }), z.record(z.string(), z.any())),
+            itemName: z.string(),
+            templateId: z.string(),
+            data:
+                z.record(z.string(), z.string()).optional(),    
             options: z.object({
                 database: z.string().optional(),
                 language: z.string().optional(),
             }).optional(),
         },
         async (params) => {
-            return safeMcpResponse(createItem(conf, params.parentPath, params.data, params.options || {}));
+            return safeMcpResponse(createItem(conf, params.parentPath, { ItemName: params.itemName, TemplateID: params.templateId, ...params.data }, params.options || {}));
         }
     )
 
@@ -176,7 +183,8 @@ export function getServer(): McpServer {
         "Edit a Sitecore item by its ID.",
         {
             id: z.string(),
-            data: z.record(z.string(), z.any()),
+            data:
+                z.record(z.string(), z.string()),
             options: z.object({
                 database: z.string().optional(),
                 language: z.string().optional(),

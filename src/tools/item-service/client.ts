@@ -254,7 +254,11 @@ class SitecoreRestfulItemServiceClient {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            return await response.json() as unknown as Object;
+            return {
+                "Status": "Success",
+                "Code": response.status,
+                "Message": "Item created successfully",
+            };
         } catch (error) {
             if (error instanceof Error) {
                 throw new Error(`Failed to create item: ${error.message}`);
@@ -299,7 +303,11 @@ class SitecoreRestfulItemServiceClient {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            return await response.json() as unknown as Object;
+            return {
+                "Status": "Success",
+                "Code": response.status,
+                "Message": "Item updated successfully",
+            }
         } catch (error) {
             if (error instanceof Error) {
                 throw new Error(`Failed to edit item: ${error.message}`);

@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
-    "@types/node": "^20.17.30",
     "graphql": "^16.10.0"
   },
   "devDependencies": {
