@@ -11,6 +11,8 @@ import { createItem } from "./tools/item-service/create-item.js";
 import { editItem } from "./tools/item-service/edit-item.js";
 import { deleteItem } from "./tools/item-service/delete-item.js";
 import { searchItems } from "./tools/item-service/search-items.js";
+import { runStoredQuery } from "./tools/item-service/run-stored-query.js";
+import { runStoredSearch } from "./tools/item-service/run-stored-search.js";
 
 export function getServer(): McpServer {
     const server = new McpServer({
@@ -228,6 +230,47 @@ export function getServer(): McpServer {
         },
         async (params) => {
             return safeMcpResponse(searchItems(conf, params));
+        }
+    );
+
+    server.tool(
+        'item-service-run-stored-query',
+        "Run a stored Sitecore query by its definition item ID.",
+        {
+            id: z.string(),
+            options: z.object({
+                database: z.string().optional(),
+                language: z.string().optional(),
+                page: z.number().optional(),
+                pageSize: z.number().optional(),
+                fields: z.array(z.string()).optional(),
+                includeStandardTemplateFields: z.boolean().optional(),
+            }).optional(),
+        },
+        async (params) => {
+            return safeMcpResponse(runStoredQuery(conf, params.id, params.options || {}));
+        }
+    );
+
+    server.tool(
+        'item-service-run-stored-search',
+        "Run a stored Sitecore search by its definition item ID.",
+        {
+            id: z.string(),
+            term: z.string(),
+            options: z.object({
+                pageSize: z.number().optional(),
+                page: z.number().optional(),
+                database: z.string().optional(),
+                language: z.string().optional(),
+                includeStandardTemplateFields: z.boolean().optional(),
+                fields: z.array(z.string()).optional(),
+                facet: z.string().optional(),
+                sorting: z.string().optional(),
+            }).optional(),
+        },
+        async (params) => {
+            return safeMcpResponse(runStoredSearch(conf, params.id, params.term, params.options || {}));
         }
     );
 

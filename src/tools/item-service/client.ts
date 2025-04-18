@@ -407,6 +407,97 @@ class SitecoreRestfulItemServiceClient {
         }
     }
 
+    /**
+     * Runs a stored query using the ItemService RESTful API.
+     * @param {string} id - The GUID of the Sitecore query definition item.
+     * @param {object} [options] - Optional parameters for the request (database, language, page, pageSize, fields, includeStandardTemplateFields).
+     * @returns {Promise<Object>} - The query results.
+     * Query syntax reference:
+     * https://doc.sitecore.com/xp/en/developers/latest/sitecore-experience-manager/general-query-syntax.html
+     */
+    async runStoredQuery(id: string, options: {
+        database?: string;
+        language?: string;
+        page?: number;
+        pageSize?: number;
+        fields?: string[];
+        includeStandardTemplateFields?: boolean;
+    } = {}): Promise<Object> {
+        if (!this.isInitialized) {
+            await this.initialize();
+        }
+        const params = new URLSearchParams();
+        if (options.database) params.set('database', options.database);
+        if (options.language) params.set('language', options.language);
+        if (options.page !== undefined) params.set('page', String(options.page));
+        if (options.pageSize !== undefined) params.set('pageSize', String(options.pageSize));
+        if (options.fields) params.set('fields', options.fields.join(','));
+        if (options.includeStandardTemplateFields !== undefined) params.set('includeStandardTemplateFields', String(options.includeStandardTemplateFields));
+        const url = `${this.serverUrl}/sitecore/api/ssc/item/${id}/query?${params.toString()}`;
+        try {
+            const response = await fetch(url, {
+                headers: { 'Cookie': `.AspNet.Cookies=${this.authCookie}` }
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json() as unknown as Object;
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(`Failed to run stored query: ${error.message}`);
+            } else {
+                throw new Error('Failed to run stored query: An unknown error occurred');
+            }
+        }
+    }
+
+    /**
+     * Runs a stored Sitecore search using the ItemService RESTful API.
+     * @param {string} id - The GUID of the Sitecore search definition item.
+     * @param {object} options - Search options (term, pageSize, page, database, language, includeStandardTemplateFields, fields, facet, sorting).
+     * @returns {Promise<Object>} - The search results.
+     */
+    async runStoredSearch(id: string, term: string, options: {
+        pageSize?: number;
+        page?: number;
+        database?: string;
+        language?: string;
+        includeStandardTemplateFields?: boolean;
+        fields?: string[];
+        facet?: string;
+        sorting?: string;
+    }): Promise<Object> {
+        if (!this.isInitialized) {
+            await this.initialize();
+        }
+        const params = new URLSearchParams();
+        params.set('term', term);
+        if (options.pageSize !== undefined) params.set('pageSize', String(options.pageSize));
+        if (options.page !== undefined) params.set('page', String(options.page));
+        if (options.database) params.set('database', options.database);
+        if (options.language) params.set('language', options.language);
+        if (options.includeStandardTemplateFields !== undefined) params.set('includeStandardTemplateFields', String(options.includeStandardTemplateFields));
+        if (options.fields) params.set('fields', options.fields.join(','));
+        if (options.facet) params.set('facet', options.facet);
+        if (options.sorting) params.set('sorting', options.sorting);
+        const url = `${this.serverUrl}/sitecore/api/ssc/item/${id}/search?${params.toString()}`;
+        try {
+            const response = await fetch(url, {
+                headers: { 'Cookie': `.AspNet.Cookies=${this.authCookie}` }
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json() as unknown as Object;
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(`Failed to run stored search: ${error.message}`);
+            } else {
+                throw new Error('Failed to run stored search: An unknown error occurred');
+            }
+        }
+    }
+
 }
 
 export default SitecoreRestfulItemServiceClient;
