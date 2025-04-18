@@ -361,6 +361,52 @@ class SitecoreRestfulItemServiceClient {
         }
     }
 
+    /**
+     * Searches Sitecore items using the ItemService RESTful API.
+     * @param {object} options - Search options (term, fields, facets, etc).
+     * @returns {Promise<Object>} - The search results.
+     */
+    async searchItems(options: {
+        term: string;
+        fields?: string[];
+        facet?: string;
+        page?: number;
+        pageSize?: number;
+        database?: string;
+        includeStandardTemplateFields?: boolean;
+    }): Promise<Object> {
+        if (!this.isInitialized) {
+            await this.initialize();
+        }
+
+        const params = new URLSearchParams();
+        if (options.term) params.set('term', options.term);
+        if (options.fields) params.set('fields', options.fields.join(','));
+        if (options.facet) params.set('facet', options.facet);
+        if (options.page !== undefined) params.set('page', String(options.page));
+        if (options.pageSize !== undefined) params.set('pageSize', String(options.pageSize));
+        if (options.database) params.set('database', options.database);
+        if (options.includeStandardTemplateFields !== undefined) params.set('includeStandardTemplateFields', String(options.includeStandardTemplateFields));
+
+        const url = `${this.serverUrl}/sitecore/api/ssc/item/search?${params.toString()}`;
+
+        try {
+            const response = await fetch(url, {
+                headers: { 'Cookie': `.AspNet.Cookies=${this.authCookie}` }
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json() as unknown as Object;
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(`Failed to search items: ${error.message}`);
+            } else {
+                throw new Error('Failed to search items: An unknown error occurred');
+            }
+        }
+    }
+
 }
 
 export default SitecoreRestfulItemServiceClient;

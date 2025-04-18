@@ -10,6 +10,7 @@ import { getLanguages } from "./tools/item-service/get-languages.js";
 import { createItem } from "./tools/item-service/create-item.js";
 import { editItem } from "./tools/item-service/edit-item.js";
 import { deleteItem } from "./tools/item-service/delete-item.js";
+import { searchItems } from "./tools/item-service/search-items.js";
 
 export function getServer(): McpServer {
     const server = new McpServer({
@@ -212,6 +213,23 @@ export function getServer(): McpServer {
             return safeMcpResponse(deleteItem(conf, params.id, params.options || {}));
         }
     )
+
+    server.tool(
+        'item-service-search-items',
+        "Search Sitecore items using the ItemService RESTful API.",
+        {
+            term: z.string(),
+            fields: z.array(z.string()).optional(),
+            facet: z.string().optional(),
+            page: z.number().optional(),
+            pageSize: z.number().optional(),
+            database: z.string().optional(),
+            includeStandardTemplateFields: z.boolean().optional(),
+        },
+        async (params) => {
+            return safeMcpResponse(searchItems(conf, params));
+        }
+    );
 
     return server;
 }
