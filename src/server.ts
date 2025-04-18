@@ -7,6 +7,7 @@ import { getItemById } from "./tools/item-service/get-item.js";
 import { getItemChildren } from "./tools/item-service/get-item-children.js";
 import { getItemByPath } from "./tools/item-service/get-item-by-path.js";
 import { getLanguages } from "./tools/item-service/get-languages.js";
+import { createItem } from "./tools/item-service/create-item.js";
 
 export function getServer(): McpServer {
     const server = new McpServer({
@@ -142,11 +143,30 @@ export function getServer(): McpServer {
     )
 
     server.tool(
-        'get-languages',
+        'item-service-get-languages',
         "Get Sitecore languages.",
         {},
         async () => {
             return safeMcpResponse(getLanguages(conf));
+        }
+    )
+
+    server.tool(
+        'item-service-create-item',
+        "Create a new Sitecore item under parent path with name using template id.",
+        {
+            parentPath: z.string(),
+            data: z.object({
+                ItemName: z.string(),
+                TemplateID: z.string(),
+            }),
+            options: z.object({
+                database: z.string().optional(),
+                language: z.string().optional(),
+            }).optional(),
+        },
+        async (params) => {
+            return safeMcpResponse(createItem(conf, params.parentPath, params.data, params.options || {}));
         }
     )
 

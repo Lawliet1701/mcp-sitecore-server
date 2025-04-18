@@ -216,6 +216,54 @@ class SitecoreRestfulItemServiceClient {
         }
     }
 
+    /**
+     * Creates a new Sitecore item using the ItemService RESTful API.
+     * @param {string} parentPath - The path where the new item will be created (e.g., 'sitecore/content/Home').
+     * @param {object} data - The data for the new item (ItemName, TemplateID, fields, etc).
+     * @param {object} [options] - Optional parameters for the request (database, language).
+     * @returns {Promise<Object>} - The created Sitecore item response.
+     */
+    async createItem(parentPath: string, data: {
+        ItemName: string;
+        TemplateID: string;
+        [key: string]: any;
+    }, options: {
+        database?: string;
+        language?: string;
+    } = {}): Promise<Object> {
+        if (!this.isInitialized) {
+            await this.initialize();
+        }
+
+        // Encode the parentPath for URL
+        const encodedPath = encodeURIComponent(parentPath);
+        const params = new URLSearchParams(options as Record<string, string>);
+        const url = `${this.serverUrl}/sitecore/api/ssc/item/${encodedPath}?${params.toString()}`;
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cookie': `.AspNet.Cookies=${this.authCookie}`
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            return await response.json() as unknown as Object;
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(`Failed to create item: ${error.message}`);
+            } else {
+                throw new Error('Failed to create item: An unknown error occurred');
+            }
+        }
+    }
+
 }
 
 export default SitecoreRestfulItemServiceClient;
