@@ -13,7 +13,7 @@ import type { Config } from "../../config.js";
 import { editItem } from "./simple/edit-item.js";
 import { searchItems } from "./simple/search-items.js";
 
-function registerSimpleItemService(server: McpServer, config: Config) {
+function registerSimpleItemServices(server: McpServer, config: Config) {
     server.tool(
         'item-service-get-item',
         "Get a Sitecore item by its ID.",
@@ -190,7 +190,7 @@ function registerSimpleItemService(server: McpServer, config: Config) {
     );
 }
 
-function registerCompositeItemService(server: McpServer, config: Config)  {
+function registerCompositeItemServices(server: McpServer, config: Config)  {
     server.tool(
         'item-service-get-languages',
         "Get Sitecore languages.",
@@ -202,6 +202,6 @@ function registerCompositeItemService(server: McpServer, config: Config)  {
 }
 
 export function registerItemService(server: McpServer, config: Config) {
-    registerSimpleItemService(server, config);
-    registerCompositeItemService(server, config);
+    registerSimpleItemServices(server, config);
+    registerCompositeItemServices(server, config);
 }
