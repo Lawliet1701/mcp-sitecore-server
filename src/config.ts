@@ -34,9 +34,22 @@ export const envSchema = z.object({
     ITEM_SERVICE_DOMAIN: z.string().optional(),
     ITEM_SERVICE_USERNAME: z.string().optional(),
     ITEM_SERVICE_PASSWORD: z.string().optional(),
-    ITEM_SERVICE_SERVER_URL: z.string().url().optional(),    
+    ITEM_SERVICE_SERVER_URL: z.string().url().optional(),
+});
+
+export const envStartSchema = z.object({
+    //* The transport to use for the server. Can be one of 'stdio' or 'sse'.
+    //* If not specified, the default is 'stdio'.
+    //* The 'stdio' transport is used for local work.
+    //* The 'sse' transport is used for server-sent events.
+    TRANSPORT: z.string().default("stdio").optional().transform((val) => {
+        if (val === "stdio") return "stdio";
+        if (val === "sse") return "sse";
+        throw new Error(`Invalid transport: ${val}`);
+    })
 });
 
 export type Config = z.infer<typeof ConfigSchema>;
 export type EnvConfig = z.infer<typeof envSchema>;
+export type EnvStartConfig = z.infer<typeof envStartSchema>;
 

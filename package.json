@@ -1,12 +1,13 @@
 {
   "name": "@antonytm/mcp-sitecore-server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A Model Context Protocol server for Sitecore",
   "files": [
     "dist",
     "README.md",
     "LICENSE"
   ],
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "build": "tsc",

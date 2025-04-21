@@ -1,6 +1,14 @@
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { getServer } from './server.js';
+import { envStartSchema, type EnvStartConfig } from './config.js';
+import { startSTDIO } from './stdio.js';
+import { startSSE } from './sse.js';
 
-const server = getServer();
-const transport = new StdioServerTransport();
-await server.connect(transport);
+const ENV: EnvStartConfig = envStartSchema.parse(process.env);
+
+if(ENV.TRANSPORT === "stdio") {
+    startSTDIO();
+    console.log("STDIO transport started.");
+}
+else {
+    startSSE();
+    console.log("SSE transport started.");
+}
