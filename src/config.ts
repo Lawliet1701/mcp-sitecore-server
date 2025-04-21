@@ -26,5 +26,17 @@ const ConfigSchema = z.object({
     }),
 });
 
+export const envSchema = z.object({
+    GRAPHQL_ENDPOINT: z.string().url().optional(),
+    GRAPHQL_SCHEMAS: z.string().optional(),
+    GRAPHQL_API_KEY: z.string().optional(),
+    GRAPHQL_HEADERS: z.string().optional(),
+    ITEM_SERVICE_DOMAIN: z.string().optional(),
+    ITEM_SERVICE_USERNAME: z.string().optional(),
+    ITEM_SERVICE_PASSWORD: z.string().optional(),
+    ITEM_SERVICE_SERVER_URL: z.string().url().optional(),    
+});
+
 export type Config = z.infer<typeof ConfigSchema>;
+export type EnvConfig = z.infer<typeof envSchema>;
 

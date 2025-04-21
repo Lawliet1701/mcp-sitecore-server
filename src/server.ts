@@ -1,41 +1,52 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerItemService } from "./tools/item-service/register-item-service.js";
-import type { Config } from "./config.js";
+import { envSchema, type Config, type EnvConfig } from "./config.js";
 import { registerGraphQL } from "./tools/graphql/register-graphql.js";
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Read package.json data
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const packagePath = path.resolve(__dirname, '..', 'package.json');
+const packageData = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+const { version, name } = packageData;
 
 export function getServer(): McpServer {
     const server = new McpServer({
-        name: "Sitecore MCP Server",
-        version: "1.0.0"
+        name: `Sitecore MCP Server: ${name}`,
+        description: "Modle Context Protocol for Sitecore",
+        version: version
     });
 
-    // Helper to create DB connection
+    const ENV: EnvConfig = envSchema.parse(process.env);
 
-    // hardcode the config for now
+    // Parse the environment variables and set default values
     const config: Config = {
-        name: "mcp-server-graphql",
+        name: name,
         graphQL: {
-            endpoint: "https://xmcloudcm.localhost/sitecore/api/graph/",
-            schemas: ["edge", "master"],
-            apiKey: "{6D3F291E-66A5-4703-887A-D549AF83D859}",
+            endpoint: ENV.GRAPHQL_ENDPOINT || "https://xmcloudcm.localhost/sitecore/api/graph/",
+            schemas: ENV.GRAPHQL_SCHEMAS ? ENV.GRAPHQL_SCHEMAS.split(",") : ["edge", "master"],
+            apiKey: ENV.GRAPHQL_API_KEY || "{6D3F291E-66A5-4703-887A-D549AF83D859}",
+            headers: ENV.GRAPHQL_HEADERS ? JSON.parse(ENV.GRAPHQL_HEADERS) : {},
         },
         itemService: {
-            domain: "sitecore",
-            username: "admin",
-            password: "b",
-            serverUrl: "https://xmcloudcm.localhost/",
+            domain: ENV.ITEM_SERVICE_DOMAIN || "sitecore",
+            username: ENV.ITEM_SERVICE_USERNAME || "admin",
+            password: ENV.ITEM_SERVICE_PASSWORD || "b",
+            serverUrl: ENV.ITEM_SERVICE_SERVER_URL || "https://xmcloudcm.localhost/",
         },
     };
-
+ 
     server.resource(
-        "schema",
-        "schema://main",
+        "config",
+        "config://main",
         async (uri) => {
-
             return {
                 contents: [{
                     uri: uri.href,
-                    text: "Schema",
+                    text: JSON.stringify(config, null, 2),
                 }]
             }
         }
