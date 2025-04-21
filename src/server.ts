@@ -24,7 +24,7 @@ export function getServer(): McpServer {
 
     // Parse the environment variables and set default values
     const config: Config = {
-        name: name,
+        name: `${name} ${version}`,
         graphQL: {
             endpoint: ENV.GRAPHQL_ENDPOINT || "https://xmcloudcm.localhost/sitecore/api/graph/",
             schemas: ENV.GRAPHQL_SCHEMAS ? ENV.GRAPHQL_SCHEMAS.split(",") : ["edge", "master"],
