@@ -7,9 +7,7 @@ const ENV: EnvStartConfig = envStartSchema.parse(process.env);
 
 if(ENV.TRANSPORT === "stdio") {
     startSTDIO();
-    console.log("STDIO transport started.");
 }
 else {
     startSSE();
-    console.log("SSE transport started.");
 }

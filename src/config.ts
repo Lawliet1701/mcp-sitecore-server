@@ -43,9 +43,8 @@ export const envStartSchema = z.object({
     //* The 'stdio' transport is used for local work.
     //* The 'sse' transport is used for server-sent events.
     TRANSPORT: z.string().default("stdio").optional().transform((val) => {
-        if (val === "stdio") return "stdio";
         if (val === "sse") return "sse";
-        throw new Error(`Invalid transport: ${val}`);
+        return "stdio";
     })
 });
 
