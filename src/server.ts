@@ -27,7 +27,7 @@ export function getServer(): McpServer {
         name: `${name} ${version}`,
         graphQL: {
             endpoint: ENV.GRAPHQL_ENDPOINT || "https://xmcloudcm.localhost/sitecore/api/graph/",
-            schemas: ENV.GRAPHQL_SCHEMAS ? ENV.GRAPHQL_SCHEMAS.split(",") : ["edge", "master"],
+            schemas: ENV.GRAPHQL_SCHEMAS ? ENV.GRAPHQL_SCHEMAS.split(",").map(x => x.trim()) : ["edge", "master"],
             apiKey: ENV.GRAPHQL_API_KEY || "{6D3F291E-66A5-4703-887A-D549AF83D859}",
             headers: ENV.GRAPHQL_HEADERS ? JSON.parse(ENV.GRAPHQL_HEADERS) : {},
         },
@@ -38,7 +38,7 @@ export function getServer(): McpServer {
             serverUrl: ENV.ITEM_SERVICE_SERVER_URL || "https://xmcloudcm.localhost/",
         },
     };
- 
+
     server.resource(
         "config",
         "config://main",
