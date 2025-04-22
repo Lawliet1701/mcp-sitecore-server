@@ -1,6 +1,6 @@
 # Model Context Protocol server for Sitecore
 
-![Build](https://github.com/antonytm/mcp-sitecore-server/actions/workflows/publish-npm.yml.badge.svg)
+![Build](https://github.com/antonytm/mcp-sitecore-server/actions/workflows/publish-npm.yml/badge.svg)
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
