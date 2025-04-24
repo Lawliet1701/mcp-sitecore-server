@@ -12,6 +12,7 @@ import { runStoredSearch } from "./simple/run-stored-search.js";
 import type { Config } from "../../config.js";
 import { editItem } from "./simple/edit-item.js";
 import { searchItems } from "./simple/search-items.js";
+import { getItemDescendants } from "./composite/get-item-descendants.js";
 
 function registerSimpleItemServices(server: McpServer, config: Config) {
     server.tool(
@@ -198,7 +199,26 @@ function registerCompositeItemServices(server: McpServer, config: Config)  {
         async () => {
             return safeMcpResponse(getLanguages(config));
         }
-    )    
+    );
+
+    server.tool(
+        'item-service-get-item-descendants',
+        "Get descendants of a Sitecore item by its ID.",
+        {
+            id: z.string(),
+            options: z.object({
+                database: z.string().optional(),
+                language: z.string().optional(),
+                version: z.string().optional(),
+                includeStandardTemplateFields: z.boolean().optional(),
+                includeMetadata: z.boolean().optional(),
+                fields: z.array(z.string()).optional(),
+            }).optional(),
+        },
+        async (params) => {
+            return safeMcpResponse(getItemDescendants(config, params.id, params.options || {}));
+        }
+    )
 }
 
 export function registerItemService(server: McpServer, config: Config) {
