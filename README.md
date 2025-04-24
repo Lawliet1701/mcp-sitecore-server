@@ -21,6 +21,7 @@
   - [x] `item-service-run-stored-search`: runs a stored search
   - [x] Composite Item Service API
     - [x] `item-service-get-languages`: returns Sitcore languages in the instance
+    - [x] `item-service-get-item-descendants`: returns the descendants of an item by ID
 - [ ] Sitecore Powershell
 - [ ] Sitecore CLI
 
