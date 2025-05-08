@@ -47,7 +47,7 @@ class PowershellClient {
 
     async executeScriptJson(script: string, parameters: Record<string, any> = {}): Promise<any> {
         return this.executeScript(script, parameters).then((text) => {
-            const json = parseXMLString(text);
+            const json = parseXMLString(text.trim("'").trim('"'));
             return convertObject(json);
         });
     }
