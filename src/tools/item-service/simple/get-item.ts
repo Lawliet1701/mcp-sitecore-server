@@ -1,7 +1,7 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { type Config } from "../../../config.js";
 import { get } from "http";
-import SitecoreRestfulItemServiceClient from "../client.js";
+import RestfulItemServiceClient from "../client.js";
 
 export async function getItemById(conf: Config,
     id: string, options: {
@@ -13,7 +13,7 @@ export async function getItemById(conf: Config,
         fields?: string[]
     }
 ): Promise<CallToolResult> {
-    const client = new SitecoreRestfulItemServiceClient(conf.itemService.serverUrl,
+    const client = new RestfulItemServiceClient(conf.itemService.serverUrl,
         conf.itemService.username,
         conf.itemService.password,
         conf.itemService.domain,

@@ -1,5 +1,5 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import SitecoreRestfulItemServiceClient from "../client.js";
+import RestfulItemServiceClient from "../client.js";
 
 /**
  * Edit a Sitecore item by ID using the RESTful ItemService API.
@@ -14,7 +14,7 @@ export async function editItem(
     data: { [key: string]: any },
     options: { database?: string; language?: string; version?: string } = {}
 ): Promise<CallToolResult> {
-    const client = new SitecoreRestfulItemServiceClient(
+    const client = new RestfulItemServiceClient(
         conf.itemService.serverUrl,
         conf.itemService.username,
         conf.itemService.password,

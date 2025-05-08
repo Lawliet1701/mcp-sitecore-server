@@ -5,6 +5,7 @@ import { registerGraphQL } from "./tools/graphql/register-graphql.js";
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { registerPowerShell } from "./tools/powershell/register-powershell.js";
 
 // Read package.json data
 const __filename = fileURLToPath(import.meta.url);
@@ -56,6 +57,8 @@ export function getServer(): McpServer {
     registerGraphQL(server, config);
 
     registerItemService(server, config);
+
+    registerPowerShell(server, config);
 
     return server;
 }

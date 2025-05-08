@@ -1,6 +1,6 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { type Config } from "../../../config.js";
-import SitecoreRestfulItemServiceClient from "../client.js";
+import RestfulItemServiceClient from "../client.js";
 
 /**
  * Delete a Sitecore item by ID using the RESTful ItemService API.
@@ -13,7 +13,7 @@ export async function deleteItem(
     id: string,
     options: { database?: string; language?: string; version?: string } = {}
 ): Promise<CallToolResult> {
-    const client = new SitecoreRestfulItemServiceClient(
+    const client = new RestfulItemServiceClient(
         conf.itemService.serverUrl,
         conf.itemService.username,
         conf.itemService.password,

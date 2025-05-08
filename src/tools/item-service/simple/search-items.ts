@@ -1,6 +1,6 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { type Config } from "../../../config.js";
-import SitecoreRestfulItemServiceClient from "../client.js";
+import RestfulItemServiceClient from "../client.js";
 
 export async function searchItems(
   conf: Config,
@@ -14,7 +14,7 @@ export async function searchItems(
     includeStandardTemplateFields?: boolean;
   }
 ): Promise<CallToolResult> {
-  const client = new SitecoreRestfulItemServiceClient(
+  const client = new RestfulItemServiceClient(
     conf.itemService.serverUrl,
     conf.itemService.username,
     conf.itemService.password,

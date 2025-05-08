@@ -1,6 +1,6 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { type Config } from "../../../config.js";
-import SitecoreRestfulItemServiceClient from "../client.js";
+import RestfulItemServiceClient from "../client.js";
 
 /**
  * Calls the Sitecore RESTful ItemService to run a stored search.
@@ -24,7 +24,7 @@ export async function runStoredSearch(
     sorting?: string;
   }
 ): Promise<CallToolResult> {
-  const client = new SitecoreRestfulItemServiceClient(
+  const client = new RestfulItemServiceClient(
     conf.itemService.serverUrl,
     conf.itemService.username,
     conf.itemService.password,

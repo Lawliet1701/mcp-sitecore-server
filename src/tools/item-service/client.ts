@@ -1,4 +1,4 @@
-class SitecoreRestfulItemServiceClient {
+class RestfulItemServiceClient {
     private serverUrl: string;
     private username: string;
     private password: string;
@@ -500,4 +500,4 @@ class SitecoreRestfulItemServiceClient {
 
 }
 
-export default SitecoreRestfulItemServiceClient;
+export default RestfulItemServiceClient;
