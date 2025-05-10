@@ -23,6 +23,9 @@
     - [x] `item-service-get-languages`: returns Sitcore languages in the instance
     - [x] `item-service-get-item-descendants`: returns the descendants of an item by ID
 - [ ] Sitecore Powershell
+  - [ ] Security
+    - [x] `security-get-current-user`: returns the current user
+    - [x] `security-get-user-by-name`: returns a user by name
 - [ ] Sitecore CLI
 
 ## Installation
