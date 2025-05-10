@@ -26,6 +26,8 @@
   - [ ] Security
     - [x] `security-get-current-user`: returns the current user
     - [x] `security-get-user-by-name`: returns a user by name
+    - [x] `security-get-user-by-filter`: returns a user by filter
+    - [x] `security-new-user`: creates a new user
 - [ ] Sitecore CLI
 
 ## Installation

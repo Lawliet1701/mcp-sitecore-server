@@ -25,8 +25,13 @@ class PowershellClient {
 
         let scriptWithParameters = script;
         if (parameters) {
-            for(const parameter in parameters) {
-                scriptWithParameters += ` -${parameter} ${parameters[parameter]}`;
+            for (const parameter in parameters) {
+                if (parameters[parameter] === "") {
+                    scriptWithParameters += ` -${parameter}`;
+                }
+                else {
+                    scriptWithParameters += ` -${parameter} "${parameters[parameter]}"`;
+                }
             }
         }
 

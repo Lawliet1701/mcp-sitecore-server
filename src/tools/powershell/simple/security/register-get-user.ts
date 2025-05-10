@@ -31,5 +31,20 @@ export function registerGetUserPowerShell(server: McpServer, config: Config) {
             };
             return safeMcpResponse(runGenericPowershellCommand(config, command, options));
         }
-    )
+    );
+
+    server.tool(
+        'security-get-user-by-filter',
+        "Get a Sitecore users by filter.",
+        {
+            filter: z.string(),
+        },
+        async (params) => {
+            const command = `Get-User`;
+            const options: Record<string, any>= {
+                "Filter": params.filter,
+            };
+            return safeMcpResponse(runGenericPowershellCommand(config, command, options));
+        }
+    );
 }
