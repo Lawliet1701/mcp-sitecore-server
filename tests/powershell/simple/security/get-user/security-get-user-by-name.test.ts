@@ -7,7 +7,7 @@ await client.connect(transport);
 describe("powershell", () => {
     it("security-get-user-by-name", async () => {
         const args: Record<string, string> = {
-            name: "admin",
+            identity: "admin",
         };
         const result = await callTool(client, "security-get-user-by-name", args);
         const json = JSON.parse(result.content[0].text);

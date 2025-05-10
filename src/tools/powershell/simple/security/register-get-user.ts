@@ -6,22 +6,22 @@ import { runGenericPowershellCommand } from "../generic.js";
 
 export function registerGetUserPowerShell(server: McpServer, config: Config) {
     server.tool(
-        'security-get-user-by-name',
+        "security-get-user-by-name",
         "Get a Sitecore user by its name.",
         {
-            name: z.string(),
+            identity: z.string(),
         },
         async (params) => {
             const command = `Get-User`;
             const options: Record<string, any>= {
-                "Identity": params.name,
+                "Identity": params.identity,
             };
             return safeMcpResponse(runGenericPowershellCommand(config, command, options));
         }
     );
 
     server.tool(
-        'security-get-current-user',
+        "security-get-current-user",
         "Get the current Sitecore user.",
         {},
         async () => {
@@ -34,7 +34,7 @@ export function registerGetUserPowerShell(server: McpServer, config: Config) {
     );
 
     server.tool(
-        'security-get-user-by-filter',
+        "security-get-user-by-filter",
         "Get a Sitecore users by filter.",
         {
             filter: z.string(),

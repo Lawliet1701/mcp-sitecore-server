@@ -195,5 +195,12 @@ describe("powershell", () => {
                 ],
               }
         );
+
+        const removeUserArgs: Record<string, string> = {
+            identity: `sitecore\\anton-${randomHexSuffix}`,
+        };
+
+        const removeUserResult = await callTool(client, "security-remove-user", removeUserArgs);
+        const removeUserJson = JSON.parse(removeUserResult.content[0].text);
     });
 });

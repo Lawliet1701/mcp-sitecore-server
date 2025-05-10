@@ -6,7 +6,7 @@ import { runGenericPowershellCommand } from "../generic.js";
 
 export function registerNewUserPowerShell(server: McpServer, config: Config) {
     server.tool(
-        'security-new-user',
+        "security-new-user",
         "Creates a new Sitecore user.",
         {
             identity: z.string(),
