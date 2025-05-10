@@ -51,7 +51,7 @@ class PowershellClient {
                 .trim("'")
                 .trim('"')
                 .replaceAll("\\\"", "\""));
-            return convertObject(json);
+            return JSON.stringify(convertObject(json));
         });
     }
 }
