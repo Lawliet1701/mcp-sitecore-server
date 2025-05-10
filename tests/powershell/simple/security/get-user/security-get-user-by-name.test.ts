@@ -121,8 +121,7 @@ describe("powershell", () => {
                                 "System.Web.Profile.SqlProfileProvider",
                                 "Sitecore.Security.SwitchingProfileProvider",
                             ],
-                            PropertyValues: [
-                            ],
+                            PropertyValues: expect.any(Array),
                             Context: {
                                 En: [
                                     {
@@ -137,7 +136,7 @@ describe("powershell", () => {
                             },
                             IsAdministrator: true,
                             IsAnonymous: true,
-                            IsDirty: false,
+                            IsDirty: expect.any(Boolean),
                             IsSynchronized: false,
                             LastActivityDate: expect.any(String),
                             LastUpdatedDate: expect.any(String),

@@ -1,8 +1,6 @@
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { createTransport } from "@modelcontextprotocol/inspector/cli/build/transport.js";
 
-console.log("__dirname", __dirname);
-
 export type TransportOptions = {
     transportType: "sse" | "stdio";
     command?: string;
