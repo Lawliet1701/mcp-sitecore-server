@@ -24,6 +24,17 @@ const ConfigSchema = z.object({
         password: "b",
         serverUrl: "https://xmcloudcm.localhost/",
     }),
+    powershell: z.object({
+        domain: z.string(),
+        username: z.string(),
+        password: z.string(),
+        serverUrl: z.string().url(),
+    }).default({
+        domain: "sitecore",
+        username: "admin",
+        password: "b",
+        serverUrl: "https://xmcloudcm.localhost/",
+    }),
 });
 
 export const envSchema = z.object({
@@ -35,6 +46,10 @@ export const envSchema = z.object({
     ITEM_SERVICE_USERNAME: z.string().optional(),
     ITEM_SERVICE_PASSWORD: z.string().optional(),
     ITEM_SERVICE_SERVER_URL: z.string().url().optional(),
+    POWERSHELL_DOMAIN: z.string().optional(),
+    POWERSHELL_USERNAME: z.string().optional(),
+    POWERSHELL_PASSWORD: z.string().optional(),
+    POWERSHELL_SERVER_URL: z.string().url().optional(),
 });
 
 export const envStartSchema = z.object({

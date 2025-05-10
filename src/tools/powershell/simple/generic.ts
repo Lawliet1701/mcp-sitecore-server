@@ -5,10 +5,10 @@ import { PowerShellOutputType } from "../output.js";
 
 export async function runGenericPowershellCommand(config: Config, command: string, options: Record<string, any>, outputFormat?: PowerShellOutputType): Promise<CallToolResult> {
     const client = new PowershellClient(
-        'https://xmcloudcm.localhost/',
-        'admin',
-        'b',
-        'sitecore'
+        config.powershell.serverUrl,
+        config.powershell.username,
+        config.powershell.password,
+        config.powershell.domain
     );
 
     let text = ""

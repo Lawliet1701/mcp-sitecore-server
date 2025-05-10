@@ -38,6 +38,12 @@ export function getServer(): McpServer {
             password: ENV.ITEM_SERVICE_PASSWORD || "b",
             serverUrl: ENV.ITEM_SERVICE_SERVER_URL || "https://xmcloudcm.localhost/",
         },
+        powershell: {
+            domain: ENV.POWERSHELL_DOMAIN || "sitecore",
+            username: ENV.POWERSHELL_USERNAME || "admin",
+            password: ENV.POWERSHELL_PASSWORD || "b",
+            serverUrl: ENV.POWERSHELL_SERVER_URL || "https://xmcloudcm.localhost/",
+        },
     };
 
     server.resource(
