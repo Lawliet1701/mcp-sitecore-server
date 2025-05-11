@@ -36,6 +36,10 @@
     - [x] `security-get-role-member`: returns members of a role
     - [x] `security-enable-user`: enables a user
     - [x] `security-disable-user`: disables a user
+    - [x] `security-lock-item-by-id`: locks an item by ID
+    - [x] `security-unlock-item-by-id`: unlocks an item by ID
+    - [x] `security-lock-item-by-path`: locks an item by path
+    - [x] `security-unlock-item-by-path`: unlocks an item by path
 - [ ] Sitecore CLI
 
 ## Installation
