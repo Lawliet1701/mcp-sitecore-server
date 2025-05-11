@@ -47,15 +47,19 @@ Add the following Model Context Protocol server to your Cursor, VS Code, Claud:
         "command": "npx",
         "args": ["@antonytm/mcp-sitecore-server@latest"],
         "env": {
-        "TRANSPORT": "stdio",
-        "GRAPHQL_ENDPOINT": "https://xmcloudcm.localhost/sitecore/api/graph/",
-        "GRAPHQL_SCHEMAS": "edge,master,core",
-        "GRAPHQL_API_KEY": "{6D3F291E-66A5-4703-887A-D549AF83D859}",
-        "GRAPHQL_HEADERS": "",
-        "ITEM_SERVICE_DOMAIN": "sitecore",
-        "ITEM_SERVICE_USERNAME": "admin",
-        "ITEM_SERVICE_PASSWORD": "b",
-        "ITEM_SERVICE_SERVER_URL": "https://xmcloudcm.localhost/"
+          "TRANSPORT": "stdio",
+          "GRAPHQL_ENDPOINT": "https://xmcloudcm.localhost/sitecore/api/graph/",
+          "GRAPHQL_SCHEMAS": "edge,master,core",
+          "GRAPHQL_API_KEY": "{6D3F291E-66A5-4703-887A-D549AF83D859}",
+          "GRAPHQL_HEADERS": "",
+          "ITEM_SERVICE_DOMAIN": "sitecore",
+          "ITEM_SERVICE_USERNAME": "admin",
+          "ITEM_SERVICE_PASSWORD": "b",
+          "ITEM_SERVICE_SERVER_URL": "https://xmcloudcm.localhost/",
+          "POWERSHELL_DOMAIN": "sitecore",
+          "POWERSHELL_USERNAME": "admin",
+          "POWERSHELL_PASSWORD": "b",
+          "POWERSHELL_SERVER_URL": "https://xmcloudcm.localhost/",
         }
     }
 ```
@@ -67,10 +71,14 @@ Add the following Model Context Protocol server to your Cursor, VS Code, Claud:
 - `GRAPHQL_SCHEMAS`: The Sitecore schemas to use for the GraphQL API, comma-separated.
 - `GRAPHQL_API_KEY`: The API key for the GraphQL endpoint.
 - `GRAPHQL_HEADERS`: Additional headers to include in the GraphQL requests.
-- `ITEM_SERVICE_DOMAIN`: The domain for the Item Service API login. Default is `sitecore`.
-- `ITEM_SERVICE_USERNAME`: The username for the Item Service API login.
-- `ITEM_SERVICE_PASSWORD`: The password for the Item Service API login.
+- `ITEM_SERVICE_DOMAIN`: The domain for the Item Service API authentication. Default is `sitecore`.
+- `ITEM_SERVICE_USERNAME`: The username for the Item Service API authentication.
+- `ITEM_SERVICE_PASSWORD`: The password for the Item Service API authentication.
 - `ITEM_SERVICE_SERVER_URL`: The base URL for the Item Service API.
+- `POWERSHELL_DOMAIN`: The domain for the Sitecore PowerShell Remoting API authentication. Default is `sitecore`.
+- `POWERSHELL_USERNAME`: The username for the Sitecore PowerShell Remoting API authentication.
+- `POWERSHELL_PASSWORD`: The password for the Sitecore PowerShell Remoting API authentication.
+- `POWERSHELL_SERVER_URL`: The base URL for the Sitecore PowerShell Remoting API.
 
 ## Resources list
 
