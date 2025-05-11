@@ -11,6 +11,8 @@ import { registerEnableUserPowerShell } from "./register-enable-user.js";
 import { registerGetDomainPowerShell } from "./register-get-domain.js";
 import { registerGetRolePowerShell } from "./register-get-role.js";
 import { registerGetRoleMemberPowerShell } from "./register-get-role-member.js";
+import { registerLockItemPowerShell } from "./register-lock-item.js";
+import { registerUnlockItemPowerShell } from "./register-unlock-item.js";
 
 export function registerSecurityPowerShell(server: McpServer, config: Config) {
     registerGetUserPowerShell(server, config);
@@ -21,4 +23,6 @@ export function registerSecurityPowerShell(server: McpServer, config: Config) {
     registerGetDomainPowerShell(server, config);
     registerGetRolePowerShell(server, config);
     registerGetRoleMemberPowerShell(server, config);
+    registerLockItemPowerShell(server, config);
+    registerUnlockItemPowerShell(server, config);
 }
