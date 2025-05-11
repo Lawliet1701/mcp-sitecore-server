@@ -27,8 +27,10 @@
     - [x] `security-get-current-user`: returns the current user
     - [x] `security-get-user-by-identity`: returns a user by name
     - [x] `security-get-user-by-filter`: returns a user by filter
+    - [x] `security-new-domain`: creates a new domain
     - [x] `security-new-user`: creates a new user
     - [x] `security-new-role`: creates a new role
+    - [x] `security-remove-domain`: removes a domain
     - [x] `security-remove-user`: removes a user
     - [x] `security-remove-role`: removes a role
     - [x] `security-get-domain`: returns a domains

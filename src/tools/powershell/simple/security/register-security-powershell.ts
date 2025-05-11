@@ -14,6 +14,8 @@ import { registerProtectItemPowerShell } from "./register-protect-item.js";
 import { registerUnprotectItemPowerShell } from "./register-unprotect-item.js";
 import { registerNewRolePowerShell } from "./register-new-role.js";
 import { registerRemoveRolePowerShell } from "./register-remove-role.js";
+import { registerNewDomainPowerShell } from "./register-new-domain.js";
+import { registerRemoveDomainPowerShell } from "./register-remove-domain.js";
 
 export function registerSecurityPowerShell(server: McpServer, config: Config) {
     registerGetUserPowerShell(server, config);
@@ -30,4 +32,6 @@ export function registerSecurityPowerShell(server: McpServer, config: Config) {
     registerUnprotectItemPowerShell(server, config);
     registerNewRolePowerShell(server, config);
     registerRemoveRolePowerShell(server, config);
+    registerNewDomainPowerShell(server, config);
+    registerRemoveDomainPowerShell(server, config);
 }
