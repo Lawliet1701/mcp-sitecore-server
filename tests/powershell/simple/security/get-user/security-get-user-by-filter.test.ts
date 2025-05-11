@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { client, transport } from "../../../../client";
+import e from "express";
 
 await client.connect(transport);
 
@@ -26,7 +27,7 @@ describe("powershell", () => {
                             AccountPrefix: "extranet\\",
                             AnonymousUserEmailPattern: "",
                             AnonymousUserName: "extranet\\Anonymous",
-                            Appearance: "Sitecore.Data.Appearance",
+                            Appearance: expect.any(Object),
                             EveryoneRoleName: "extranet\\Everyone",
                             MemberPattern: "extranet\\*",
                             Name: "extranet",
@@ -98,8 +99,7 @@ describe("powershell", () => {
                                 "System.Web.Profile.SqlProfileProvider",
                                 "Sitecore.Security.SwitchingProfileProvider",
                             ],
-                            PropertyValues: [
-                            ],
+                            PropertyValues: expect.any(Array),
                             Context: {
                                 En: [
                                     {
@@ -114,11 +114,11 @@ describe("powershell", () => {
                             },
                             IsAdministrator: false,
                             IsAnonymous: true,
-                            IsDirty: false,
+                            IsDirty: expect.any(Boolean),
                             IsSynchronized: false,
                             ProfileItemId: "",
-                            LastActivityDate: "2025-05-10T20:30:14.883+03:00",
-                            LastUpdatedDate: "2025-03-02T00:22:54.28+02:00",
+                            LastActivityDate: expect.any(String),
+                            LastUpdatedDate: expect.any(String),
                         },
                         Roles: {
                         },

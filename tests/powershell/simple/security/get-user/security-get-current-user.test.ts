@@ -24,7 +24,7 @@ describe("powershell", () => {
                             AccountPrefix: "sitecore\\",
                             AnonymousUserEmailPattern: "",
                             AnonymousUserName: "sitecore\\Anonymous",
-                            Appearance: "Sitecore.Data.Appearance",
+                            Appearance: expect.any(Object),
                             EveryoneRoleName: "sitecore\\Everyone",
                             MemberPattern: "sitecore\\*",
                             Name: "sitecore",

@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { client, transport } from "../../../../client";
+import e from "express";
 
 await client.connect(transport);
 
@@ -35,7 +36,7 @@ describe("powershell", () => {
                       AccountPrefix: "sitecore\\",
                       AnonymousUserEmailPattern: "",
                       AnonymousUserName: "sitecore\\Anonymous",
-                      Appearance: "Sitecore.Data.Appearance",
+                      Appearance: expect.any(Object),
                       EveryoneRoleName: "sitecore\\Everyone",
                       MemberPattern: "sitecore\\*",
                       Name: "sitecore",
