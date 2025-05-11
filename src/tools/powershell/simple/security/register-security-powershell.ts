@@ -16,6 +16,7 @@ import { registerNewRolePowerShell } from "./register-new-role.js";
 import { registerRemoveRolePowerShell } from "./register-remove-role.js";
 import { registerNewDomainPowerShell } from "./register-new-domain.js";
 import { registerRemoveDomainPowerShell } from "./register-remove-domain.js";
+import { registerTestAccountPowerShell } from "./register-test-account.js";
 
 export function registerSecurityPowerShell(server: McpServer, config: Config) {
     registerGetUserPowerShell(server, config);
@@ -34,4 +35,5 @@ export function registerSecurityPowerShell(server: McpServer, config: Config) {
     registerRemoveRolePowerShell(server, config);
     registerNewDomainPowerShell(server, config);
     registerRemoveDomainPowerShell(server, config);
+    registerTestAccountPowerShell(server, config);
 }

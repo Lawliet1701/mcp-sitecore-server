@@ -48,6 +48,7 @@
     - [x] `security-protect-item-by-path`: protects an item by path
     - [x] `security-unprotect-item-by-id`: unprotects an item by ID
     - [x] `security-unprotect-item-by-path`: unprotects an item by path
+    - [x] `security-test-acccount`: tests an account
 - [ ] Sitecore CLI
 
 ## Installation
