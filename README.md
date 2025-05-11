@@ -29,6 +29,12 @@
     - [x] `security-get-user-by-filter`: returns a user by filter
     - [x] `security-new-user`: creates a new user
     - [x] `security-remove-user`: removes a user
+    - [x] `security-get-domain`: returns a domains
+    - [x] `security-get-domain-by-name`: returns a domain by name
+    - [x] `security-get-role-by-identity`: returns a role by name
+    - [x] `security-get-role-by-filter`: returns a role by filter
+    - [x] `security-enable-user`: enables a user
+    - [x] `security-disable-user`: disables a user
 - [ ] Sitecore CLI
 
 ## Installation
