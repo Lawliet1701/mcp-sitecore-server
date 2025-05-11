@@ -26,7 +26,7 @@ describe("powershell", () => {
             identity: `sitecore\\anton-${randomHexSuffix}`,
         };
 
-        const getUserResult = await callTool(client, "security-get-user-by-name", getUserArgs);
+        const getUserResult = await callTool(client, "security-get-user-by-identity", getUserArgs);
         const getUserJson = JSON.parse(getUserResult.content[0].text);
         expect(getUserJson.Obj[0].Name).toBe(`sitecore\\anton-${randomHexSuffix}`);
 
@@ -41,7 +41,7 @@ describe("powershell", () => {
             {}
         );
 
-        const getUserResult2 = await callTool(client, "security-get-user-by-name", getUserArgs);
+        const getUserResult2 = await callTool(client, "security-get-user-by-identity", getUserArgs);
         const getUserJson2 = JSON.parse(getUserResult2.content[0].text);
         expect(getUserJson2.Obj[0].ToString)
             .toBe(`Cannot find an account with identity 'sitecore\\anton-${randomHexSuffix}'.`);

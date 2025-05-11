@@ -28,7 +28,7 @@ describe("powershell", () => {
         const getUserArgs: Record<string, string> = {
             identity: `sitecore\\anton-${randomHexSuffix}`,
         };
-        const getUserResult = await callTool(client, "security-get-user-by-name", getUserArgs);
+        const getUserResult = await callTool(client, "security-get-user-by-identity", getUserArgs);
         const getUserJson = JSON.parse(getUserResult.content[0].text);
         expect(getUserJson.Obj[0].Name).toBe(`sitecore\\anton-${randomHexSuffix}`);
         expect(getUserJson.Obj[0].IsEnabled).toBe(true);
@@ -44,7 +44,7 @@ describe("powershell", () => {
         expect(disableUserJson).toMatchObject({});
         
         // Get the user again and verify it's now disabled
-        const getUserAfterDisableResult = await callTool(client, "security-get-user-by-name", getUserArgs);
+        const getUserAfterDisableResult = await callTool(client, "security-get-user-by-identity", getUserArgs);
         const getUserAfterDisableJson = JSON.parse(getUserAfterDisableResult.content[0].text);
         expect(getUserAfterDisableJson.Obj[0].Name).toBe(`sitecore\\anton-${randomHexSuffix}`);
         expect(getUserAfterDisableJson.Obj[0].IsEnabled).toBe(false);

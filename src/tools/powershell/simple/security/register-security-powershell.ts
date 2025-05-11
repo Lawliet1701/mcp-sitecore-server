@@ -9,6 +9,7 @@ import { registerRemoveUserPowerShell } from "./register-remove-user.js";
 import { registerDisableUserPowerShell } from "./register-disable-user.js";
 import { registerEnableUserPowerShell } from "./register-enable-user.js";
 import { registerGetDomainPowerShell } from "./register-get-domain.js";
+import { registerGetRolePowerShell } from "./register-get-role.js";
 
 export function registerSecurityPowerShell(server: McpServer, config: Config) {
     registerGetUserPowerShell(server, config);
@@ -17,4 +18,5 @@ export function registerSecurityPowerShell(server: McpServer, config: Config) {
     registerDisableUserPowerShell(server, config);
     registerEnableUserPowerShell(server, config);
     registerGetDomainPowerShell(server, config);
+    registerGetRolePowerShell(server, config);
 }

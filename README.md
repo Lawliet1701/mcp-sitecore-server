@@ -25,7 +25,7 @@
 - [ ] Sitecore Powershell
   - [ ] Security
     - [x] `security-get-current-user`: returns the current user
-    - [x] `security-get-user-by-name`: returns a user by name
+    - [x] `security-get-user-by-identity`: returns a user by name
     - [x] `security-get-user-by-filter`: returns a user by filter
     - [x] `security-new-user`: creates a new user
     - [x] `security-remove-user`: removes a user

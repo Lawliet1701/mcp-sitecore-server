@@ -5,11 +5,11 @@ import { client, transport } from "../../../../client";
 await client.connect(transport);
 
 describe("powershell", () => {
-    it("security-get-user-by-name", async () => {
+    it("security-get-user-by-identity", async () => {
         const args: Record<string, string> = {
             identity: "admin",
         };
-        const result = await callTool(client, "security-get-user-by-name", args);
+        const result = await callTool(client, "security-get-user-by-identity", args);
         const json = JSON.parse(result.content[0].text);
         
         expect(json).toMatchObject(

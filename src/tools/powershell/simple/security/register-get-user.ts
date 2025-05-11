@@ -6,7 +6,7 @@ import { runGenericPowershellCommand } from "../generic.js";
 
 export function registerGetUserPowerShell(server: McpServer, config: Config) {
     server.tool(
-        "security-get-user-by-name",
+        "security-get-user-by-identity",
         "Get a Sitecore user by its name.",
         {
             identity: z.string(),
