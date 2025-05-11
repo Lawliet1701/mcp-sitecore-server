@@ -33,6 +33,7 @@
     - [x] `security-get-domain-by-name`: returns a domain by name
     - [x] `security-get-role-by-identity`: returns a role by name
     - [x] `security-get-role-by-filter`: returns a role by filter
+    - [x] `security-get-role-member`: returns members of a role
     - [x] `security-enable-user`: enables a user
     - [x] `security-disable-user`: disables a user
 - [ ] Sitecore CLI
