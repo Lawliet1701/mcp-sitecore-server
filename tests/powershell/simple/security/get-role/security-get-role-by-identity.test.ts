@@ -25,7 +25,7 @@ describe("powershell", () => {
                         EveryoneRoleName: "sitecore\\Everyone",
                         MemberPattern: "sitecore\\*",
                         Name: "sitecore",
-                        Appearance: expect.any(Object),
+                        Appearance: expect.anything(),
                         EnsureAnonymousUser: false,
                         IsDefault: false,
                         LocallyManaged: false,

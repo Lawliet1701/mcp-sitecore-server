@@ -40,6 +40,10 @@
     - [x] `security-unlock-item-by-id`: unlocks an item by ID
     - [x] `security-lock-item-by-path`: locks an item by path
     - [x] `security-unlock-item-by-path`: unlocks an item by path
+    - [x] `security-protect-item-by-id`: protects an item by ID
+    - [x] `security-protect-item-by-path`: protects an item by path
+    - [x] `security-unprotect-item-by-id`: unprotects an item by ID
+    - [x] `security-unprotect-item-by-path`: unprotects an item by path
 - [ ] Sitecore CLI
 
 ## Installation

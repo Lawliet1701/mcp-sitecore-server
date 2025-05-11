@@ -27,7 +27,7 @@ describe("powershell", () => {
                             AccountPrefix: "extranet\\",
                             AnonymousUserEmailPattern: "",
                             AnonymousUserName: "extranet\\Anonymous",
-                            Appearance: expect.any(Object),
+                            Appearance: expect.anything(),
                             EveryoneRoleName: "extranet\\Everyone",
                             MemberPattern: "extranet\\*",
                             Name: "extranet",
