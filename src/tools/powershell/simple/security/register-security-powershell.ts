@@ -9,7 +9,7 @@ import { registerUnlockUserPowerShell } from "./register-unlock-user.js";
 import { registerGetDomainPowerShell } from "./register-get-domain.js";
 import { registerGetRolePowerShell } from "./register-get-role.js";
 import { registerGetRoleMemberPowerShell } from "./register-get-role-member.js";
-import { registerAddRoleMemberPowerShell } from "./register-add-rolemember.js";
+import { registerAddRoleMemberPowerShell } from "./register-add-role-member.js";
 import { registerLockItemPowerShell } from "./register-lock-item.js";
 import { registerUnlockItemPowerShell } from "./register-unlock-item.js";
 import { registerProtectItemPowerShell } from "./register-protect-item.js";
