@@ -40,6 +40,7 @@
     - [x] `security-get-role-member`: returns members of a role
     - [x] `security-enable-user`: enables a user
     - [x] `security-disable-user`: disables a user
+    - [x] `security-set-user-password`: changes a user's password
     - [x] `security-lock-item-by-id`: locks an item by ID
     - [x] `security-unlock-item-by-id`: unlocks an item by ID
     - [x] `security-lock-item-by-path`: locks an item by path
