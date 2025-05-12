@@ -10,6 +10,7 @@ import { registerGetDomainPowerShell } from "./register-get-domain.js";
 import { registerGetRolePowerShell } from "./register-get-role.js";
 import { registerGetRoleMemberPowerShell } from "./register-get-role-member.js";
 import { registerAddRoleMemberPowerShell } from "./register-add-role-member.js";
+import { registerRemoveRoleMemberPowerShell } from "./register-remove-rolemember.js";
 import { registerLockItemPowerShell } from "./register-lock-item.js";
 import { registerUnlockItemPowerShell } from "./register-unlock-item.js";
 import { registerProtectItemPowerShell } from "./register-protect-item.js";
@@ -31,6 +32,7 @@ export function registerSecurityPowerShell(server: McpServer, config: Config) {
     registerGetRolePowerShell(server, config);
     registerGetRoleMemberPowerShell(server, config);
     registerAddRoleMemberPowerShell(server, config);
+    registerRemoveRoleMemberPowerShell(server, config);
     registerLockItemPowerShell(server, config);
     registerUnlockItemPowerShell(server, config);
     registerProtectItemPowerShell(server, config);

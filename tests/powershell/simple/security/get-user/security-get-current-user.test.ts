@@ -117,14 +117,6 @@ describe("powershell", () => {
                             LastUpdatedDate: expect.any(String),
                         },
                         Roles: {
-                            ToString: "Sitecore.Security.Accounts.Role",
-                            IsEveryone: false,
-                            IsGlobal: false,
-                            AccountType: "Role",
-                            Description: "Role",
-                            DisplayName: "sitecore\\PowerShell Extensions Remoting",
-                            LocalName: "sitecore\\PowerShell Extensions Remoting",
-                            Name: "sitecore\\PowerShell Extensions Remoting",
                         },
                         RuntimeSettings: {
                             ToString: "Sitecore.SecurityModel.UserRuntimeSettings",
@@ -153,16 +145,6 @@ describe("powershell", () => {
                         DisplayName: "sitecore\\admin",
                         Name: "sitecore\\admin",
                         IsEnabled: true,
-                        MemberOf: {
-                            ToString: "Sitecore.Security.Accounts.Role",
-                            IsEveryone: false,
-                            IsGlobal: false,
-                            AccountType: "Role",
-                            Description: "Role",
-                            DisplayName: "sitecore\\PowerShell Extensions Remoting",
-                            LocalName: "sitecore\\PowerShell Extensions Remoting",
-                            Name: "sitecore\\PowerShell Extensions Remoting",
-                        },
                     },
                 ],
             }

@@ -15,7 +15,7 @@ export function registerAddRoleMemberPowerShell(server: McpServer, config: Confi
                 .describe("The members to add to the role (comma-separated list of users or roles, e.g. 'sitecore\\user1,sitecore\\user2')"),
         },
         async (params) => {
-            const command = `add-role-member`;
+            const command = `Add-RoleMember`;
             const options: Record<string, any> = {
                 "Identity": params.identity,
                 "Members": params.members.split(',').map(member => member.trim()).join('","'),
