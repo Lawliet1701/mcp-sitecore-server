@@ -49,6 +49,15 @@
     - [x] `security-unprotect-item-by-id`: unprotects an item by ID
     - [x] `security-unprotect-item-by-path`: unprotects an item by path
     - [x] `security-test-acccount`: tests an account
+    - [x] `security-unlock-user`: unlocks a user
+      - [ ] test covergage requires logging user with wrong password
+    - [ ] `security-login-user`: logs in a user. Blocked by [SPE issue](https://github.com/SitecorePowerShell/Console/issues/1367#issue-3055272174).
+    - [ ] `security-logout-user`: logs out a user. Blocked by [SPE issue](https://github.com/SitecorePowerShell/Console/issues/1368)
+    - [ ] `security-export-user`: exports a user. Blocked by [SPE issue](https://github.com/SitecorePowerShell/Console/issues/1370)
+    - [ ] `security-import-user`: imports a user. Blocked by [SPE issue](https://github.com/SitecorePowerShell/Console/issues/1371)
+    - [ ] `security-export-role`: exports a role. Blocked by [SPE issue](https://github.com/SitecorePowerShell/Console/issues/1369)
+    - [ ] `security-import-role`: imports a role. Blocked by [SPE issue](https://github.com/SitecorePowerShell/Console/issues/1372)
+
 - [ ] Sitecore CLI
 
 ## Installation
