@@ -23,6 +23,8 @@ import { registerRemoveDomainPowerShell } from "./register-remove-domain.js";
 import { registerTestAccountPowerShell } from "./register-test-account.js";
 import { registerGetItemAclPowerShell } from "./register-get-item-acl.js";
 import { registerTestItemAclPowerShell } from "./register-test-item-acl.js";
+import { registerAddItemAclPowerShell } from "./register-add-item-acl.js";
+import { registerClearItemAclPowerShell } from "./register-clear-item-acl.js";
 
 export function registerSecurityPowerShell(server: McpServer, config: Config) {
     registerGetUserPowerShell(server, config);
@@ -48,4 +50,6 @@ export function registerSecurityPowerShell(server: McpServer, config: Config) {
     registerTestAccountPowerShell(server, config);
     registerGetItemAclPowerShell(server, config);
     registerTestItemAclPowerShell(server, config);
+    registerAddItemAclPowerShell(server, config);
+    registerClearItemAclPowerShell(server, config);
 }

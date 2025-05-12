@@ -61,6 +61,10 @@
     - [x] `security-remove-role-member`: removes a member from a role
     - [x] `security-test-item-acl-by-id`: tests an item ACL by ID
     - [x] `security-test-item-acl-by-path`: tests an item ACL by path
+    - [x] `security-add-item-acl-by-id`: adds an item ACL by ID
+    - [x] `security-add-item-acl-by-path`: adds an item ACL by path
+    - [x] `security-clear-item-acl-by-id`: clears an item ACL by ID
+    - [x] `security-clear-item-acl-by-path`: clears an item ACL by path
 
 - [ ] Sitecore CLI
 
