@@ -29,7 +29,9 @@ class PowershellClient {
                 if (parameters[parameter] === "") {
                     scriptWithParameters += ` -${parameter}`;
                 }
-                else {
+                else if (Array.isArray(parameters[parameter])) {
+                    scriptWithParameters += ` -${parameter} "${parameters[parameter].join('","')}"`;
+                } else {
                     scriptWithParameters += ` -${parameter} "${parameters[parameter]}"`;
                 }
             }
