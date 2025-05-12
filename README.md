@@ -57,6 +57,8 @@
     - [ ] `security-import-user`: imports a user. Blocked by [SPE issue](https://github.com/SitecorePowerShell/Console/issues/1371)
     - [ ] `security-export-role`: exports a role. Blocked by [SPE issue](https://github.com/SitecorePowerShell/Console/issues/1369)
     - [ ] `security-import-role`: imports a role. Blocked by [SPE issue](https://github.com/SitecorePowerShell/Console/issues/1372)
+    - [x] `security-add-role-member`: adds a member to a role
+    - [x] `security-remove-role-member`: removes a member from a role
 
 - [ ] Sitecore CLI
 
