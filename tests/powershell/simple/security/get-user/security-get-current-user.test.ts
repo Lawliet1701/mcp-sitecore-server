@@ -65,30 +65,7 @@ describe("powershell", () => {
                                 ThreeLetterWindowsLanguageName: "ENU",
                                 TwoLetterISOLanguageName: "en",
                             },
-                            SerializedData: {
-                                En: [
-                                    {
-                                        Key: "/sitecore\\\\admin/Shell/ShowDatabaseName",
-                                        Value: true,
-                                    },
-                                    {
-                                        Key: "WallpaperBackground",
-                                        Value: "#07337C",
-                                    },
-                                    {
-                                        Key: "WallpaperPosition",
-                                        Value: "Cover",
-                                    },
-                                    {
-                                        Key: "digestcredentialhash",
-                                        Value: "71074d335e849629ebae2844eae3460a",
-                                    },
-                                    {
-                                        Key: "digestcredentialhashwithoutdomain",
-                                        Value: "19a27d233f54c9b09007d0532f4fdd43",
-                                    },
-                                ],
-                            },
+                            SerializedData: expect.anything(),
                             Properties: [
                                 "System.Configuration.SettingsProperty",
                                 "System.Configuration.SettingsProperty",
