@@ -66,6 +66,8 @@
     - [x] `security-add-item-acl-by-path`: adds an item ACL by path
     - [x] `security-clear-item-acl-by-id`: clears an item ACL by ID
     - [x] `security-clear-item-acl-by-path`: clears an item ACL by path
+    - [x] `security-set-item-acl-by-id`: sets an item ACL by ID
+    - [x] `security-set-item-acl-by-path`: sets an item ACL by path
 
 - [ ] Sitecore CLI
 

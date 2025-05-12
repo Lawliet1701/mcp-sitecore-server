@@ -1,5 +1,5 @@
 export function prepareArgsString(parameters: Record<string, any>): string {
-    let scriptWithParameters = "script";
+    let scriptWithParameters = "";
     if (parameters) {
         for (const parameter in parameters) {
             if (parameters[parameter] === "") {
