@@ -59,6 +59,8 @@
     - [ ] `security-import-role`: imports a role. Blocked by [SPE issue](https://github.com/SitecorePowerShell/Console/issues/1372)
     - [x] `security-add-role-member`: adds a member to a role
     - [x] `security-remove-role-member`: removes a member from a role
+    - [x] `security-test-item-acl-by-id`: tests an item ACL by ID
+    - [x] `security-test-item-acl-by-path`: tests an item ACL by path
 
 - [ ] Sitecore CLI
 
