@@ -59,6 +59,22 @@ export function getServer(): McpServer {
         }
     );
 
+    server.tool(
+        "config",
+        "Prints the configuration of the Sitecore MCP server.",
+        {},
+        async (params) => {
+            return {
+                content: [
+                    {
+                        type: "text",
+                        text: JSON.stringify(config, null, 2)
+                    }
+                ]
+            };
+        }
+    );
+
 
     registerGraphQL(server, config);
 
