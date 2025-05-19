@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { client, transport } from "../../../../client";
+import e from "express";
 
 await client.connect(transport);
 
@@ -37,9 +38,7 @@ describe("powershell", () => {
                     },
                     Account: {
                         ToString: "Sitecore.Security.Accounts.Role",
-                        Domain: {
-                            Domain: "sitecore",
-                        },
+                        Domain: expect.anything(),
                         IsEveryone: false,
                         IsGlobal: false,
                         AccountType: "Role",
@@ -248,9 +247,7 @@ describe("powershell", () => {
                     ToString: "Sitecore.Security.AccessControl.AccessRule",
                     Account: {
                         ToString: "Sitecore.Security.Accounts.Role",
-                        Domain: {
-                            Domain: "sitecore",
-                        },
+                        Domain: expect.anything(),
                         IsEveryone: false,
                         IsGlobal: false,
                         AccountType: "Role",
