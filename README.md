@@ -68,6 +68,11 @@
     - [x] `security-clear-item-acl-by-path`: clears an item ACL by path
     - [x] `security-set-item-acl-by-id`: sets an item ACL by ID
     - [x] `security-set-item-acl-by-path`: sets an item ACL by path
+  - [x] Provider
+    - [x] `provider-get-item-by-id`: returns an item by ID
+    - [x] `provider-get-item-by-path`: returns an item by path
+    - [x] `provider-get-item-by-query`: returns an item by query
+    - [x] `provider-get-item-by-path`: returns an item by path
 
 - [ ] Sitecore CLI
 

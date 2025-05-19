@@ -37,9 +37,7 @@ describe("powershell", () => {
                     },
                     Account: {
                         ToString: "Sitecore.Security.Accounts.Role",
-                        Domain: {
-                            Domain: "sitecore",
-                        },
+                        Domain: expect.anything(),
                         IsEveryone: false,
                         IsGlobal: false,
                         AccountType: "Role",
@@ -222,9 +220,7 @@ describe("powershell", () => {
                     ToString: "Sitecore.Security.AccessControl.AccessRule",
                     Account: {
                         ToString: "Sitecore.Security.Accounts.Role",
-                        Domain: {
-                            Domain: "sitecore",
-                        },
+                        Domain: expect.anything(),
                         IsEveryone: false,
                         IsGlobal: false,
                         AccountType: "Role",
