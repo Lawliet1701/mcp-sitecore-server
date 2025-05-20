@@ -76,6 +76,10 @@
 
 - [ ] Sitecore CLI
 
+### Tools selection
+
+AI Agents may have limit on the amount of tools they can use. Please make sure that you have disabled the tools you don't need. It will make your agent faster, cheaper and more efficient.
+
 ## Installation
 
 Add the following Model Context Protocol server to your Cursor, VS Code, Claud:
