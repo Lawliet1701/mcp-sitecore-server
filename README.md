@@ -73,6 +73,9 @@
     - [x] `provider-get-item-by-path`: returns an item by path
     - [x] `provider-get-item-by-query`: returns an item by query
     - [x] `provider-get-item-by-path`: returns an item by path
+  - [x] Indexing
+    - [x] `indexing-initialize-search-index`: initializes one or more search indexes
+    - [x] `indexing-get-search-index`: returns a search index
 
 - [ ] Sitecore CLI
 
