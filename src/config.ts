@@ -56,9 +56,11 @@ export const envStartSchema = z.object({
     //* The transport to use for the server. Can be one of 'stdio' or 'sse'.
     //* If not specified, the default is 'stdio'.
     //* The 'stdio' transport is used for local work.
-    //* The 'sse' transport is used for server-sent events.
+    //* The 'streamable-http' transport is used for HTTP-based communication.
+    //* The 'sse' remains for legacy support.
     TRANSPORT: z.string().default("stdio").optional().transform((val) => {
-        if (val === "sse") return "sse";
+        if (val?.toLowerCase() === "sse") return "sse";
+        if (val?.toLowerCase() === "streamable-http") return "streamable-http";
         return "stdio";
     })
 });
