@@ -19,6 +19,9 @@ jobs:
       - name: Build package
         working-directory: .
         run: npm run build
+      - name: Bundle package
+        working-directory: .
+        run: npm run bundle
       - name: Publish package on NPM 📦
         working-directory: .
         run: npm publish

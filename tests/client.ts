@@ -11,7 +11,7 @@ export type TransportOptions = {
 const transportOptions: TransportOptions = {
     transportType: "stdio",
     command: "node",
-    args: [`${__dirname}/../dist/index.js`],
+    args: [`${__dirname}/../dist/bundle.js`],
 };
 
 const client = new Client({

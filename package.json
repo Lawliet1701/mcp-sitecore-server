@@ -1,19 +1,20 @@
 {
   "name": "@antonytm/mcp-sitecore-server",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "A Model Context Protocol server for Sitecore",
   "files": [
     "dist",
     "README.md",
     "LICENSE"
   ],
-  "main": "./dist/index.js",
+  "main": "./dist/bundle.js",
   "bin": {
-    "@antonytm/mcp-sitecore-server": "./dist/index.js"
+    "@antonytm/mcp-sitecore-server": "./dist/bundle.js"
   },
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "bundle": "rollup -c",
     "prepare": "npm run build",
     "watch": "tsc --watch",
     "inspector": "npx @modelcontextprotocol/inspector@latest dist/index.js",
@@ -22,7 +23,7 @@
     "start:streamable-http": "npm run build && cross-env TRANSPORT=streamable-http node dist/index.js",
     "start:stdio": "npm run build && cross-env TRANSPORT=stdio node dist/index.js",
     "run": "npm run build && node dist/run.js",
-    "test": "npm run build && vitest run"
+    "test": "npm run build && npm run bundle && vitest run"
   },
   "dependencies": {
     "@antonytm/clixml-parser": "latest",
@@ -31,10 +32,14 @@
   },
   "devDependencies": {
     "@modelcontextprotocol/inspector": "^0.11.0",
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@types/express": "^5.0.1",
     "@types/node": "^22.14.1",
     "cross-env": "^7.0.3",
     "express": "^5.1.0",
+    "rollup": "^4.41.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "vitest": "^3.1.3"
