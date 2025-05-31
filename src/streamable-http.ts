@@ -36,7 +36,7 @@ export function startStreamableHTTP() {
                     delete transports[transport.sessionId];
                 }
             };
-            const server = getServer();
+            const server = await getServer();
 
             await server.connect(transport);
         } else {

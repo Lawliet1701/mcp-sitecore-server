@@ -14,7 +14,7 @@ const packagePath = path.resolve(__dirname, '..', 'package.json');
 const packageData = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
 const { version, name } = packageData;
 
-export function getServer(): McpServer {
+export async function getServer(): Promise<McpServer> {
     const server = new McpServer({
         name: `Sitecore MCP Server: ${name}`,
         description: "Modle Context Protocol for Sitecore",
@@ -80,7 +80,7 @@ export function getServer(): McpServer {
 
     registerItemService(server, config);
 
-    registerPowerShell(server, config);
+    await registerPowerShell(server, config);
 
     return server;
 }

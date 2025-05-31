@@ -5,8 +5,8 @@ import type { Request, Response } from "express";
 
 import { getServer } from "./server.js";
 
-export function startSSE() {
-  const server = getServer();
+export async function startSSE() {
+  const server = await getServer();
 
   const app = express();
 

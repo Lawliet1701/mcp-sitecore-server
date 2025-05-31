@@ -4,8 +4,8 @@ import { registerSecurityPowerShell } from "./security/register-security-powersh
 import { registerProviderPowerShell } from "./provider/register-provider-powershell.js";
 import { registerIndexingPowerShell } from "./indexing/register-indexing-powershell.js";
 
-export function registerSimplePowerShell(server: McpServer, config: Config) {
-    registerSecurityPowerShell(server, config);
-    registerProviderPowerShell(server, config);
-    registerIndexingPowerShell(server, config);
+export async function registerSimplePowerShell(server: McpServer, config: Config) {
+    await registerSecurityPowerShell(server, config);
+    await registerProviderPowerShell(server, config);
+    await registerIndexingPowerShell(server, config);
 }

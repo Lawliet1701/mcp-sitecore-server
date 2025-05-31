@@ -3,7 +3,7 @@ import type { Config } from "../../config.js";
 import { registerSimplePowerShell } from "./simple/register-simple-powershell.js";
 import { registerCompositePowerShell } from "./composite/register-composite-powershell.js";
 
-export function registerPowerShell(server: McpServer, config: Config) {
-    registerSimplePowerShell(server, config);
-    registerCompositePowerShell(server, config);
+export async function registerPowerShell(server: McpServer, config: Config) {
+    await registerSimplePowerShell(server, config);
+    await registerCompositePowerShell(server, config);
 }

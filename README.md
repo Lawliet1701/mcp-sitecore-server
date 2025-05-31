@@ -76,6 +76,7 @@
   - [x] Indexing
     - [x] `indexing-initialize-search-index`: initializes one or more search indexes
     - [x] `indexing-get-search-index`: returns a search index
+    - [x] `indexing-find-item`: finds an item in a search index
 
 - [ ] Sitecore CLI
 
