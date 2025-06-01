@@ -40,10 +40,11 @@ import { testItemAclPowerShellTool } from "./tools/powershell/simple/security/te
 import { addItemAclPowerShellTool } from "./tools/powershell/simple/security/add-item-acl.js";
 import { clearItemAclPowerShellTool } from "./tools/powershell/simple/security/clear-item-acl.js";
 import { getItemPowerShellTool } from "./tools/powershell/simple/provider/get-item.js";
-import { setItemAclPowerShellTool } from "./tools/powershell/composite/security/set-item-acl.js";
 import { initializeSearchIndexPowerShellTool } from "./tools/powershell/simple/indexing/initialize-search-index.js";
 import { getSearchIndexPowerShellTool } from "./tools/powershell/simple/indexing/get-search-index.js";
 import { findItemPowerShellTool } from "./tools/powershell/simple/indexing/find-item.js";
+import { setItemAclByIdPowerShellTool } from "./tools/powershell/composite/security/set-item-acl-by-id.js";
+import { setItemAclByPathPowerShellTool } from "./tools/powershell/composite/security/set-item-acl-by-path.js";
 
 
 
@@ -103,7 +104,8 @@ export async function registerAll(server: McpServer, config: Config) {
         addItemAclPowerShellTool,
         clearItemAclPowerShellTool,
         //Composite Security PowerShell Tools
-        setItemAclPowerShellTool,
+        setItemAclByIdPowerShellTool,
+        setItemAclByPathPowerShellTool,
         //Provider
         getItemPowerShellTool,
         //Indexing PowerShell Tools

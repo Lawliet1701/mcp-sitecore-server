@@ -77,6 +77,7 @@
     - [x] `indexing-initialize-search-index`: initializes one or more search indexes
     - [x] `indexing-get-search-index`: returns a search index
     - [x] `indexing-find-item`: finds an item in a search index
+    - [ ] ~~`indexing-initialize-item`: initializes items with the PowerShell automatic properties for each field. Skipped, no value for MCP server.~~
 
 - [ ] Sitecore CLI
 
