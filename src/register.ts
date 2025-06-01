@@ -45,6 +45,10 @@ import { getSearchIndexPowerShellTool } from "./tools/powershell/simple/indexing
 import { findItemPowerShellTool } from "./tools/powershell/simple/indexing/find-item.js";
 import { setItemAclByIdPowerShellTool } from "./tools/powershell/composite/security/set-item-acl-by-id.js";
 import { setItemAclByPathPowerShellTool } from "./tools/powershell/composite/security/set-item-acl-by-path.js";
+import { initializeSearchIndexingItemByIdPowerShellTool } from "./tools/powershell/composite/indexing/initialialize-search-indexing-item-by-id.js";
+import { initializeSearchIndexingItemByPathPowerShellTool } from "./tools/powershell/composite/indexing/initialialize-search-indexing-item-by-path.js";
+import { removeSearchIndexItemByIdPowerShellTool } from "./tools/powershell/composite/indexing/remove-search-index-item-by-id.js";
+import { removeSearchIndexItemByPathPowerShellTool } from "./tools/powershell/composite/indexing/remove-search-index-item-by-path.js";
 
 
 
@@ -106,12 +110,18 @@ export async function registerAll(server: McpServer, config: Config) {
         //Composite Security PowerShell Tools
         setItemAclByIdPowerShellTool,
         setItemAclByPathPowerShellTool,
+
         //Provider
         getItemPowerShellTool,
         //Indexing PowerShell Tools
         initializeSearchIndexPowerShellTool,
         getSearchIndexPowerShellTool,
         findItemPowerShellTool,
+        //Composite Indexing PowerShell Tools
+        initializeSearchIndexingItemByIdPowerShellTool,
+        initializeSearchIndexingItemByPathPowerShellTool,
+        removeSearchIndexItemByIdPowerShellTool,
+        removeSearchIndexItemByPathPowerShellTool,
 
     ], server, config);
 }

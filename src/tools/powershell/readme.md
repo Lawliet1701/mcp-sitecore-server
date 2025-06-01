@@ -16,6 +16,7 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 ## Security Tools
 
 ### User Management
+
 - `security-get-user-by-identity`: Get a user by identity
 - `security-get-current-user`: Get the current user
 - `security-get-user-by-filter`: Get users by filter
@@ -27,6 +28,7 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `security-set-user`: Update user properties
 
 ### Role Management
+
 - `security-get-role-by-identity`: Get a role by identity
 - `security-get-role-by-filter`: Get roles by filter
 - `security-new-role`: Create a new role
@@ -36,12 +38,14 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `security-remove-role-member`: Remove a member from a role
 
 ### Domain Management
+
 - `security-get-domain`: Get all domains
 - `security-get-domain-by-name`: Get a domain by name
 - `security-new-domain`: Create a new domain
 - `security-remove-domain`: Remove a domain
 
 ### Item Security
+
 - `security-get-item-acl-by-id`: Get ACL for an item by ID
 - `security-get-item-acl-by-path`: Get ACL for an item by path
 - `security-add-item-acl-by-id`: Add ACL entry to an item by ID
@@ -56,3 +60,18 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `security-protect-item-by-path`: Protect an item by path
 - `security-unprotect-item-by-id`: Unprotect an item by ID
 - `security-unprotect-item-by-path`: Unprotect an item by path
+
+## Indexing Tools
+
+### Simple Indexing Tools
+
+- `indexing-initialize-search-index`: Initialize one or more Sitecore search indexes
+- `indexing-get-search-index`: Get information about Sitecore search indexes
+- `indexing-find-item`: Find items using the Sitecore Content Search API
+
+### Composite Indexing Tools
+
+- `indexing-initialize-search-index-item-by-id`: Rebuild the index for a given tree with the specified root item by ID
+- `indexing-initialize-search-index-item-by-path`: Rebuild the index for a given tree with the specified root item by path
+- `indexing-remove-search-index-item-by-id`: Remove the item with the specified ID from the search index
+- `indexing-remove-search-index-item-by-path`: Remove the item with the specified path from the search index

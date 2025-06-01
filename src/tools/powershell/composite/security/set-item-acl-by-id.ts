@@ -13,6 +13,9 @@ export function setItemAclByIdPowerShellTool(server: McpServer, config: Config) 
         {
             id: z.string()
                 .describe("The ID of the item to add ACL entry for"),
+            path: z.string()
+                .default("master:")
+                .optional(),
             identity: z.string()
                 .describe("The identity of the account (user or role) to grant permissions to (e.g. 'sitecore\\admin')"),
             accessRight: z.enum(AccessRights as [string, ...string[]])
@@ -32,9 +35,9 @@ export function setItemAclByIdPowerShellTool(server: McpServer, config: Config) 
 
             const parameters1 = prepareArgsString(parameters1Obj);
             const command = `
-                $acl = New-ItemAcl ${parameters1}
-                Get-Item -Id ${params.id} | Set-ItemAcl -AccessRules $acl
-            `.replaceAll(/[\n]+/g, "");;
+                $acl = New-ItemAcl ${parameters1};
+                Get-Item -Id ${params.id} -Path ${params.path} | Set-ItemAcl -AccessRules $acl
+            `.replaceAll(/[\n]+/g, "");
 
             return safeMcpResponse(runGenericPowershellCommand(config, command, {}));
         }

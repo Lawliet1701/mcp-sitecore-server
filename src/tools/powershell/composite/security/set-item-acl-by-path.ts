@@ -31,7 +31,7 @@ export function setItemAclByPathPowerShellTool(server: McpServer, config: Config
 
             const parameters1 = prepareArgsString(parameters1Obj);
             const command = `
-                $acl = New-ItemAcl ${parameters1}
+                $acl = New-ItemAcl ${parameters1};
                 Get-Item -Path "${params.path}" | Set-ItemAcl -AccessRules $acl
             `.replaceAll(/[\n]+/g, "");
 

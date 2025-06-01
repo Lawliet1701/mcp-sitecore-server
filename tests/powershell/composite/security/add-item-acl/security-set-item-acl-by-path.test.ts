@@ -31,10 +31,15 @@ describe("powershell", () => {
         const addAclResult = await callTool(client, "security-set-item-acl-by-path", addAclArgs);
         const addAclJson = JSON.parse(addAclResult.content[0].text);
 
+        // Sleep to ensure the ACL change is processed
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
         // Verify the ACL was added by retrieving the item ACL again
         const getUpdatedAclResult = await callTool(client, "security-get-item-acl-by-path", getAclArgs);
         const updatedAclJson = JSON.parse(getUpdatedAclResult.content[0].text);
         
+        expect(updatedAclJson.Obj).toBeDefined();
+        console.log("Updated ACL JSON:", updatedAclJson);
         // Find the ACL entry we just added
         const hasAddedAcl = updatedAclJson.Obj.some((aclEntry: any) => 
             aclEntry.Account?.Name === "sitecore\\Developer" &&

@@ -1,4 +1,4 @@
-import { generateUUID } from "@/utils";
+import { generateUUID } from "@/utils.js";
 import { convertObject, parseXMLString } from "@antonytm/clixml-parser";
 
 class PowershellClient {

@@ -6,7 +6,7 @@ await client.connect(transport);
 
 describe("powershell", () => {
     it("security-set-item-acl-by-id", async () => {
-        const itemId = "{4E79D567-5396-4987-B350-57D1DCE6B1DA}";
+        const itemId = "{1F9D7A0F-D002-41D3-8D8E-35376CD2A62A}";
 
         // Clean up 
         const clearupAclArgs: Record<string, any> = {
@@ -31,10 +31,14 @@ describe("powershell", () => {
         const addAclResult = await callTool(client, "security-set-item-acl-by-id", addAclArgs);
         const addAclJson = JSON.parse(addAclResult.content[0].text);
 
+        // Sleep to ensure the ACL change is processed
+        await new Promise(resolve => setTimeout(resolve, 2000));
         // Verify the ACL was added by retrieving the item ACL again
         const getUpdatedAclResult = await callTool(client, "security-get-item-acl-by-id", getAclArgs);
         const updatedAclJson = JSON.parse(getUpdatedAclResult.content[0].text);
 
+        expect(updatedAclJson.Obj).toBeDefined();
+        console.log("Updated ACL JSON:", updatedAclJson);
         // Find the ACL entry we just added
         const hasAddedAcl = updatedAclJson.Obj.some((aclEntry: any) =>
             aclEntry.Account?.Name === "sitecore\\Everyone" &&

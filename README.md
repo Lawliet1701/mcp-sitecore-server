@@ -77,6 +77,10 @@
     - [x] `indexing-initialize-search-index`: initializes one or more search indexes
     - [x] `indexing-get-search-index`: returns a search index
     - [x] `indexing-find-item`: finds an item in a search index
+    - [x] `indexing-initialize-search-index-item-by-id`: rebuilds the index for a given tree with the specified root item by ID and index name
+    - [x] `indexing-initialize-search-index-item-by-path`: rebuilds the index for a given tree with the specified root item by path and index name
+    - [x] `indexing-remove-search-index-item-by-id`: removes the item with the specified ID from the search index
+    - [x] `indexing-remove-search-index-item-by-path`: removes the item with the specified path from the search index
     - [ ] ~~`indexing-initialize-item`: initializes items with the PowerShell automatic properties for each field. Skipped, no value for MCP server.~~
 
 - [ ] Sitecore CLI
