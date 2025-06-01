@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function unprotectItemPowerShellTool(server: McpServer, config: Config) {
+export function unprotectItemByPathPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-unprotect-item-by-path",
         "Unprotect a Sitecore item by its path.",
@@ -20,35 +20,6 @@ export function unprotectItemPowerShellTool(server: McpServer, config: Config) {
             const command = `Unprotect-Item`;
             const options: Record<string, any> = {
                 "Path": params.path,
-            };
-
-            if (params.passThru) {
-                options["PassThru"] = "";
-            }
-
-            if (params.database) {
-                options["Database"] = params.database;
-            }
-
-            return safeMcpResponse(runGenericPowershellCommand(config, command, options));
-        }
-    );
-
-    server.tool(
-        "security-unprotect-item-by-id",
-        "Unprotect a Sitecore item by its ID.",
-        {
-            id: z.string()
-                .describe("The ID of the item to unprotect"),
-            passThru: z.boolean().optional()
-                .describe("If set to true, passes the processed object back to the pipeline"),
-            database: z.string().optional()
-                .describe("The database containing the item (defaults to the context database)")
-        },
-        async (params) => {
-            const command = `Unprotect-Item`;
-            const options: Record<string, any> = {
-                "Id": params.id,
             };
 
             if (params.passThru) {

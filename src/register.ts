@@ -13,7 +13,9 @@ import { runStoredQueryTool } from "./tools/item-service/tool-registrations/simp
 import { runStoredSearchTool } from "./tools/item-service/tool-registrations/simple/run-stored-search.registration.js";
 import { getItemDescendantsTool } from "./tools/item-service/tool-registrations/composite/get-item-descendants.registration.js";
 import { getLanguagesTool } from "./tools/item-service/tool-registrations/composite/get-languages.registration.js";
-import { getUserPowerShellTool } from "./tools/powershell/simple/security/get-user.js";
+import { getUserByIdentityPowerShellTool } from "./tools/powershell/simple/security/get-user-by-identity.js";
+import { getCurrentUserPowerShellTool } from "./tools/powershell/simple/security/get-current-user.js";
+import { getUserByFilterPowerShellTool } from "./tools/powershell/simple/security/get-user-by-filter.js";
 import { newUserPowerShellTool } from "./tools/powershell/simple/security/new-user.js";
 import { removeUserPowerShellTool } from "./tools/powershell/simple/security/remove-user.js";
 import { disableUserPowerShellTool } from "./tools/powershell/simple/security/disable-user.js";
@@ -22,14 +24,14 @@ import { unlockUserPowerShellTool } from "./tools/powershell/simple/security/unl
 import { setUserPowerShellTool } from "./tools/powershell/simple/security/set-user.js";
 import { setUserPasswordPowerShellTool } from "./tools/powershell/simple/security/set-user-password.js";
 import { getDomainPowerShellTool } from "./tools/powershell/simple/security/get-domain.js";
-import { getRolePowerShellTool } from "./tools/powershell/simple/security/get-role.js";
+import { getRoleByIdentityPowerShellTool } from "./tools/powershell/simple/security/get-role-by-identity.js";
+import { getRoleByFilterPowerShellTool } from "./tools/powershell/simple/security/get-role-by-filter.js";
 import { getRoleMemberPowerShellTool } from "./tools/powershell/simple/security/get-role-member.js";
 import { addRoleMemberPowerShellTool } from "./tools/powershell/simple/security/add-role-member.js";
 import { removeRoleMemberPowerShellTool } from "./tools/powershell/simple/security/remove-role-member.js";
-import { lockItemPowerShellTool } from "./tools/powershell/simple/security/lock-item.js";
 import { unlockItemPowerShellTool } from "./tools/powershell/simple/security/unlock-item.js";
-import { protectItemPowerShellTool } from "./tools/powershell/simple/security/protect-item.js";
-import { unprotectItemPowerShellTool } from "./tools/powershell/simple/security/unprotect-item.js";
+import { protectItemByPathPowerShellTool } from "./tools/powershell/simple/security/protect-item-by-path.js";
+import { protectItemByIdPowerShellTool } from "./tools/powershell/simple/security/protect-item-by-id.js";
 import { newRolePowerShellTool } from "./tools/powershell/simple/security/new-role.js";
 import { removeRolePowerShellTool } from "./tools/powershell/simple/security/remove-role.js";
 import { newDomainPowerShellTool } from "./tools/powershell/simple/security/new-domain.js";
@@ -49,6 +51,10 @@ import { initializeSearchIndexingItemByIdPowerShellTool } from "./tools/powershe
 import { initializeSearchIndexingItemByPathPowerShellTool } from "./tools/powershell/composite/indexing/initialialize-search-indexing-item-by-path.js";
 import { removeSearchIndexItemByIdPowerShellTool } from "./tools/powershell/composite/indexing/remove-search-index-item-by-id.js";
 import { removeSearchIndexItemByPathPowerShellTool } from "./tools/powershell/composite/indexing/remove-search-index-item-by-path.js";
+import { lockItemByIdPowerShellTool } from "./tools/powershell/simple/security/lock-item-by-id.js";
+import { lockItemByPathPowerShellTool } from "./tools/powershell/simple/security/lock-item-by-path.js";
+import { unprotectItemByIdPowerShellTool } from "./tools/powershell/simple/security/unprotect-item-by-id.js";
+import { unprotectItemByPathPowerShellTool } from "./tools/powershell/simple/security/unprotect-item-by-path.js";
 
 
 
@@ -81,23 +87,29 @@ export async function registerAll(server: McpServer, config: Config) {
         getLanguagesTool,        //PowerShell tools
         //Security
         //Simple Security PowerShell Tools
-        getUserPowerShellTool,
+        getUserByIdentityPowerShellTool,
+        getCurrentUserPowerShellTool,
+        getUserByFilterPowerShellTool,
         newUserPowerShellTool,
         removeUserPowerShellTool,
         disableUserPowerShellTool,
         enableUserPowerShellTool,        
         unlockUserPowerShellTool,
-        setUserPowerShellTool,
+        setUserPowerShellTool,        
         setUserPasswordPowerShellTool,
         getDomainPowerShellTool,
-        getRolePowerShellTool,
+        getRoleByIdentityPowerShellTool,
+        getRoleByFilterPowerShellTool,
         getRoleMemberPowerShellTool,
         addRoleMemberPowerShellTool,
         removeRoleMemberPowerShellTool,
-        lockItemPowerShellTool,
-        unlockItemPowerShellTool,
-        protectItemPowerShellTool,
-        unprotectItemPowerShellTool,
+        lockItemByIdPowerShellTool,
+        lockItemByPathPowerShellTool,
+        unlockItemPowerShellTool,        
+        protectItemByPathPowerShellTool,
+        protectItemByIdPowerShellTool,
+        unprotectItemByIdPowerShellTool,
+        unprotectItemByPathPowerShellTool,
         newRolePowerShellTool,
         removeRolePowerShellTool,
         newDomainPowerShellTool,
