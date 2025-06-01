@@ -1,5 +1,5 @@
 import express from "express";
-import { randomUUID } from "node:crypto";
+import { generateUUID } from "./utils.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js"
 import { getServer } from "./server.js";
@@ -23,7 +23,7 @@ export function startStreamableHTTP() {
         } else if (!sessionId && isInitializeRequest(req.body)) {
             // New initialization request
             transport = new StreamableHTTPServerTransport({
-                sessionIdGenerator: () => randomUUID(),
+                sessionIdGenerator: () => generateUUID(),
                 onsessioninitialized: (sessionId) => {
                     // Store the transport by session ID
                     transports[sessionId] = transport;
