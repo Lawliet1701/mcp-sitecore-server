@@ -1,7 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { Config } from "@/config.js";
 import { z } from "zod";
-import { runStoredQuery } from "../../simple/run-stored-query.js";
+import { runStoredQuery } from "../../logic/simple/run-stored-query.js";
 import { safeMcpResponse } from "@/helper.js";
 
 export function runStoredQueryTool(server: McpServer, config: Config) {

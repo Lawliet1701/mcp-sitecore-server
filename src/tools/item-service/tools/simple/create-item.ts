@@ -1,7 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { Config } from "@/config.js";
 import { z } from "zod";
-import { createItem } from "../../simple/create-item.js";
+import { createItem } from "../../logic/simple/create-item.js";
 import { safeMcpResponse } from "@/helper.js";
 
 export function createItemTool(server: McpServer, config: Config) {

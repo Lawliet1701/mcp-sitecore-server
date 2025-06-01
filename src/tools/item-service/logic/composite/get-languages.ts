@@ -1,6 +1,6 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { type Config } from "@/config.js";
-import RestfulItemServiceClient from "../client.js";
+import RestfulItemServiceClient from "../../client.js";
 
 export async function getLanguages(conf: Config): Promise<CallToolResult> {
     const client = new RestfulItemServiceClient(conf.itemService.serverUrl,

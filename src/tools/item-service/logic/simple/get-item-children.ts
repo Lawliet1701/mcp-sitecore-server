@@ -1,9 +1,9 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { type Config } from "@/config.js";
-import RestfulItemServiceClient from "../client.js";
+import RestfulItemServiceClient from "../../client.js";
 
-export async function getItemByPath(conf: Config,
-    path: string, options: {
+export async function getItemChildren(conf: Config,
+    id: string, options: {
         database?: string;
         language?: string;
         version?: string;
@@ -18,7 +18,7 @@ export async function getItemByPath(conf: Config,
         conf.itemService.domain,
     );
 
-    const response = await client.getItemByPath(path, options);
+    const response = await client.getItemChildren(id, options);
 
     return {
         content: [

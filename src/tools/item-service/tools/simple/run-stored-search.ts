@@ -1,7 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { Config } from "@/config.js";
 import { z } from "zod";
-import { runStoredSearch } from "../../simple/run-stored-search.js";
+import { runStoredSearch } from "../../logic/simple/run-stored-search.js";
 import { safeMcpResponse } from "@/helper.js";
 
 export function runStoredSearchTool(server: McpServer, config: Config) {

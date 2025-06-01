@@ -1,13 +1,13 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { Config } from "@/config.js";
 import { z } from "zod";
-import { getItemById } from "../../simple/get-item.js";
+import { getItemChildren } from "../../logic/simple/get-item-children.js";
 import { safeMcpResponse } from "@/helper.js";
 
-export function getItemTool(server: McpServer, config: Config) {
+export function getItemChildrenTool(server: McpServer, config: Config) {
     server.tool(
-        'item-service-get-item',
-        "Get a Sitecore item by its ID.",
+        'item-service-get-item-children',
+        "Get children of a Sitecore item by its ID.",
         {
             id: z.string(),
             options: z.object({
@@ -20,7 +20,7 @@ export function getItemTool(server: McpServer, config: Config) {
             }).optional(),
         },
         async (params) => {
-            return safeMcpResponse(getItemById(config, params.id, params.options || {}));
+            return safeMcpResponse(getItemChildren(config, params.id, params.options || {}));
         }
     );
 }

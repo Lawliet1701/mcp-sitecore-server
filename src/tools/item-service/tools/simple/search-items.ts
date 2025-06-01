@@ -1,7 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { Config } from "@/config.js";
 import { z } from "zod";
-import { searchItems } from "../../simple/search-items.js";
+import { searchItems } from "../../logic/simple/search-items.js";
 import { safeMcpResponse } from "@/helper.js";
 
 export function searchItemsTool(server: McpServer, config: Config) {

@@ -1,27 +1,25 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { type Config } from "@/config.js";
-import RestfulItemServiceClient from "../client.js";
+import { get } from "http";
+import RestfulItemServiceClient from "../../client.js";
 
-export async function createItem(conf: Config,
-    parentPath: string,
-    data: {
-        ItemName: string;
-        TemplateID: string;
-        [key: string]: any;
-    },
-    options: {
+export async function getItemById(conf: Config,
+    id: string, options: {
         database?: string;
         language?: string;
-    } = {}
+        version?: string;
+        includeStandardTemplateFields?: boolean;
+        includeMetadata?: boolean;
+        fields?: string[]
+    }
 ): Promise<CallToolResult> {
-    const client = new RestfulItemServiceClient(
-        conf.itemService.serverUrl,
+    const client = new RestfulItemServiceClient(conf.itemService.serverUrl,
         conf.itemService.username,
         conf.itemService.password,
         conf.itemService.domain,
     );
 
-    const response = await client.createItem(parentPath, data, options);
+    const response = await client.getItemById(id, options);
 
     return {
         content: [
@@ -31,5 +29,5 @@ export async function createItem(conf: Config,
             },
         ],
         isError: false,
-    };
+    }
 }

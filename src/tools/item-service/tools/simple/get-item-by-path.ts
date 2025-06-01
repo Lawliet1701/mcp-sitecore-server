@@ -1,15 +1,15 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { Config } from "@/config.js";
 import { z } from "zod";
-import { getItemChildren } from "../../simple/get-item-children.js";
+import { getItemByPath } from "../../logic/simple/get-item-by-path.js";
 import { safeMcpResponse } from "@/helper.js";
 
-export function getItemChildrenTool(server: McpServer, config: Config) {
+export function getItemByPathTool(server: McpServer, config: Config) {
     server.tool(
-        'item-service-get-item-children',
-        "Get children of a Sitecore item by its ID.",
+        'item-service-get-item-by-path',
+        "Get a Sitecore item by its path.",
         {
-            id: z.string(),
+            path: z.string(),
             options: z.object({
                 database: z.string().optional(),
                 language: z.string().optional(),
@@ -20,7 +20,7 @@ export function getItemChildrenTool(server: McpServer, config: Config) {
             }).optional(),
         },
         async (params) => {
-            return safeMcpResponse(getItemChildren(config, params.id, params.options || {}));
+            return safeMcpResponse(getItemByPath(config, params.path, params.options || {}));
         }
     );
 }

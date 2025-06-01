@@ -1,5 +1,5 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import RestfulItemServiceClient from "../client.js";
+import RestfulItemServiceClient from "../../client.js";
 
 /**
  * Edit a Sitecore item by ID using the RESTful ItemService API.
