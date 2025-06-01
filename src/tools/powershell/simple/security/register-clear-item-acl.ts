@@ -4,22 +4,22 @@ import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function unprotectItemPowerShellTool(server: McpServer, config: Config) {
+export function clearItemAclPowerShellTool(server: McpServer, config: Config) {
     server.tool(
-        "security-unprotect-item-by-path",
-        "Unprotect a Sitecore item by its path.",
+        "security-clear-item-acl-by-id",
+        "Clears all access rules from a Sitecore item by its ID.",
         {
-            path: z.string()
-                .describe("The path of the item to unprotect (e.g. /sitecore/content/Home)"),
+            id: z.string()
+                .describe("The ID of the item to clear ACL for"),
             passThru: z.boolean().optional()
                 .describe("If set to true, passes the processed object back to the pipeline"),
             database: z.string().optional()
                 .describe("The database containing the item (defaults to the context database)")
         },
         async (params) => {
-            const command = `Unprotect-Item`;
+            const command = `Clear-ItemAcl`;
             const options: Record<string, any> = {
-                "Path": params.path,
+                "ID": params.id,
             };
 
             if (params.passThru) {
@@ -35,20 +35,20 @@ export function unprotectItemPowerShellTool(server: McpServer, config: Config) {
     );
 
     server.tool(
-        "security-unprotect-item-by-id",
-        "Unprotect a Sitecore item by its ID.",
+        "security-clear-item-acl-by-path",
+        "Clears all access rules from a Sitecore item by its path.",
         {
-            id: z.string()
-                .describe("The ID of the item to unprotect"),
+            path: z.string()
+                .describe("The path of the item to clear ACL for (e.g. /sitecore/content/Home)"),
             passThru: z.boolean().optional()
                 .describe("If set to true, passes the processed object back to the pipeline"),
             database: z.string().optional()
                 .describe("The database containing the item (defaults to the context database)")
         },
         async (params) => {
-            const command = `Unprotect-Item`;
+            const command = `Clear-ItemAcl`;
             const options: Record<string, any> = {
-                "Id": params.id,
+                "Path": params.path,
             };
 
             if (params.passThru) {

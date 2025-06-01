@@ -1,8 +1,8 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import type { Config } from "../../../../config.js";
+import type { Config } from "@/config.js";
 import { z } from "zod";
 import { editItem } from "../../simple/edit-item.js";
-import { safeMcpResponse } from "../../../../helper.js";
+import { safeMcpResponse } from "@/helper.js";
 
 export function editItemTool(server: McpServer, config: Config) {
     server.tool(

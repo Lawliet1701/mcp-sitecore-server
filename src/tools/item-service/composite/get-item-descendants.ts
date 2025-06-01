@@ -1,5 +1,5 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import { type Config } from "../../../config.js";
+import { type Config } from "@/config.js";
 import RestfulItemServiceClient from "../client.js";
 
 export async function getItemDescendants(conf: Config,

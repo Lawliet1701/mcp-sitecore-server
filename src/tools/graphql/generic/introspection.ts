@@ -1,7 +1,7 @@
 import { type CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { buildClientSchema, getIntrospectionQuery, printSchema } from "graphql";
 import { type IntrospectionQuery } from "graphql";
-import { type Config } from "../../../config.js";
+import { type Config } from "@/config.js";
 
 export async function introspection(conf: Config, schemaName: string): Promise<CallToolResult> {
     

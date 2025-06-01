@@ -2,7 +2,7 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp";
 import type { Config } from "@/config.js";
 import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
-import { PowershellClient } from "@/tools/powershell/client.js";
+import { PowershellClient } from "../../client.js";
 
 // The results of usage of this tool are not quite good.
 // Problems:
@@ -145,7 +145,7 @@ export async function findItemPowerShellTool(server: McpServer, config: Config) 
             const command = `Find-Item -Index "${params.index}" -Criteria @(${criteria}) -First ${params.first} -Skip ${params.skip} `;
 
             return safeMcpResponse(client.executeScriptJson(command, {}).then(
-                (result: any) => {
+                (result) => {
                     const items = JSON.parse(result).Obj;
                     return {
                         content: [{
@@ -154,7 +154,7 @@ export async function findItemPowerShellTool(server: McpServer, config: Config) 
                         }]
                     };
                 },
-                (error: any) => {
+                (error) => {
                     throw error; // Rethrow the error to be handled by safeMcpResponse
                 }
             ));

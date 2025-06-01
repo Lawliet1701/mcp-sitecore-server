@@ -1,5 +1,5 @@
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import type { Config } from "../../../config.js";
+import type { Config } from "@/config.js";
 import { PowershellClient } from "../client.js";
 import { PowerShellOutputType } from "../output.js";
 

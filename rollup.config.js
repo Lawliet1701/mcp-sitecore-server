@@ -18,7 +18,7 @@ export default {
     json(),
     alias({
       entries: [
-        { find: '@', replacement: path.resolve('src') }
+        { find: '@', replacement: path.resolve('dist') }
       ]
     })
   ],
