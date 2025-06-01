@@ -23,7 +23,6 @@ import { enableUserPowerShellTool } from "./tools/powershell/simple/security/ena
 import { unlockUserPowerShellTool } from "./tools/powershell/simple/security/unlock-user.js";
 import { setUserPowerShellTool } from "./tools/powershell/simple/security/set-user.js";
 import { setUserPasswordPowerShellTool } from "./tools/powershell/simple/security/set-user-password.js";
-import { getDomainPowerShellTool } from "./tools/powershell/simple/security/get-domain.js";
 import { getRoleByIdentityPowerShellTool } from "./tools/powershell/simple/security/get-role-by-identity.js";
 import { getRoleByFilterPowerShellTool } from "./tools/powershell/simple/security/get-role-by-filter.js";
 import { getRoleMemberPowerShellTool } from "./tools/powershell/simple/security/get-role-member.js";
@@ -55,6 +54,8 @@ import { lockItemByIdPowerShellTool } from "./tools/powershell/simple/security/l
 import { lockItemByPathPowerShellTool } from "./tools/powershell/simple/security/lock-item-by-path.js";
 import { unprotectItemByIdPowerShellTool } from "./tools/powershell/simple/security/unprotect-item-by-id.js";
 import { unprotectItemByPathPowerShellTool } from "./tools/powershell/simple/security/unprotect-item-by-path.js";
+import { getDomainByNamePowerShellTool } from "./tools/powershell/simple/security/get-domain-by-name.js";
+import { getAllDomainsPowerShellTool } from "./tools/powershell/simple/security/get-all-domains.js";
 
 
 
@@ -70,7 +71,8 @@ export async function register(array: Array<(server: McpServer, config: Config) 
 
 export async function registerAll(server: McpServer, config: Config) {
     await register([
-        registerGraphQL,        //Item Service
+        registerGraphQL,        
+        //Item Service
         //Simple Item Service Tools
         getItemTool,
         getItemChildrenTool,
@@ -84,7 +86,8 @@ export async function registerAll(server: McpServer, config: Config) {
 
         //Composite Item Service Tools
         getItemDescendantsTool,
-        getLanguagesTool,        //PowerShell tools
+        getLanguagesTool,        
+        //PowerShell tools
         //Security
         //Simple Security PowerShell Tools
         getUserByIdentityPowerShellTool,
@@ -97,7 +100,8 @@ export async function registerAll(server: McpServer, config: Config) {
         unlockUserPowerShellTool,
         setUserPowerShellTool,        
         setUserPasswordPowerShellTool,
-        getDomainPowerShellTool,
+        getDomainByNamePowerShellTool,
+        getAllDomainsPowerShellTool,
         getRoleByIdentityPowerShellTool,
         getRoleByFilterPowerShellTool,
         getRoleMemberPowerShellTool,
