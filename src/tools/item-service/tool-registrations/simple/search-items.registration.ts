@@ -4,7 +4,7 @@ import { z } from "zod";
 import { searchItems } from "../../simple/search-items.js";
 import { safeMcpResponse } from "../../../../helper.js";
 
-export function registerSearchItemsTool(server: McpServer, config: Config) {
+export function searchItemsTool(server: McpServer, config: Config) {
     server.tool(
         'item-service-search-items',
         "Search Sitecore items using the ItemService RESTful API.",

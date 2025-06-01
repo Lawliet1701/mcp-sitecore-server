@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerUnlockUserPowerShell(server: McpServer, config: Config) {
+export function unlockUserPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-unlock-user",
         "Unlocks a Sitecore user account that has been locked out due to failed login attempts.",

@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerGetSearchIndexPowerShell(server: McpServer, config: Config) {
+export function getSearchIndexPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "indexing-get-search-index",
         "Get information about Sitecore search indexes. Can filter by name, database, running status, or corrupted status.",

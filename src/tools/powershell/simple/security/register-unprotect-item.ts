@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerUnprotectItemPowerShell(server: McpServer, config: Config) {
+export function unprotectItemPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-unprotect-item-by-path",
         "Unprotect a Sitecore item by its path.",

@@ -4,7 +4,7 @@ import { z } from "zod";
 import { getItemById } from "../../simple/get-item.js";
 import { safeMcpResponse } from "../../../../helper.js";
 
-export function registerGetItemTool(server: McpServer, config: Config) {
+export function getItemTool(server: McpServer, config: Config) {
     server.tool(
         'item-service-get-item',
         "Get a Sitecore item by its ID.",

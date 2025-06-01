@@ -4,7 +4,7 @@ import { z } from "zod";
 import { deleteItem } from "../../simple/delete-item.js";
 import { safeMcpResponse } from "../../../../helper.js";
 
-export function registerDeleteItemTool(server: McpServer, config: Config) {
+export function deleteItemTool(server: McpServer, config: Config) {
     server.tool(
         'item-service-delete-item',
         "Delete a Sitecore item by its ID.",

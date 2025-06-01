@@ -4,7 +4,7 @@ import { z } from "zod";
 import { getItemDescendants } from "../../composite/get-item-descendants.js";
 import { safeMcpResponse } from "../../../../helper.js";
 
-export function registerGetItemDescendantsTool(server: McpServer, config: Config) {
+export function getItemDescendantsTool(server: McpServer, config: Config) {
     server.tool(
         'item-service-get-item-descendants',
         "Get descendants of a Sitecore item by its ID.",

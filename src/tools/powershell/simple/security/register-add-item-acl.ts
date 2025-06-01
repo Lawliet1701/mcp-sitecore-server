@@ -5,7 +5,7 @@ import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 import { AccessRights } from "./access-rights.js";
 
-export function registerAddItemAclPowerShell(server: McpServer, config: Config) {
+export function addItemAclPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-add-item-acl-by-id",
         "Adds an access control entry to a Sitecore item by its ID.",

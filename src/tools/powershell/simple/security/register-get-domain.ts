@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerGetDomainPowerShell(server: McpServer, config: Config) {
+export function getDomainPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-get-domain-by-name",
         "Get a Sitecore domain by its name.",

@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerInitializeSearchIndexPowerShell(server: McpServer, config: Config) {
+export function initializeSearchIndexPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "indexing-initialize-search-index",
         "Initialize one or more Sitecore search indexes. If no name is provided, all indexes will be initialized.",

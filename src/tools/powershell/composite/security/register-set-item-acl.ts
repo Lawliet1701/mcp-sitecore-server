@@ -8,7 +8,7 @@ import { runGenericPowershellCommand } from "../../simple/generic.js";
 
 // This security tool doesn't have sense as it could be replaced with Add-ItemAcl+Clear-ItemAcl tools.
 // It is kept for testing "composite" tools.
-export function registerSetItemAclPowerShell(server: McpServer, config: Config) {
+export function setItemAclPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-set-item-acl-by-id",
         "Sets an access control entry to a Sitecore item by its ID.",

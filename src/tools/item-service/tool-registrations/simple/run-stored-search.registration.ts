@@ -4,7 +4,7 @@ import { z } from "zod";
 import { runStoredSearch } from "../../simple/run-stored-search.js";
 import { safeMcpResponse } from "../../../../helper.js";
 
-export function registerRunStoredSearchTool(server: McpServer, config: Config) {
+export function runStoredSearchTool(server: McpServer, config: Config) {
     server.tool(
         'item-service-run-stored-search',
         "Run a stored Sitecore search by its definition item ID.",

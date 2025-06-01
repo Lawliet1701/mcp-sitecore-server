@@ -4,7 +4,7 @@ import { z } from "zod";
 import { runStoredQuery } from "../../simple/run-stored-query.js";
 import { safeMcpResponse } from "../../../../helper.js";
 
-export function registerRunStoredQueryTool(server: McpServer, config: Config) {
+export function runStoredQueryTool(server: McpServer, config: Config) {
     server.tool(
         'item-service-run-stored-query',
         "Run a stored Sitecore query by its definition item ID.",

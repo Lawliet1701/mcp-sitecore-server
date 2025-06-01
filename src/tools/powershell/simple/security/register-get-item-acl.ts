@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerGetItemAclPowerShell(server: McpServer, config: Config) {
+export function getItemAclPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-get-item-acl-by-id",
         "Gets the access control list (ACL) of a Sitecore item by its ID.",

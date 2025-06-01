@@ -4,7 +4,7 @@ import { z } from "zod";
 import { getItemChildren } from "../../simple/get-item-children.js";
 import { safeMcpResponse } from "../../../../helper.js";
 
-export function registerGetItemChildrenTool(server: McpServer, config: Config) {
+export function getItemChildrenTool(server: McpServer, config: Config) {
     server.tool(
         'item-service-get-item-children',
         "Get children of a Sitecore item by its ID.",

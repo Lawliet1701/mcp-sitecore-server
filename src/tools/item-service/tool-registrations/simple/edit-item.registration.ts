@@ -4,7 +4,7 @@ import { z } from "zod";
 import { editItem } from "../../simple/edit-item.js";
 import { safeMcpResponse } from "../../../../helper.js";
 
-export function registerEditItemTool(server: McpServer, config: Config) {
+export function editItemTool(server: McpServer, config: Config) {
     server.tool(
         'item-service-edit-item',
         "Edit a Sitecore item by its ID.",

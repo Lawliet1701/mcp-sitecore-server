@@ -5,7 +5,7 @@ import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 import { AccessRights } from "./access-rights.js";
 
-export function registerTestItemAclPowerShell(server: McpServer, config: Config) {
+export function testItemAclPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-test-item-acl-by-id",
         "Tests whether a user or role has specific access rights to a Sitecore item by its ID.",

@@ -4,7 +4,7 @@ import { z } from "zod";
 import { getItemByPath } from "../../simple/get-item-by-path.js";
 import { safeMcpResponse } from "../../../../helper.js";
 
-export function registerGetItemByPathTool(server: McpServer, config: Config) {
+export function getItemByPathTool(server: McpServer, config: Config) {
     server.tool(
         'item-service-get-item-by-path',
         "Get a Sitecore item by its path.",

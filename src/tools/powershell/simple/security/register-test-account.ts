@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerTestAccountPowerShell(server: McpServer, config: Config) {
+export function testAccountPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-test-account",
         "Tests if a Sitecore user exists and has specific properties.",

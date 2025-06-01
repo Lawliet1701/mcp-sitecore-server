@@ -4,7 +4,7 @@ import { z } from "zod";
 import { getLanguages } from "../../composite/get-languages.js";
 import { safeMcpResponse } from "../../../../helper.js";
 
-export function registerGetLanguagesTool(server: McpServer, config: Config) {
+export function getLanguagesTool(server: McpServer, config: Config) {
     server.tool(
         'item-service-get-languages',
         "Get Sitecore languages.",

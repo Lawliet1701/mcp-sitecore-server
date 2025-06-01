@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerUnlockItemPowerShell(server: McpServer, config: Config) {
+export function unlockItemPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-unlock-item-by-id",
         "Unlocks a Sitecore item by its ID.",

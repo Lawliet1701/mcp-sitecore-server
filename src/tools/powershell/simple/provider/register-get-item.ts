@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerGetItemPowerShell(server: McpServer, config: Config) {
+export function getItemPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "provider-get-item-by-path",
         "Gets a Sitecore item by its path.",

@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerGetRoleMemberPowerShell(server: McpServer, config: Config) {
+export function getRoleMemberPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-get-role-member",
         "Get members of a Sitecore role.",

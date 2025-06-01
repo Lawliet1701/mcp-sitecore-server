@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerRemoveDomainPowerShell(server: McpServer, config: Config) {
+export function removeDomainPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-remove-domain",
         "Removes a Sitecore domain.",

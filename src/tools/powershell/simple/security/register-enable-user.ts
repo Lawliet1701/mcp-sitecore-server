@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerEnableUserPowerShell(server: McpServer, config: Config) {
+export function enableUserPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-enable-user",
         "Enables the Sitecore user account.",

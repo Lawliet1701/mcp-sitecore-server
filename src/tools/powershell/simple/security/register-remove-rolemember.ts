@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerRemoveRoleMemberPowerShell(server: McpServer, config: Config) {
+export function removeRoleMemberPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-remove-role-member",
         "Removes members from a Sitecore role.",

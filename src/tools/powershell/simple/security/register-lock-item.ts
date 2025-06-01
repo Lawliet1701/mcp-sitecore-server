@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerLockItemPowerShell(server: McpServer, config: Config) {
+export function lockItemPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-lock-item-by-path",
         "Lock a Sitecore item by its path.",

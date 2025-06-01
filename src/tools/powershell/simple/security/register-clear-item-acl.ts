@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerClearItemAclPowerShell(server: McpServer, config: Config) {
+export function clearItemAclPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-clear-item-acl-by-id",
         "Clears all access rules from a Sitecore item by its ID.",

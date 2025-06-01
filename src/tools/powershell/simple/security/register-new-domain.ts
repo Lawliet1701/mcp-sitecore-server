@@ -5,7 +5,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "../../../../helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function registerNewDomainPowerShell(server: McpServer, config: Config) {
+export function newDomainPowerShellTool(server: McpServer, config: Config) {
     server.tool(
         "security-new-domain",
         "Creates a new Sitecore domain.",
