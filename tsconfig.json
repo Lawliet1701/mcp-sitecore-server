@@ -1,6 +1,5 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "compilerOptions": {
+  "$schema": "https://json.schemastore.org/tsconfig",  "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -17,6 +16,10 @@
     "incremental": false,
     "sourceMap": true,
     "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules", "dist"]

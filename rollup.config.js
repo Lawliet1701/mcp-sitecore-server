@@ -1,20 +1,26 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
+import alias from '@rollup/plugin-alias';
+import path from 'path';
 
 export default {
   input: 'dist/index.js',
   output: {
     file: 'dist/bundle.js',
     format: 'esm'
-  },
-  plugins: [
+  },  plugins: [
     nodeResolve({
       preferBuiltins: true
     }),
     commonjs({
     }),
-    json()
+    json(),
+    alias({
+      entries: [
+        { find: '@', replacement: path.resolve('src') }
+      ]
+    })
   ],
   // External packages that shouldn't be bundled
   external: [

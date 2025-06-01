@@ -1,11 +1,9 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { registerItemService } from "./tools/item-service/register-item-service.js";
 import { envSchema, type Config, type EnvConfig } from "./config.js";
-import { registerGraphQL } from "./tools/graphql/register-graphql.js";
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { registerPowerShell } from "./tools/powershell/register-powershell.js";
+import { registerAll } from "./register.js";
 
 // Read package.json data
 const __filename = fileURLToPath(import.meta.url);
@@ -75,12 +73,7 @@ export async function getServer(): Promise<McpServer> {
         }
     );
 
-
-    registerGraphQL(server, config);
-
-    registerItemService(server, config);
-
-    await registerPowerShell(server, config);
-
+    await registerAll(server, config);
+    
     return server;
 }
