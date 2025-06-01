@@ -68,6 +68,9 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `indexing-initialize-search-index`: Initialize one or more Sitecore search indexes
 - `indexing-get-search-index`: Get information about Sitecore search indexes
 - `indexing-find-item`: Find items using the Sitecore Content Search API
+- `indexing-suspend-search-index`: Suspend one or more running Sitecore search indexes
+- `indexing-stop-search-index`: Stop one or more running Sitecore search indexes
+- `indexing-resume-search-index`: Resume one or more paused Sitecore search indexes
 
 ### Composite Indexing Tools
 

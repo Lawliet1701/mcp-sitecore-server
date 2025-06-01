@@ -44,6 +44,9 @@ import { getItemPowerShellTool } from "./tools/powershell/simple/provider/get-it
 import { initializeSearchIndexPowerShellTool } from "./tools/powershell/simple/indexing/initialize-search-index.js";
 import { getSearchIndexPowerShellTool } from "./tools/powershell/simple/indexing/get-search-index.js";
 import { findItemPowerShellTool } from "./tools/powershell/simple/indexing/find-item.js";
+import { resumeSearchIndexPowerShellTool } from "./tools/powershell/simple/indexing/resume-search-index.js";
+import { suspendSearchIndexPowerShellTool } from "./tools/powershell/simple/indexing/suspend-search-index.js";
+import { stopSearchIndexPowerShellTool } from "./tools/powershell/simple/indexing/stop-search-index.js";
 import { setItemAclByIdPowerShellTool } from "./tools/powershell/composite/security/set-item-acl-by-id.js";
 import { setItemAclByPathPowerShellTool } from "./tools/powershell/composite/security/set-item-acl-by-path.js";
 import { initializeSearchIndexingItemByIdPowerShellTool } from "./tools/powershell/composite/indexing/initialialize-search-indexing-item-by-id.js";
@@ -128,11 +131,11 @@ export async function registerAll(server: McpServer, config: Config) {
         setItemAclByPathPowerShellTool,
 
         //Provider
-        getItemPowerShellTool,
-        //Indexing PowerShell Tools
-        initializeSearchIndexPowerShellTool,
-        getSearchIndexPowerShellTool,
-        findItemPowerShellTool,
+        getItemPowerShellTool,        //Indexing PowerShell Tools
+        initializeSearchIndexPowerShellTool,        getSearchIndexPowerShellTool,        findItemPowerShellTool,
+        resumeSearchIndexPowerShellTool,
+        suspendSearchIndexPowerShellTool,
+        stopSearchIndexPowerShellTool,
         //Composite Indexing PowerShell Tools
         initializeSearchIndexingItemByIdPowerShellTool,
         initializeSearchIndexingItemByPathPowerShellTool,

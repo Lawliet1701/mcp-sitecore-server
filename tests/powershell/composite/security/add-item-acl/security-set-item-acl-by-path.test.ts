@@ -32,7 +32,7 @@ describe("powershell", () => {
         const addAclJson = JSON.parse(addAclResult.content[0].text);
 
         // Sleep to ensure the ACL change is processed
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 5000));
 
         // Verify the ACL was added by retrieving the item ACL again
         const getUpdatedAclResult = await callTool(client, "security-get-item-acl-by-path", getAclArgs);

@@ -76,7 +76,9 @@
   - [x] Indexing
     - [x] `indexing-initialize-search-index`: initializes one or more search indexes
     - [x] `indexing-get-search-index`: returns a search index
-    - [x] `indexing-find-item`: finds an item in a search index
+    - [x] `indexing-find-item`: finds an item in a search index    - [x] `indexing-suspend-search-index`: suspends one or more running search indexes
+    - [x] `indexing-stop-search-index`: stops one or more running search indexes
+    - [x] `indexing-resume-search-index`: resumes one or more paused search indexes
     - [x] `indexing-initialize-search-index-item-by-id`: rebuilds the index for a given tree with the specified root item by ID and index name
     - [x] `indexing-initialize-search-index-item-by-path`: rebuilds the index for a given tree with the specified root item by path and index name
     - [x] `indexing-remove-search-index-item-by-id`: removes the item with the specified ID from the search index
