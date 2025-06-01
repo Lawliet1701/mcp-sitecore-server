@@ -1,7 +1,7 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp";
-import type { Config } from "../../../../config.js";
+import type { Config } from "@/config.js";
 import { z } from "zod";
-import { safeMcpResponse } from "../../../../helper.js";
+import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
 export function getSearchIndexPowerShellTool(server: McpServer, config: Config) {
