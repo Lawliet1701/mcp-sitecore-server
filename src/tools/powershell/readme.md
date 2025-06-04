@@ -78,3 +78,14 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `indexing-initialize-search-index-item-by-path`: Rebuild the index for a given tree with the specified root item by path
 - `indexing-remove-search-index-item-by-id`: Remove the item with the specified ID from the search index
 - `indexing-remove-search-index-item-by-path`: Remove the item with the specified path from the search index
+
+## Common Tools
+
+### Simple Common Tools
+
+- `common-get-database`: Get information about Sitecore databases
+- `common-get-cache`: Get information about Sitecore caches
+- `common-get-item-template-by-id`: Get template information for a Sitecore item by ID
+- `common-get-item-template-by-path`: Get template information for a Sitecore item by path
+- `common-get-item-reference-by-id`: Get item references (where it is used) for a Sitecore item by ID
+- `common-get-item-reference-by-path`: Get item references (where it is used) for a Sitecore item by path
