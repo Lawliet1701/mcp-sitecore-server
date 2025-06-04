@@ -60,9 +60,7 @@ import { unprotectItemByPathPowerShellTool } from "./tools/powershell/simple/sec
 import { getDomainByNamePowerShellTool } from "./tools/powershell/simple/security/get-domain-by-name.js";
 import { getAllDomainsPowerShellTool } from "./tools/powershell/simple/security/get-all-domains.js";
 import { getDatabasePowerShellTool } from "./tools/powershell/simple/common/get-database.js";
-
-
-
+import { getCachePowerShellTool } from "./tools/powershell/simple/common/get-cache.js";
 
 export async function register(array: Array<(server: McpServer, config: Config) => void>,
     server: McpServer,
@@ -134,6 +132,7 @@ export async function registerAll(server: McpServer, config: Config) {
         //Common PowerShell Tools
         //Simple Common PowerShell Tools
         getDatabasePowerShellTool,
+        getCachePowerShellTool,
 
         //Provider
         getItemPowerShellTool,        
