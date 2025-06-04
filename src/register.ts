@@ -59,7 +59,7 @@ import { unprotectItemByIdPowerShellTool } from "./tools/powershell/simple/secur
 import { unprotectItemByPathPowerShellTool } from "./tools/powershell/simple/security/unprotect-item-by-path.js";
 import { getDomainByNamePowerShellTool } from "./tools/powershell/simple/security/get-domain-by-name.js";
 import { getAllDomainsPowerShellTool } from "./tools/powershell/simple/security/get-all-domains.js";
-
+import { getDatabasePowerShellTool } from "./tools/powershell/simple/common/get-database.js";
 
 
 
@@ -89,7 +89,8 @@ export async function registerAll(server: McpServer, config: Config) {
 
         //Composite Item Service Tools
         getItemDescendantsTool,
-        getLanguagesTool,        
+        getLanguagesTool,     
+
         //PowerShell tools
         //Security
         //Simple Security PowerShell Tools
@@ -130,9 +131,16 @@ export async function registerAll(server: McpServer, config: Config) {
         setItemAclByIdPowerShellTool,
         setItemAclByPathPowerShellTool,
 
+        //Common PowerShell Tools
+        //Simple Common PowerShell Tools
+        getDatabasePowerShellTool,
+
         //Provider
-        getItemPowerShellTool,        //Indexing PowerShell Tools
-        initializeSearchIndexPowerShellTool,        getSearchIndexPowerShellTool,        findItemPowerShellTool,
+        getItemPowerShellTool,        
+        //Indexing PowerShell Tools
+        initializeSearchIndexPowerShellTool,
+        getSearchIndexPowerShellTool,
+        findItemPowerShellTool,
         resumeSearchIndexPowerShellTool,
         suspendSearchIndexPowerShellTool,
         stopSearchIndexPowerShellTool,
