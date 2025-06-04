@@ -29,7 +29,7 @@ describe("powershell", () => {
                 {
                     filter: "Equals",
                     field: "_path",
-                    value: "{80085F63-DFDF-48CD-900D-3B2028FEFFDF}"
+                    value: "{03BE9151-F1F3-4847-8CB8-FE36DE9CA33E}"
                 }
             ],
             first: 1,  // Limiting results for test performance
@@ -42,6 +42,6 @@ describe("powershell", () => {
         const searchJson = JSON.parse(searchResult.content[0].text);
         // Verify that the search result is successful
         expect(searchJson).toBeDefined();
-        expect(searchJson.Obj[0].Name).toBe("Initialize-SearchIndexItem-By-Path");
+        expect(searchJson[0].Name).toBe("Initialize-SearchIndexItem-By-Path");
     });
 });

@@ -6,7 +6,7 @@ await client.connect(transport);
 
 describe("powershell", () => {
     it("indexing-initialize-search-index-item-by-id", async () => {
-        const testItemId = "{890D960E-3342-4E3A-B079-B1F37227E111}";
+        const testItemId = "{FAEC8BE9-E2F1-4758-930B-0A1D05C9B9AA}";
 
         const args: Record<string, any> = {
             id: testItemId,
@@ -39,6 +39,6 @@ describe("powershell", () => {
         const searchJson = JSON.parse(searchResult.content[0].text);
 
         // Verify that the search result is successful
-        expect(searchJson.Obj[0].Name).toBe("Initialize-SearchIndexItem-By-Id");
+        expect(searchJson[0].Name).toBe("Initialize-SearchIndexItem-By-Id");
     });
 });

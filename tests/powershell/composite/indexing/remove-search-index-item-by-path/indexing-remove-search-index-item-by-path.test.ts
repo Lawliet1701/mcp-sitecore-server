@@ -39,7 +39,7 @@ describe("powershell", () => {
                 {
                     filter: "Equals",
                     field: "_path",
-                    value: "{9988774C-F762-4EA9-9D73-3C1D319B49BE}"
+                    value: "{9EA06B86-A894-431E-9901-E62640170DA0}"
                 }
             ],
             first: 1,

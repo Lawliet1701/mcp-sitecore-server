@@ -6,7 +6,7 @@ await client.connect(transport);
 
 describe("powershell", () => {
     it("indexing-remove-search-index-item-by-id", async () => {
-        const testItemId = "{619797A4-1D67-48B4-8EF9-B83713AD804D}";
+        const testItemId = "{3A683100-550A-4864-BC21-084FE88CD6CF}";
 
         // First, add the item to the index to ensure it exists
         const addToIndexArgs: Record<string, any> = {

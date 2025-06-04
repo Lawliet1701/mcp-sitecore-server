@@ -111,7 +111,7 @@ export async function findItemPowerShellTool(server: McpServer, config: Config) 
         },
         async (params) => {
 
-            const criteria = params.criteria.map(c => {
+            const criteria = params?.criteria?.map(c => {
                 // Depending on the field type and filter type, the criteria format may vary.
                 // Implemented only for DateTime fields and some common filters.
                 // Other fields should be implmented as needed.
@@ -149,7 +149,7 @@ export async function findItemPowerShellTool(server: McpServer, config: Config) 
             return safeMcpResponse(client.executeScriptJson(command, {}).then(
                 (result: any) => {
                     const items = JSON.parse(result).Obj;
-                    const simplifiedItems = items.map((item: any) => {
+                    const simplifiedItems = items?.map((item: any) => {
                         let newItem: Record<string, any> = {};
                         newItem.ItemId = item.ItemId.ToString;
                         newItem.Name = item.Name;

@@ -22,7 +22,7 @@ describe("powershell", () => {
         // Execute the find-item tool
         const result = await callTool(client, "indexing-find-item", searchArgs);
         const json = JSON.parse(result.content[0].text);
-        expect(json.Obj[0].ItemId.Guid).toBe("a044e42c-c52c-469f-b016-a17f3b92a4e5"); // Example expected ID, adjust as necessary
+        expect(json[0].ItemId.toLowerCase()).toBe("{a044e42c-c52c-469f-b016-a17f3b92a4e5}"); // Example expected ID, adjust as necessary
 
     });
 });
