@@ -8,7 +8,7 @@ describe("powershell", () => {
     it("indexing-stop-search-index", async () => {
         // Test stopping a specific index
         const specificIndexArgs: Record<string, any> = {
-            name: "sitecore_test2_index",
+            name: "sitecore_test_index_2",
         };
 
         const specificIndexResult = await callTool(client, "indexing-stop-search-index", specificIndexArgs);

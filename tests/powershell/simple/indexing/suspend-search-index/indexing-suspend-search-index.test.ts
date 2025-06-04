@@ -8,7 +8,7 @@ describe("powershell", () => {
     it("indexing-suspend-search-index", async () => {
         // Test suspending a specific index
         const specificIndexArgs: Record<string, any> = {
-            name: "sitecore_test1_index",
+            name: "sitecore_test_index_3",
         };
 
         const specificIndexResult = await callTool(client, "indexing-suspend-search-index", specificIndexArgs);

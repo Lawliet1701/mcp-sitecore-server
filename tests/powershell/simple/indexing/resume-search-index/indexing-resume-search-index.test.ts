@@ -8,7 +8,7 @@ describe("powershell", () => {
     it("indexing-resume-search-index", async () => {
         // Test resuming a specific index
         const specificIndexArgs: Record<string, any> = {
-            name: "sitecore_test1_index",
+            name: "sitecore_test_index_1",
         };
 
         const specificIndexResult = await callTool(client, "indexing-resume-search-index", specificIndexArgs);
