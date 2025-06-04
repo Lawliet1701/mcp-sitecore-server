@@ -89,3 +89,5 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `common-get-item-template-by-path`: Get template information for a Sitecore item by path
 - `common-get-item-reference-by-id`: Get item references (where it is used) for a Sitecore item by ID
 - `common-get-item-reference-by-path`: Get item references (where it is used) for a Sitecore item by path
+- `common-get-item-referrer-by-id`: Get items referring to a Sitecore item by ID (which items reference it)
+- `common-get-item-referrer-by-path`: Get items referring to a Sitecore item by path (which items reference it)

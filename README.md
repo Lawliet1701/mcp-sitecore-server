@@ -72,11 +72,12 @@
     - [x] `provider-get-item-by-id`: returns an item by ID
     - [x] `provider-get-item-by-path`: returns an item by path
     - [x] `provider-get-item-by-query`: returns an item by query
-    - [x] `provider-get-item-by-path`: returns an item by path
+    - [x] `provider-get-item-by-path`: returns an item by path  
   - [x] Indexing
     - [x] `indexing-initialize-search-index`: initializes one or more search indexes
     - [x] `indexing-get-search-index`: returns a search index
-    - [x] `indexing-find-item`: finds an item in a search index    - [x] `indexing-suspend-search-index`: suspends one or more running search indexes
+    - [x] `indexing-find-item`: finds an item in a search index    
+    - [x] `indexing-suspend-search-index`: suspends one or more running search indexes
     - [x] `indexing-stop-search-index`: stops one or more running search indexes
     - [x] `indexing-resume-search-index`: resumes one or more paused search indexes
     - [x] `indexing-initialize-search-index-item-by-id`: rebuilds the index for a given tree with the specified root item by ID and index name
@@ -84,6 +85,15 @@
     - [x] `indexing-remove-search-index-item-by-id`: removes the item with the specified ID from the search index
     - [x] `indexing-remove-search-index-item-by-path`: removes the item with the specified path from the search index
     - [ ] ~~`indexing-initialize-item`: initializes items with the PowerShell automatic properties for each field.~~ Skipped, no value for MCP server.
+  - [x] Common
+    - [x] `common-get-database`: returns information about Sitecore databases
+    - [x] `common-get-cache`: returns information about Sitecore caches
+    - [x] `common-get-item-template-by-id`: returns template information for a Sitecore item by ID
+    - [x] `common-get-item-template-by-path`: returns template information for a Sitecore item by path
+    - [x] `common-get-item-reference-by-id`: returns item references (where it is used) for a Sitecore item by ID
+    - [x] `common-get-item-reference-by-path`: returns item references (where it is used) for a Sitecore item by path
+    - [x] `common-get-item-referrer-by-id`: returns items referring to a Sitecore item by ID (which items reference it)
+    - [x] `common-get-item-referrer-by-path`: returns items referring to a Sitecore item by path (which items reference it)
 
 - [ ] Sitecore CLI
 

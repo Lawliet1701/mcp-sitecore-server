@@ -65,6 +65,8 @@ import { getItemTemplateByIdPowerShellTool } from "./tools/powershell/simple/com
 import { getItemTemplateByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-template-by-path.js";
 import { getItemReferenceByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-reference-by-id.js";
 import { getItemReferenceByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-reference-by-path.js";
+import { getItemReferrerByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-referrer-by-id.js";
+import { getItemReferrerByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-referrer-by-path.js";
 
 export async function register(array: Array<(server: McpServer, config: Config) => void>,
     server: McpServer,
@@ -131,13 +133,17 @@ export async function registerAll(server: McpServer, config: Config) {
         clearItemAclPowerShellTool,
         //Composite Security PowerShell Tools
         setItemAclByIdPowerShellTool,
-        setItemAclByPathPowerShellTool,        //Common PowerShell Tools
-        //Simple Common PowerShell Tools        getDatabasePowerShellTool,
+        setItemAclByPathPowerShellTool,        
+        //Common PowerShell Tools
+        //Simple Common PowerShell Tools        
+        getDatabasePowerShellTool,
         getCachePowerShellTool,
-        getItemTemplateByIdPowerShellTool,
+        getItemTemplateByIdPowerShellTool,        
         getItemTemplateByPathPowerShellTool,
         getItemReferenceByIdPowerShellTool,
         getItemReferenceByPathPowerShellTool,
+        getItemReferrerByIdPowerShellTool,
+        getItemReferrerByPathPowerShellTool,
 
         //Provider
         getItemPowerShellTool,        
