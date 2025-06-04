@@ -61,6 +61,8 @@ import { getDomainByNamePowerShellTool } from "./tools/powershell/simple/securit
 import { getAllDomainsPowerShellTool } from "./tools/powershell/simple/security/get-all-domains.js";
 import { getDatabasePowerShellTool } from "./tools/powershell/simple/common/get-database.js";
 import { getCachePowerShellTool } from "./tools/powershell/simple/common/get-cache.js";
+import { getItemTemplateByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-template-by-id.js";
+import { getItemTemplateByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-template-by-path.js";
 
 export async function register(array: Array<(server: McpServer, config: Config) => void>,
     server: McpServer,
@@ -127,12 +129,12 @@ export async function registerAll(server: McpServer, config: Config) {
         clearItemAclPowerShellTool,
         //Composite Security PowerShell Tools
         setItemAclByIdPowerShellTool,
-        setItemAclByPathPowerShellTool,
-
-        //Common PowerShell Tools
+        setItemAclByPathPowerShellTool,        //Common PowerShell Tools
         //Simple Common PowerShell Tools
         getDatabasePowerShellTool,
         getCachePowerShellTool,
+        getItemTemplateByIdPowerShellTool,
+        getItemTemplateByPathPowerShellTool,
 
         //Provider
         getItemPowerShellTool,        
