@@ -1,0 +1,40 @@
+import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp";
+import type { Config } from "@/config.js";
+import { z } from "zod";
+import { safeMcpResponse } from "@/helper.js";
+import { runGenericPowershellCommand } from "../generic.js";
+
+export function getLayoutByIdPowershellTool(server: McpServer, config: Config) {
+    server.tool(
+        "layout-get-layout-by-id",
+        "Gets item layout by Id.",
+        {
+            id: z.string().describe("The ID of the item to retrieve layout for."),
+            finalLayout: z
+                .boolean()
+                .optional()
+                .describe("Specifies layout to be retrieved. If 'true', the final layout is retrieved, otherwise - shared layout."),
+            language: z.string()
+                .optional()
+                .describe("Specifies the item language to retrieve layout."),
+        },
+        async (params) => {
+            const command = `Get-Layout`;
+            const options: Record<string, any> = {};
+
+            options["Id"] = params.id;
+            
+            if (params.finalLayout === true)
+            {
+                options["FinalLayout"] = "";
+            }
+
+            if (params.language)
+            {
+                options["Language"] = params.language;
+            }
+
+            return safeMcpResponse(runGenericPowershellCommand(config, command, options));
+        }
+    );
+};
