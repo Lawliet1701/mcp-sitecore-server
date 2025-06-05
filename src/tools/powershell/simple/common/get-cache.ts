@@ -2,7 +2,7 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp";
 import type { Config } from "@/config.js";
 import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
-import { runGenericPowershellCommand } from "../generic";
+import { runGenericPowershellCommand } from "../generic.js";
 
 export function getCachePowerShellTool(server: McpServer, config: Config) {
     server.tool(
