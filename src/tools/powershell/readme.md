@@ -61,6 +61,12 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `security-unprotect-item-by-id`: Unprotect an item by ID
 - `security-unprotect-item-by-path`: Unprotect an item by path
 
+## Logging Tools
+
+### Composite Logging Tools
+
+- `logging-get-logs`: Retrieves Sitecore logs from the log directory with options for filtering by log name, level, date, and number of lines
+
 ## Indexing Tools
 
 ### Simple Indexing Tools
