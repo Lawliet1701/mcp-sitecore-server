@@ -4,14 +4,13 @@ import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../../simple/generic.js";
 
-export function setLayoutIdPowershellTool(server: McpServer, config: Config) {
+export function setLayoutByPathPowershellTool(server: McpServer, config: Config) {
     server.tool(
-        "layout-set-layout-by-id",
-        "Sets layout for an item specified by Id.",
+        "layout-set-layout-by-path",
+        "Sets layout for an item specified by path.",
         {
             itemId: z.string().describe("The Id of the item to set the layout for."),
             layoutPath: z.string().describe("The path of the layout.").default("master:"),
-            layoutId: z.string().describe("The ID of the layout to set for the item."),
             language: z.string().describe("The language of the item to set layout for.").optional(),
             finalLayout: z
                 .boolean()
@@ -20,12 +19,13 @@ export function setLayoutIdPowershellTool(server: McpServer, config: Config) {
         },
         async (params) => {
             const command = `
-                $layout = Get-Item -Path ${params.layoutPath} -Id ${params.layoutId};
-                $device = Get-LayoutDevice -Default;                
+                $layout = Get-Item -Path '${params.layoutPath}';
+                $device = Get-LayoutDevice -Default;
                 Set-Layout -Id ${params.itemId} -Layout $layout -Device $device ${params.language ? `-Language ${params.language}` : ""}
                     ${params.finalLayout ? "-FinalLayout" : ""};
             `.replaceAll(/[\n]+/g, "");
 
             return safeMcpResponse(runGenericPowershellCommand(config, command, {}));
-        });
+        }
+    );
 }
