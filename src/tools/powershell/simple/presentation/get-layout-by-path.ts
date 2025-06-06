@@ -6,7 +6,7 @@ import { runGenericPowershellCommand } from "../generic.js";
 
 export function getLayoutByPathPowershellTool(server: McpServer, config: Config) {
     server.tool(
-        "layout-get-layout-by-path",
+        "presentation-get-layout-by-path",
         "Gets item layout by path.",
         {
             path: z.string().describe("The path of the item to retrieve layout for.").default("master:"),

@@ -6,7 +6,7 @@ import { runGenericPowershellCommand } from "../../simple/generic.js";
 
 export function setLayoutByPathPowershellTool(server: McpServer, config: Config) {
     server.tool(
-        "layout-set-layout-by-path",
+        "presentation-set-layout-by-path",
         "Sets layout for an item specified by path.",
         {
             itemId: z.string().describe("The Id of the item to set the layout for."),

@@ -6,7 +6,7 @@ import { runGenericPowershellCommand } from "../generic.js";
 
 export function getLayoutByIdPowershellTool(server: McpServer, config: Config) {
     server.tool(
-        "layout-get-layout-by-id",
+        "presentation-get-layout-by-id",
         "Gets item layout by Id.",
         {
             id: z.string().describe("The ID of the item to retrieve layout for."),
