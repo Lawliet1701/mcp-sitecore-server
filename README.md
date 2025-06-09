@@ -78,6 +78,8 @@
     - [x] `presentation-get-layout-by-path`: returns item presentation layout by path
     - [x] `presentation-set-layout-by-id`: sets item presentation layout by ID
     - [x] `presentation-set-layout-by-path`: sets item presentation layout by path
+    - [x] `presentation-reset-layout-by-id`: resets item presentation layout by ID
+    - [x] `presentation-reset-layout-by-path`: resets item presentation layout by path
   - [x] Indexing
     - [x] `indexing-initialize-search-index`: initializes one or more search indexes
     - [x] `indexing-get-search-index`: returns a search index
