@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { client, transport } from "../../../client";
-import { getCurrentLayoutId } from "./get-current-layout-id";
+import { getCurrentLayoutId } from "../../tools/get-current-layout-id";
 
 await client.connect(transport);
 
@@ -22,7 +22,7 @@ const testData: Record<string, Record<string, string>> = {
 describe("powershell", () => {
     it("presentation-set-layout-by-path", async () => {
         // Arrange
-        const currentLayoutId = await getCurrentLayoutId(itemId, client);
+        const currentLayoutId = await getCurrentLayoutId(client, itemId);
         const expectedLayout = currentLayoutId.toLowerCase() === testData.layoutOne.id.toLowerCase() ?
             testData.layoutTwo : testData.layoutOne;
 
@@ -37,7 +37,7 @@ describe("powershell", () => {
         await callTool(client, "presentation-set-layout-by-path", setLayoutArgs);
 
         // Assert
-        const layoutId = await getCurrentLayoutId(itemId, client);
+        const layoutId = await getCurrentLayoutId(client, itemId);
         expect(layoutId.toLowerCase()).toBe(expectedLayout.id.toLowerCase());
     });
 });
