@@ -10,9 +10,9 @@ export function getSearchIndexPowerShellTool(server: McpServer, config: Config) 
         "Get information about Sitecore search indexes. Can filter by name, database, running status, or corrupted status.",
         {
             name: z.string().optional().describe("The name of the index to retrieve information for. Supports wildcards."),
-            database: z.string().optional().describe("Filter indices by database name."),
-            running: z.boolean().optional().describe("Filter to show only running indices."),
-            corrupted: z.boolean().optional().describe("Filter to show only corrupted indices."),
+            database: z.string().optional().describe("Filter indexes by database name."),
+            running: z.boolean().optional().describe("Filter to show only running indexes."),
+            corrupted: z.boolean().optional().describe("Filter to show only corrupted indexes."),
         },
         async (params) => {
             const command = `Get-SearchIndex`;
