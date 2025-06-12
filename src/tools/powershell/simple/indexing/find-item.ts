@@ -144,44 +144,21 @@ export async function findItemPowerShellTool(server: McpServer, config: Config) 
                 return `@{ Filter = "${c.filter}"; Field = "${c.field}"; Value = "${c.value}"; }`;
             }).join(", ");
 
-            const command = `Find-Item -Index "${params.index}" -Criteria @(${criteria}) -First ${params.first} -Skip ${params.skip} `;
+            let extraFields = "";
+            params.criteria.forEach((c: any) => {
+                extraFields += `, @{n="${c.field}"; e={$_.Fields["${c.field}"]}}`;
+            });
+
+            const command = `Find-Item -Index "${params.index}" -Criteria @(${criteria}) -First ${params.first} -Skip ${params.skip} | Select-Object  @{n="Name"; e={$_.Name}}, @{n="Path"; e={$_.Path}},@{n="ItemId"; e={$_.ItemId.ToString()}}, @{n="TemplateId"; e={$_.TemplateId.ToString()}}, @{n="TemplateName"; e={$_.TemplateName}} ${extraFields}`;
 
             return safeMcpResponse(client.executeScriptJson(command, {}).then(
                 (result: any) => {
                     const items = JSON.parse(result).Obj;
-                    const simplifiedItems = items?.map((item: any) => {
-                        let newItem: Record<string, any> = {};
-                        newItem.ItemId = item.ItemId.ToString;
-                        newItem.Name = item.Name;
-                        newItem.Path = item.Path;
-                        newItem.TemplateId = item.TemplateId.ToString;
-                        newItem.TemplateName = item.TemplateName;
-                        params.criteria.forEach((c: any) => {
-                            let f = false;
-                            for (const language of languages) {
-                                if (c.field.endsWith(`_${language.toLowerCase()}`)) {
-                                    f = true;
-                                    newItem[c.field] = item.Fields[language].find((x: any) =>
-                                        x.Key === c.field.replace(`_${language.toLowerCase()}`, "")
-                                    )["Value"];
-                                    break;
-                                }
-                            }
-
-                            if (!f) {
-                                // Field was not found, probably it is not a text language field
-                                // Use values from EN version
-                                newItem[c.field] = item.Fields["En"].find((x: any) =>
-                                    x.Key === c.field
-                                )["Value"];
-                            }
-                        });
-                        return newItem;
-                    });
+                   
                     return {
                         content: [{
                             type: "text",
-                            text: result === "{}" ? "No items found." : JSON.stringify(simplifiedItems, null, 2)
+                            text: result === "{}" ? "No items found." : JSON.stringify(items, null, 2)
                         }]
                     };
                 },
