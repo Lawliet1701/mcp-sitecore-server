@@ -18,6 +18,8 @@ class PowershellClient {
 
     async executeScript(script: string, parameters: Record<string, any> = {}): Promise<any> {
         const uuid = generateUUID();
+        // Consider passing `rawOutput=True` and use custom serialization to CSV/JSON
+        // ConvertTo-CliXml that is used internally in SPE relies on System.Management.Automation.Serializer, which seems has bad performance.
         const url = `${this.serverUrl}/-/script/script/?sessionId=${uuid}&rawOutput=False&persistentSession=False `;
         const headers = {
             'Authorization': this.bearertoken || '',
