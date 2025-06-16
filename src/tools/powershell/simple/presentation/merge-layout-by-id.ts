@@ -7,7 +7,7 @@ import { runGenericPowershellCommand } from "../generic.js";
 export function mergeLayoutByIdPowershellTool(server: McpServer, config: Config) {
     server.tool(
         "presentation-merge-layout-by-id",
-        "Merges final and shared layouts by  item Id.",
+        "Merges final and shared layouts by item Id.",
         {
             id: z.string().describe("The ID of the item to merge layout for."),
             database: z.string().optional().describe("The database to merge layout for."),
