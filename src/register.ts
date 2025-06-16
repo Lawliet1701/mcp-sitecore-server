@@ -72,6 +72,12 @@ import { getLayoutByIdPowershellTool } from "./tools/powershell/simple/presentat
 import { getLayoutByPathPowershellTool } from "./tools/powershell/simple/presentation/get-layout-by-path.js";
 import { setLayoutIdPowershellTool } from "./tools/powershell/composite/presentation/set-layout-by-id.js";
 import { setLayoutByPathPowershellTool } from "./tools/powershell/composite/presentation/set-layout-by-path.js";
+import { resetLayoutByIdPowershellTool } from "./tools/powershell/simple/presentation/reset-layout-by-id.js";
+import { resetLayoutByPathPowershellTool } from "./tools/powershell/simple/presentation/reset-layout-by-path.js";
+import { mergeLayoutByIdPowershellTool } from "./tools/powershell/simple/presentation/merge-layout-by-id.js";
+import { mergeLayoutByPathPowershellTool } from "./tools/powershell/simple/presentation/merge-layout-by-path.js";
+import { getLayoutDevicePowershellTool } from "./tools/powershell/simple/presentation/get-layout-device.js";
+import { getDefaultLayoutDevicePowershellTool } from "./tools/powershell/simple/presentation/get-default-layout-device.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
 
 
@@ -153,10 +159,16 @@ export async function registerAll(server: McpServer, config: Config) {
         getItemReferrerByPathPowerShellTool,
 
 
-        //Layout
+        //Presentation
         //Simple Layout PowerShell Tools
         getLayoutByIdPowershellTool,
         getLayoutByPathPowershellTool,
+        resetLayoutByIdPowershellTool,
+        resetLayoutByPathPowershellTool,
+        mergeLayoutByIdPowershellTool,
+        mergeLayoutByPathPowershellTool,
+        getLayoutDevicePowershellTool,
+        getDefaultLayoutDevicePowershellTool,
         //Composite Layout PowerShell Tools
         setLayoutIdPowershellTool,
         setLayoutByPathPowershellTool,
