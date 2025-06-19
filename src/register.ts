@@ -78,6 +78,7 @@ import { mergeLayoutByIdPowershellTool } from "./tools/powershell/simple/present
 import { mergeLayoutByPathPowershellTool } from "./tools/powershell/simple/presentation/merge-layout-by-path.js";
 import { getLayoutDevicePowershellTool } from "./tools/powershell/simple/presentation/get-layout-device.js";
 import { getDefaultLayoutDevicePowershellTool } from "./tools/powershell/simple/presentation/get-default-layout-device.js";
+import { getRenderingByIdPowershellTool } from "./tools/powershell/simple/presentation/get-rendering-by-id.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
 
 
@@ -169,6 +170,7 @@ export async function registerAll(server: McpServer, config: Config) {
         mergeLayoutByPathPowershellTool,
         getLayoutDevicePowershellTool,
         getDefaultLayoutDevicePowershellTool,
+        getRenderingByIdPowershellTool,
         //Composite Layout PowerShell Tools
         setLayoutIdPowershellTool,
         setLayoutByPathPowershellTool,
