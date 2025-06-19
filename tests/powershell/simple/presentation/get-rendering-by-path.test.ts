@@ -4,7 +4,7 @@ import { client, transport } from "../../../client";
 
 await client.connect(transport);
 
-const path = "/sitecore/content/Home/Tests/Presentation/Get-Rendering-By-Path";
+const path = "master:/sitecore/content/Home/Tests/Presentation/Get-Rendering-By-Path";
 
 const sampleRenderingId = "{493B3A83-0FA7-4484-8FC9-4680991CF743}";
 

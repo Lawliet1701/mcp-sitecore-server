@@ -4,49 +4,42 @@ import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
 
-export function getRenderingByIdPowershellTool(server: McpServer, config: Config) {
+export function removeRenderingByPathPowershellTool(server: McpServer, config: Config) {
     server.tool(
-        "presentation-get-rendering-by-id",
-        "Gets rendering definition by item id.",
+        "presentation-remove-rendering-by-path",
+        "Removes renderings from an item by owners item path.",
         {
-            itemId: z.string().describe("The id of the item to retrieve rendering for."),
-            database: z.string().describe("The context database.").optional(),
+            path: z.string().describe("The path of the item to remove rendering from."),
+            uniqueId: z.string().describe("The rendering definition unique id."),
             dataSource: z.string().describe("The rendering data source filter.").optional(),
-            placeholder: z.string().describe("The rendering datasource filter.").optional(),
+            placeholder: z.string().describe("The rendering placeholder filter.").optional(),
             language: z.string().describe("The item language filter.").optional(),
             finalLayout: z.boolean()
                 .describe("Specifies layout holding the rendering definition. If 'true', the final layout is used, otherwise - shared layout.")
                 .optional(),
-            uniqueId: z.string().describe("The rendering definition unique id.").optional(),
         },
         async (params) => {
-            const command = `Get-Rendering`;
+            const command = `Remove-Rendering`;
+
             const options: Record<string, any> = {};
 
-            options["Id"] = params.itemId;
-
-            if (params.database) {
-                options["Database"] = params.database;
-            }
+            options["Path"] = params.path;
+            options["UniqueId"] = params.uniqueId;
 
             if (params.dataSource) {
                 options["DataSource"] = params.dataSource;
             }
-
+            
             if (params.placeholder) {
                 options["Placeholder"] = params.placeholder;
             }
 
             if (params.language) {
                 options["Language"] = params.language;
-            }   
+            }
 
             if (params.finalLayout === true) {
                 options["FinalLayout"] = "";
-            }
-
-            if (params.uniqueId) {
-                options["UniqueId"] = params.uniqueId;
             }
 
             return safeMcpResponse(runGenericPowershellCommand(config, command, options));
