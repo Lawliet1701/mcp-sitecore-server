@@ -4,42 +4,46 @@ import { client, transport } from "../../../client";
 
 await client.connect(transport);
 
-const path = "master:/sitecore/content/Home/Tests/Presentation/Remove-Rendering-By-Path";
+// /sitecore/content/Home/Tests/Presentation/Remove-Rendering-By-Id
+const itemId = "{4F0080AF-E681-4B89-95F9-BC3669546554}";
 
 const sampleRenderingUniqueId = "{B343725A-3A93-446E-A9C8-3A2CBD3DB489}";
 
 const language = "ja-jp";
+const database = "master";
 
 describe("powershell", () => {
-    it("presentation-remove-rendering-by-path", async () => {
+    it("presentation-remove-rendering-by-id", async () => {
         // Arrange
         // Initialize item initial state before test.        
         const resetLayoutArgs: Record<string, any> = {
-            path,
+            id: itemId,
+            database,
             language,
             finalLayout: "true",            
         };
     
-        await callTool(client, "presentation-reset-layout-by-path", resetLayoutArgs);
+        await callTool(client, "presentation-reset-layout-by-id", resetLayoutArgs);
 
         const removeRenderingArgs: Record<string, any> = {
-            path,
+            itemId,
             uniqueId: sampleRenderingUniqueId,
+            database,
             language,
             finalLayout: "true",
         };
 
         // Act
-        await callTool(client, "presentation-remove-rendering-by-path", removeRenderingArgs);
+        await callTool(client, "presentation-remove-rendering-by-id", removeRenderingArgs);
 
         // Assert
         const getRenderingsArgs: Record<string, any> = {
-            path,
+            itemId,
             language,
             finalLayout: "true",
         };
 
-        const result = await callTool(client, "presentation-get-rendering-by-path", getRenderingsArgs);
+        const result = await callTool(client, "presentation-get-rendering-by-id", getRenderingsArgs);
         const resultJson = JSON.parse(result.content[0].text);
         expect(resultJson.Obj.length).toBe(2);
         const sampleRenderingIsPresent =
