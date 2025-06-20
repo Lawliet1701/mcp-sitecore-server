@@ -1,8 +1,8 @@
 # Model Context Protocol server for Sitecore
 
 [![Build](https://github.com/antonytm/mcp-sitecore-server/actions/workflows/publish-npm.yml/badge.svg)](https://github.com/Antonytm/mcp-sitecore-server/actions/workflows/publish-npm.yml)
-
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![smithery badge](https://smithery.ai/badge/@Antonytm/mcp-sitecore-server)](https://smithery.ai/server/@Antonytm/mcp-sitecore-server)
 
 ## Implemented tools
 
@@ -115,6 +115,14 @@
 AI Agents may have limit on the amount of tools they can use. Please make sure that you have disabled the tools you don't need. It will make your agent faster, cheaper and more efficient.
 
 ## Installation
+
+### Installing via Smithery
+
+To install Sitecore Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@Antonytm/mcp-sitecore-server):
+
+```bash
+npx -y @smithery/cli install @Antonytm/mcp-sitecore-server --client claude
+```
 
 Add the following Model Context Protocol server to your Cursor, VS Code, Claud:
 
