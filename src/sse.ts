@@ -1,12 +1,13 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import express from "express";
 import type { Request, Response } from "express";
 
 import { getServer } from "./server.js";
+import { config } from "./config.js";
+import { authorizationHeaderName } from "./const.js";
 
 export async function startSSE() {
-  const server = await getServer();
+  const server = await getServer(config);
 
   const app = express();
 
@@ -14,22 +15,33 @@ export async function startSSE() {
   // sessionId to transport
   const transports: { [sessionId: string]: SSEServerTransport } = {};
 
-  app.get("/sse", async (_: Request, res: Response) => {
-    const transport = new SSEServerTransport('/messages', res);
-    transports[transport.sessionId] = transport;
-    res.on("close", () => {
-      delete transports[transport.sessionId];
-    });
-    await server.connect(transport);
+  app.get("/sse", async (req: Request, res: Response) => {
+
+    if (config.authorizationHeader === ""
+      || config.authorizationHeader === req.headers[authorizationHeaderName]) {
+      const transport = new SSEServerTransport('/messages', res);
+      transports[transport.sessionId] = transport;
+      res.on("close", () => {
+        delete transports[transport.sessionId];
+      });
+      await server.connect(transport);
+    } else {
+      res.status(401).send('Unauthorized');
+    }
   });
 
   app.post("/messages", async (req: Request, res: Response) => {
-    const sessionId = req.query.sessionId as string;
-    const transport = transports[sessionId];
-    if (transport) {
-      await transport.handlePostMessage(req, res);
+    if (config.authorizationHeader === ""
+      || config.authorizationHeader === req.headers[authorizationHeaderName]) {
+      const sessionId = req.query.sessionId as string;
+      const transport = transports[sessionId];
+      if (transport) {
+        await transport.handlePostMessage(req, res);
+      } else {
+        res.status(400).send('No transport found for sessionId');
+      }
     } else {
-      res.status(400).send('No transport found for sessionId');
+      res.status(401).send('Unauthorized');
     }
   });
 

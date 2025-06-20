@@ -1,7 +1,11 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { z } from "zod";
+import fs from "node:fs";
 
 const ConfigSchema = z.object({
     name: z.string().default("mcp-sitecore-server"),
+    version: z.string().optional(),
     graphQL: z.object({
         endpoint: z.string().url().min(1, "endpoint is required"),
         schemas: z.array(z.string()),
@@ -35,6 +39,7 @@ const ConfigSchema = z.object({
         password: "b",
         serverUrl: "https://xmcloudcm.localhost/",
     }),
+    authorizationHeader: z.string().default("")
 });
 
 export const envSchema = z.object({
@@ -50,6 +55,7 @@ export const envSchema = z.object({
     POWERSHELL_USERNAME: z.string().optional(),
     POWERSHELL_PASSWORD: z.string().optional(),
     POWERSHELL_SERVER_URL: z.string().url().optional(),
+    AUTORIZATION_HEADER: z.string().optional(),
 });
 
 export const envStartSchema = z.object({
@@ -69,3 +75,35 @@ export type Config = z.infer<typeof ConfigSchema>;
 export type EnvConfig = z.infer<typeof envSchema>;
 export type EnvStartConfig = z.infer<typeof envStartSchema>;
 
+// Read package.json data
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const packagePath = path.resolve(__dirname, '..', 'package.json');
+const packageData = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+const { version, name } = packageData;
+
+const ENV: EnvConfig = envSchema.parse(process.env);
+const config: Config = {
+    name: `${name} ${version}`,
+    graphQL: {
+        endpoint: ENV.GRAPHQL_ENDPOINT || "https://xmcloudcm.localhost/sitecore/api/graph/",
+        schemas: ENV.GRAPHQL_SCHEMAS ? ENV.GRAPHQL_SCHEMAS.split(",").map(x => x.trim()) : ["edge", "master"],
+        apiKey: ENV.GRAPHQL_API_KEY || "{6D3F291E-66A5-4703-887A-D549AF83D859}",
+        headers: ENV.GRAPHQL_HEADERS ? JSON.parse(ENV.GRAPHQL_HEADERS) : {},
+    },
+    itemService: {
+        domain: ENV.ITEM_SERVICE_DOMAIN || "sitecore",
+        username: ENV.ITEM_SERVICE_USERNAME || "admin",
+        password: ENV.ITEM_SERVICE_PASSWORD || "b",
+        serverUrl: ENV.ITEM_SERVICE_SERVER_URL || "https://xmcloudcm.localhost/",
+    },
+    powershell: {
+        domain: ENV.POWERSHELL_DOMAIN || "sitecore",
+        username: ENV.POWERSHELL_USERNAME || "admin",
+        password: ENV.POWERSHELL_PASSWORD || "b",
+        serverUrl: ENV.POWERSHELL_SERVER_URL || "https://xmcloudcm.localhost/",
+    },
+    authorizationHeader: ENV.AUTORIZATION_HEADER || "",
+};
+
+export { config };

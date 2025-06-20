@@ -3,6 +3,8 @@ import { generateUUID } from "./utils.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js"
 import { getServer } from "./server.js";
+import { config } from "./config.js";
+import { authorizationHeaderName } from "./const.js";
 
 export function startStreamableHTTP() {
     const app = express();
@@ -13,47 +15,53 @@ export function startStreamableHTTP() {
 
     // Handle POST requests for client-to-server communication
     app.post('/mcp', async (req, res) => {
-        // Check for existing session ID
-        const sessionId = req.headers['mcp-session-id'] as string | undefined;
-        let transport: StreamableHTTPServerTransport;
+        if (config.authorizationHeader === "" ||
+            config.authorizationHeader === req.headers[authorizationHeaderName]
+        ) {
+            // Check for existing session ID
+            const sessionId = req.headers['mcp-session-id'] as string | undefined;
+            let transport: StreamableHTTPServerTransport;
 
-        if (sessionId && transports[sessionId]) {
-            // Reuse existing transport
-            transport = transports[sessionId];
-        } else if (!sessionId && isInitializeRequest(req.body)) {
-            // New initialization request
-            transport = new StreamableHTTPServerTransport({
-                sessionIdGenerator: () => generateUUID(),
-                onsessioninitialized: (sessionId) => {
-                    // Store the transport by session ID
-                    transports[sessionId] = transport;
-                }
-            });
+            if (sessionId && transports[sessionId]) {
+                // Reuse existing transport
+                transport = transports[sessionId];
+            } else if (!sessionId && isInitializeRequest(req.body)) {
+                // New initialization request
+                transport = new StreamableHTTPServerTransport({
+                    sessionIdGenerator: () => generateUUID(),
+                    onsessioninitialized: (sessionId) => {
+                        // Store the transport by session ID
+                        transports[sessionId] = transport;
+                    }
+                });
 
-            // Clean up transport when closed
-            transport.onclose = () => {
-                if (transport.sessionId) {
-                    delete transports[transport.sessionId];
-                }
-            };
-            const server = await getServer();
+                // Clean up transport when closed
+                transport.onclose = () => {
+                    if (transport.sessionId) {
+                        delete transports[transport.sessionId];
+                    }
+                };
+                const server = await getServer(config);
 
-            await server.connect(transport);
+                await server.connect(transport);
+            } else {
+                // Invalid request
+                res.status(400).json({
+                    jsonrpc: '2.0',
+                    error: {
+                        code: -32000,
+                        message: 'Bad Request: No valid session ID provided',
+                    },
+                    id: null,
+                });
+                return;
+            }
+
+            // Handle the request
+            await transport.handleRequest(req, res, req.body);
         } else {
-            // Invalid request
-            res.status(400).json({
-                jsonrpc: '2.0',
-                error: {
-                    code: -32000,
-                    message: 'Bad Request: No valid session ID provided',
-                },
-                id: null,
-            });
-            return;
+            res.status(401).send('Unauthorized');
         }
-
-        // Handle the request
-        await transport.handleRequest(req, res, req.body);
     });
 
     // Reusable handler for GET and DELETE requests
