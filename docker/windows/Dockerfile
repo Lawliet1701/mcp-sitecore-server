@@ -2,10 +2,9 @@ FROM mcr.microsoft.com/windows/servercore:ltsc2019 AS installer
 
 SHELL ["cmd", "/S", "/C"]
 
-RUN powershell -Command "Invoke-WebRequest -OutFile nodejs.zip -UseBasicParsing 'https://nodejs.org/dist/v22.16.0/node-v22.16.0-win-x64.zip'" && \
-    powershell -Command "Expand-Archive nodejs.zip -DestinationPath C:\" && \
-    ren "C:\node-v22.16.0-win-x64" nodejs && \
-    del nodejs.zip
+RUN powershell -Command "Invoke-WebRequest -OutFile nodejs.zip -UseBasicParsing 'https://nodejs.org/dist/v22.16.0/node-v22.16.0-win-x64.zip'"
+RUN powershell -Command "Expand-Archive nodejs.zip -DestinationPath C:\\"
+RUN ren "C:\node-v22.16.0-win-x64" nodejs
 
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
