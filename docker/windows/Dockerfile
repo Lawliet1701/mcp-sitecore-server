@@ -1,10 +1,10 @@
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS installer
+FROM mcr.microsoft.com/windows/servercore:ltsc2019 AS installer
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';$ProgressPreference='silentlyContinue';"]
 
 RUN Invoke-WebRequest -OutFile nodejs.zip -UseBasicParsing "https://nodejs.org/dist/v22.16.0/node-v22.16.0-win-x64.zip"; Expand-Archive nodejs.zip -DestinationPath C:\; Rename-Item "C:\\node-v22.16.0-win-x64" c:\nodejs
 
-FROM mcr.microsoft.com/windows/nanoserver:1803
+FROM mcr.microsoft.com/windows/nanoserver:ltsc2019
 
 WORKDIR C:/nodejs
 COPY --from=installer C:/nodejs/ .
