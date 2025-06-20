@@ -158,6 +158,11 @@ Add the following Model Context Protocol server to your Cursor, VS Code, Claud:
 - `POWERSHELL_SERVER_URL`: The base URL for the Sitecore PowerShell Remoting API.
 - `AUTORIZATION_HEADER`: Optional. If set, it will be used as an authorization header for access to the server. MCP server will expect `authorization` header to be passed with the value of this environment variable. If environment variable is not set, the server will not check for the authorization header.
 
+## Docker images
+
+- `antonytm/mcp-sitecore-linux`: [The Linux version](https://hub.docker.com/r/antonytm/mcp-sitecore-linux) of the MCP Sitecore server.
+- `antonytm/mcp-sitecore-windows`: [The Windows version](https://hub.docker.com/r/antonytm/mcp-sitecore-windows) of the MCP Sitecore server.
+
 ## Resources list
 
 - [x] `config`: returns the configuration of the server. Use it to check if everything is properly configured.
