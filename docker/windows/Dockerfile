@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/servercore:1803 as installer
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS installer
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';$ProgressPreference='silentlyContinue';"]
 
