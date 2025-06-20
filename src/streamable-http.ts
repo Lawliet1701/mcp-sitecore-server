@@ -14,9 +14,13 @@ export function startStreamableHTTP() {
     const transports: { [sessionId: string]: StreamableHTTPServerTransport } = {};
 
     // Handle POST requests for client-to-server communication
+
     app.post('/mcp', async (req, res) => {
+        // Inspector adds "Bearer" to the authorization header, so we need to strip it 
+        const authHeaderValue = (req.headers[authorizationHeaderName] as string | "")
+            .replace(/Bearer\s+/i, '');
         if (config.authorizationHeader === "" ||
-            config.authorizationHeader === req.headers[authorizationHeaderName]
+            config.authorizationHeader === authHeaderValue
         ) {
             // Check for existing session ID
             const sessionId = req.headers['mcp-session-id'] as string | undefined;
@@ -66,14 +70,25 @@ export function startStreamableHTTP() {
 
     // Reusable handler for GET and DELETE requests
     const handleSessionRequest = async (req: express.Request, res: express.Response) => {
-        const sessionId = req.headers['mcp-session-id'] as string | undefined;
-        if (!sessionId || !transports[sessionId]) {
-            res.status(400).send('Invalid or missing session ID');
-            return;
-        }
+        const authHeaderValue = (req.headers[authorizationHeaderName] as string | "")
+            .replace(/Bearer\s+/i, '');
 
-        const transport = transports[sessionId];
-        await transport.handleRequest(req, res);
+        if (config.authorizationHeader === "" ||
+            config.authorizationHeader === authHeaderValue) {
+
+
+
+            const sessionId = req.headers['mcp-session-id'] as string | undefined;
+            if (!sessionId || !transports[sessionId]) {
+                res.status(400).send('Invalid or missing session ID');
+                return;
+            }
+
+            const transport = transports[sessionId];
+            await transport.handleRequest(req, res);
+        } else {
+            res.status(401).send('Unauthorized');
+        }
     };
 
     // Handle GET requests for server-to-client notifications via SSE

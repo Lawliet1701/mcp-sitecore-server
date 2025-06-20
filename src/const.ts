@@ -1,1 +1,1 @@
-export const authorizationHeaderName = "Authorization";
+export const authorizationHeaderName = "authorization";

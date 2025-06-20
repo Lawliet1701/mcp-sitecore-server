@@ -16,9 +16,10 @@ export async function startSSE() {
   const transports: { [sessionId: string]: SSEServerTransport } = {};
 
   app.get("/sse", async (req: Request, res: Response) => {
-
+    const authHeaderValue = (req.headers[authorizationHeaderName] as string | "")
+            .replace(/Bearer\s+/i, '');
     if (config.authorizationHeader === ""
-      || config.authorizationHeader === req.headers[authorizationHeaderName]) {
+      || config.authorizationHeader === authHeaderValue) {
       const transport = new SSEServerTransport('/messages', res);
       transports[transport.sessionId] = transport;
       res.on("close", () => {
@@ -31,8 +32,10 @@ export async function startSSE() {
   });
 
   app.post("/messages", async (req: Request, res: Response) => {
+    const authHeaderValue = (req.headers[authorizationHeaderName] as string | "")
+            .replace(/Bearer\s+/i, '');
     if (config.authorizationHeader === ""
-      || config.authorizationHeader === req.headers[authorizationHeaderName]) {
+      || config.authorizationHeader === authHeaderValue) {
       const sessionId = req.query.sessionId as string;
       const transport = transports[sessionId];
       if (transport) {
