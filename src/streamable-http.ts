@@ -17,7 +17,7 @@ export function startStreamableHTTP() {
 
     app.post('/mcp', async (req, res) => {
         // Inspector adds "Bearer" to the authorization header, so we need to strip it 
-        const authHeaderValue = (req.headers[authorizationHeaderName] as string | "")
+        const authHeaderValue = (req.headers[authorizationHeaderName] as string ?? "")
             .replace(/Bearer\s+/i, '');
         if (config.authorizationHeader === "" ||
             config.authorizationHeader === authHeaderValue
@@ -70,7 +70,7 @@ export function startStreamableHTTP() {
 
     // Reusable handler for GET and DELETE requests
     const handleSessionRequest = async (req: express.Request, res: express.Response) => {
-        const authHeaderValue = (req.headers[authorizationHeaderName] as string | "")
+        const authHeaderValue = (req.headers[authorizationHeaderName] as string ?? "")
             .replace(/Bearer\s+/i, '');
 
         if (config.authorizationHeader === "" ||

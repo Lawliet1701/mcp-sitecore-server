@@ -17,6 +17,6 @@ jobs:
       - name: Build and Push
         shell: powershell
         run: |
-          docker build --platform windows/amd64 -t antonytm/mcp-sitecore-windows:latest -t antonytm/mcp-sitecore-windows:0.20.1 -f ./docker/windows/Dockerfile .
+          docker build --platform windows/amd64 -t antonytm/mcp-sitecore-windows:latest -t antonytm/mcp-sitecore-windows:0.20.2 -f ./docker/windows/Dockerfile .
           docker push antonytm/mcp-sitecore-windows:latest
-          docker push antonytm/mcp-sitecore-windows:0.20.1
+          docker push antonytm/mcp-sitecore-windows:0.20.2
