@@ -17,7 +17,9 @@ jobs:
       - name: Build and Push
         shell: powershell
         run: |
+          docker version
+          dokcer info
           & $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchWindowsEngine
-          docker build --platform windows/amd64 -t antonytm/mcp-sitecore-windows:latest -t antonytm/mcp-sitecore-windows:0.19.23 -f ./docker/windows/Dockerfile .
+          docker build --platform windows/amd64 -t antonytm/mcp-sitecore-windows:latest -t antonytm/mcp-sitecore-windows:0.19.24 -f ./docker/windows/Dockerfile .
           docker push antonytm/mcp-sitecore-windows:latest
-          docker push antonytm/mcp-sitecore-windows:0.19.23
+          docker push antonytm/mcp-sitecore-windows:0.19.24
