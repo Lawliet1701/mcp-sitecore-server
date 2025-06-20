@@ -12,8 +12,9 @@ jobs:
         name: Build & push Docker image
         with:
           image: antonytm/mcp-sitecore-windows
-          tags: 0.19.16, latest
+          tags: 0.19.17, latest
           registry: docker.io
+          platform: windows/amd64
           dockerfile: ./docker/windows/Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
