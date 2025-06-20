@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/windows/servercore:ltsc2019 AS installer
 
+ENV PATH=C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\ContainerAdministrator\\AppData\\Local\\Microsoft\\WindowsApps
 SHELL ["CMD", "/C"]
-ENV PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\ContainerAdministrator\AppData\Local\Microsoft\WindowsApps
 
 RUN powershell -Command "Invoke-WebRequest -OutFile nodejs.zip -UseBasicParsing 'https://nodejs.org/dist/v22.16.0/node-v22.16.0-win-x64.zip'"
 RUN powershell -Command "Expand-Archive nodejs.zip -DestinationPath C:\\"
