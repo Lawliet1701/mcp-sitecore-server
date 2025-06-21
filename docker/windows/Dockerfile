@@ -24,9 +24,6 @@ RUN npm run build
 # Remove dev dependencies
 RUN npm prune --production
 
-#Sitecore XM Cloud has problem with https certificates
-ENV NODE_TLS_REJECT_UNAUTHORIZED=0
-
 # Default start
 CMD ["node","c:/app/dist/index.js"]
 
