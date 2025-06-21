@@ -116,15 +116,7 @@ AI Agents may have limit on the amount of tools they can use. Please make sure t
 
 ## Installation
 
-### Installing via Smithery
-
-To install Sitecore Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@Antonytm/mcp-sitecore-server):
-
-```bash
-npx -y @smithery/cli install @Antonytm/mcp-sitecore-server --client claude
-```
-
-Add the following Model Context Protocol server to your Cursor, VS Code, Claud:
+Add the following Model Context Protocol server to your Cursor, VS Code, Claude:
 
 ```json
     "Sitecore": {
@@ -151,7 +143,7 @@ Add the following Model Context Protocol server to your Cursor, VS Code, Claud:
 
 ### Environment Variables Description
 
-- `TRANSPORT`: The transport protocol to use. Options are `stdio` or `sse`.
+- `TRANSPORT`: The transport protocol to use. Options are `streamable-http`, `stdio` or `sse`.
 - `GRAPHQL_ENDPOINT`: The GraphQL endpoint URL for the Sitecore instance.
 - `GRAPHQL_SCHEMAS`: The Sitecore schemas to use for the GraphQL API, comma-separated.
 - `GRAPHQL_API_KEY`: The API key for the GraphQL endpoint.
