@@ -16,6 +16,6 @@ jobs:
       - name: Build and Push
         shell: bash
         run: |
-          docker build -t antonytm/mcp-sitecore-linux:latest -t antonytm/mcp-sitecore-linux:0.20.2 -f ./docker/linux/Dockerfile .
+          docker build -t antonytm/mcp-sitecore-linux:latest -t antonytm/mcp-sitecore-linux:0.20.3 -f ./docker/linux/Dockerfile .
           docker push antonytm/mcp-sitecore-linux:latest
-          docker push antonytm/mcp-sitecore-linux:0.20.2
+          docker push antonytm/mcp-sitecore-linux:0.20.3
