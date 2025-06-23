@@ -83,6 +83,7 @@ import { getRenderingByPathPowershellTool } from "./tools/powershell/simple/pres
 import { removeRenderingByPathPowershellTool } from "./tools/powershell/simple/presentation/remove-rendering-by-path.js";
 import { removeRenderingByIdPowershellTool } from "./tools/powershell/simple/presentation/remove-rendering-by-id.js";
 import { addRenderingByPathPowershellTool } from "./tools/powershell/composite/presentation/add-rendering-by-path.js";
+import { addRenderingByIdPowershellTool } from "./tools/powershell/composite/presentation/add-rendering-by-id.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
 
 
@@ -182,10 +183,10 @@ export async function registerAll(server: McpServer, config: Config) {
         setLayoutIdPowershellTool,
         setLayoutByPathPowershellTool,
         addRenderingByPathPowershellTool,
+        addRenderingByIdPowershellTool,
 
         //Logging
         getLogsPowerShellTool,
-
 
         //Provider
         getItemPowerShellTool,        
