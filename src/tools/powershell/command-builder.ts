@@ -5,7 +5,12 @@ export class PowershellCommandBuilder
     buildCommandString(script: string, parameters: Record<string, any> = {}): string {
         let scriptWithParameters = script;
         if (parameters) {
-            for (const parameter in parameters) {
+            for (const parameter in parameters) {                
+                if (parameters[parameter] === undefined || parameters[parameter] === null)
+                {
+                    continue;
+                }
+
                 if (parameters[parameter] === "") {
                     scriptWithParameters += ` -${parameter}`;
                 }
