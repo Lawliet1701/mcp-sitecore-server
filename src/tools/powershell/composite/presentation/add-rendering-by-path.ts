@@ -54,7 +54,7 @@ export function addRenderingByPathPowershellTool(server: McpServer, config: Conf
             }
             
             const command = `
-                $rendering = Get-Item -Path "${params.renderingPath}" | New-Rendering;
+                $rendering = New-Rendering -Path "${params.renderingPath}";
                 ${commandBuilder.buildCommandString('Add-Rendering', addRenderingParameters)};
             `;
             
