@@ -10,7 +10,7 @@ import { getSwitchParameterValue } from "../../utils.js";
 export function switchRenderingByPathPowershellTool(server: McpServer, config: Config) {
     server.tool(
         "presentation-switch-rendering-by-path",
-        "Switches an existing rendering with an alternate one for the item specified by path.",
+        "Switches an existing rendering specified by path with an alternate one for the item specified by path.",
         {
             itemPath: z.string().describe("The path of the item holding the renderings."),
             oldRenderingPath: z.string().describe("The path of the rendering to switch."),

@@ -10,10 +10,10 @@ import { getSwitchParameterValue } from "../../utils.js";
 export function switchRenderingByIdPowershellTool(server: McpServer, config: Config) {
     server.tool(
         "presentation-switch-rendering-by-id",
-        "Switches an existing rendering with an alternate one for the item specified by ID.",
+        "Switches an existing rendering specified by item ID with an alternate one for the item specified by item ID.",
         {
             itemId: z.string().describe("The ID of the item holding the renderings."),
-            oldRenderingId: z. string().describe("The ID of the rendering to switch."),            
+            oldRenderingId: z. string().describe("The ID of the rendering to switch."),
             newRenderingId: z.string().describe("The ID of the new rendering."),
             database: z.string().describe("The context database.").default("master"),
             finalLayout: z
