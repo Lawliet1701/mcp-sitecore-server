@@ -4,53 +4,45 @@ import { client, transport } from "../../../client";
 
 await client.connect(transport);
 
-// /sitecore/layout/Renderings/Sample/Sample Rendering
-const oldRenderingId = "{493B3A83-0FA7-4484-8FC9-4680991CF743}";
-
-// /sitecore/layout/Renderings/Feature/Tests/Switch-Rendering/Expected Rendering
+const itemPath = "master:/sitecore/content/Home/Tests/Presentation/Switch-Rendering-By-Path";
+const oldRenderingPath = "master:/sitecore/layout/Renderings/Sample/Sample Rendering";
+const newRenderingPath = "master:/sitecore/layout/Renderings/Feature/Tests/Switch-Rendering/Expected Rendering";
 const newRenderingId = "{1C8B443B-E78A-4AE7-AB30-CB0166299877}";
 
-// /sitecore/content/Home/Tests/Presentation/Switch-Rendering-By-Id
-const itemId = "{19BB2EBA-3025-484F-8D8C-8F978E6AC4E5}";
-
-const database = "master";
 const language = "ja-jp";
 const finalLayout = "true";
 
 describe("powershell", () => {
-    it("presentation-switch-rendering-by-id", async () => {
+    it("presentation-switch-rendering-by-path", async () => {
         // Arrange
         // Initialize item initial state before test.
         const resetLayoutArgs: Record<string, any> = {
-            id: itemId,
-            database,
+            path: itemPath,
             finalLayout: "true",
             language,
         };
     
-        await callTool(client, "presentation-reset-layout-by-id", resetLayoutArgs);
+        await callTool(client, "presentation-reset-layout-by-path", resetLayoutArgs);
 
         const switchRenderingArgs: Record<string, any> = {
-            oldRenderingId,
-            newRenderingId,
-            itemId,
-            database,
+            itemPath,
+            oldRenderingPath,
+            newRenderingPath,
             finalLayout,
             language,
         };
         
         // Act
-        await callTool(client, "presentation-switch-rendering-by-id", switchRenderingArgs);
+        await callTool(client, "presentation-switch-rendering-by-path", switchRenderingArgs);
 
         // Assert
         const getRenderingsArgs: Record<string, any> = {
-            itemId,
-            database,
+            path: itemPath,
             language,
             finalLayout,
         };
         
-        const result = await callTool(client, "presentation-get-rendering-by-id", getRenderingsArgs);
+        const result = await callTool(client, "presentation-get-rendering-by-path", getRenderingsArgs);
         const resultJson = JSON.parse(result.content[0].text);
         const rendering = resultJson.Obj[2];
         expect(rendering.ItemID.toLowerCase()).toBe(newRenderingId.toLowerCase());
