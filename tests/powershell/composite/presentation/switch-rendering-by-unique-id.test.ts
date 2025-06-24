@@ -4,11 +4,9 @@ import { client, transport } from "../../../client";
 
 await client.connect(transport);
 
-// /sitecore/content/Home/Tests/Presentation/Switch-Rendering-By-Id
-const itemId = "{19BB2EBA-3025-484F-8D8C-8F978E6AC4E5}";
-
-// /sitecore/layout/Renderings/Sample/Sample Rendering
-const oldRenderingId = "{493B3A83-0FA7-4484-8FC9-4680991CF743}";
+// /sitecore/content/Home/Tests/Presentation/Switch-Rendering-By-Unique-Id
+const itemId = "{F8C6F8A2-A505-47C9-AB80-BFA551E616C0}";
+const uniqueId = "{B343725A-3A93-446E-A9C8-3A2CBD3DB489}";
 
 // /sitecore/layout/Renderings/Feature/Tests/Switch-Rendering/Expected Rendering
 const newRenderingId = "{1C8B443B-E78A-4AE7-AB30-CB0166299877}";
@@ -18,7 +16,7 @@ const language = "ja-jp";
 const finalLayout = "true";
 
 describe("powershell", () => {
-    it("presentation-switch-rendering-by-id", async () => {
+    it("presentation-switch-rendering-by-unique-id", async () => {
         // Arrange
         // Initialize item initial state before test.
         const resetLayoutArgs: Record<string, any> = {
@@ -32,7 +30,7 @@ describe("powershell", () => {
 
         const switchRenderingArgs: Record<string, any> = {
             itemId,
-            oldRenderingId,
+            uniqueId,
             newRenderingId,            
             database,
             finalLayout,
@@ -40,7 +38,7 @@ describe("powershell", () => {
         };
         
         // Act
-        await callTool(client, "presentation-switch-rendering-by-id", switchRenderingArgs);
+        await callTool(client, "presentation-switch-rendering-by-unique-id", switchRenderingArgs);
 
         // Assert
         const getRenderingsArgs: Record<string, any> = {

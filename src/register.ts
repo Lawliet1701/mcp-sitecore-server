@@ -88,6 +88,7 @@ import { setRenderingByPathPowershellTool } from "./tools/powershell/composite/p
 import { setRenderingByIdPowershellTool } from "./tools/powershell/composite/presentation/set-rendering-by-id.js";
 import { switchRenderingByIdPowershellTool } from "./tools/powershell/composite/presentation/switch-rendering-by-id.js";
 import { switchRenderingByPathPowershellTool } from "./tools/powershell/composite/presentation/switch-rendering-by-path.js";
+import { switchRenderingByUniqueIdPowershellTool } from "./tools/powershell/composite/presentation/switch-rendering-by-unique-id.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
 
 
@@ -192,6 +193,7 @@ export async function registerAll(server: McpServer, config: Config) {
         setRenderingByIdPowershellTool,
         switchRenderingByIdPowershellTool,
         switchRenderingByPathPowershellTool,
+        switchRenderingByUniqueIdPowershellTool,
 
         //Logging
         getLogsPowerShellTool,
