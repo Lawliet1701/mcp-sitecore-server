@@ -10,7 +10,7 @@ import { getSwitchParameterValue } from "../../utils.js";
 export function setRenderingByIdPowershellTool(server: McpServer, config: Config) {
     server.tool(
         "presentation-set-rendering-by-id",
-        "Update rendering specified by item ID with new values.",
+        "Updates rendering specified by item ID with new values.",
         {
             itemId: z.string().describe("The ID of the item holding the rendering."),
             uniqueId: z.string().describe("The unique ID of the rendering."),

@@ -10,7 +10,7 @@ import { getSwitchParameterValue } from "../../utils.js";
 export function setRenderingByPathPowershellTool(server: McpServer, config: Config) {
     server.tool(
         "presentation-set-rendering-by-path",
-        "Update rendering specified by item path with new values.",
+        "Updates rendering specified by item path with new values.",
         {
             itemPath: z.string().describe("The path of the item holding the rendering."),
             uniqueId: z.string().describe("The unique ID of the rendering."),
