@@ -4,7 +4,6 @@ import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../../simple/generic.js";
 import { PowershellCommandBuilder } from "../../command-builder.js";
-import { PowershellVariable } from "../../variable.js";
 import { getSwitchParameterValue } from "../../utils.js";
 
 export function setRenderingByIdPowershellTool(server: McpServer, config: Config) {
@@ -36,7 +35,6 @@ export function setRenderingByIdPowershellTool(server: McpServer, config: Config
             const setRenderingParameters: Record<string, any> = {};
             setRenderingParameters["Id"] = params.itemId;
             setRenderingParameters["Database"] = params.database;
-            setRenderingParameters["Instance"] = new PowershellVariable("rendering");
             setRenderingParameters["Placeholder"] = params.placeholder;
             setRenderingParameters["DataSource"] = params.dataSource;
             setRenderingParameters["FinalLayout"] = getSwitchParameterValue(params.finalLayout);
@@ -49,8 +47,8 @@ export function setRenderingByIdPowershellTool(server: McpServer, config: Config
             setRenderingParameters["Parameter"] = params.parameter;
 
             const command = `
-                $rendering = ${commandBuilder.buildCommandString('Get-Rendering', getRenderingParameters)};
-                ${commandBuilder.buildCommandString('Set-Rendering', setRenderingParameters)};
+                $rendering = Get-Rendering ${commandBuilder.buildParametersString(getRenderingParameters)};
+                Set-Rendering -Instance $rendering ${commandBuilder.buildParametersString(setRenderingParameters)};
             `;
 
             return safeMcpResponse(runGenericPowershellCommand(config, command, {}));

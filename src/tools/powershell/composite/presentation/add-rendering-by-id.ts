@@ -4,7 +4,6 @@ import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../../simple/generic.js";
 import { PowershellCommandBuilder } from "../../command-builder.js";
-import { PowershellVariable } from "../../variable.js";
 
 export function addRenderingByIdPowershellTool(server: McpServer, config: Config) {
     server.tool(
@@ -28,7 +27,6 @@ export function addRenderingByIdPowershellTool(server: McpServer, config: Config
             const addRenderingParameters: Record<string, any> = {};
 
             addRenderingParameters["Id"] = params.itemId;
-            addRenderingParameters["Instance"] = new PowershellVariable("rendering");
             if (params.placeHolder)
             {
                 addRenderingParameters["Placeholder"] = params.placeHolder;
@@ -61,7 +59,7 @@ export function addRenderingByIdPowershellTool(server: McpServer, config: Config
             
             const command = `
                 $rendering = New-Rendering -Id ${params.renderingId} -Database ${params.database};
-                ${commandBuilder.buildCommandString('Add-Rendering', addRenderingParameters)};
+                Add-Rendering -Instance $rendering ${commandBuilder.buildParametersString(addRenderingParameters)};
             `;
             
             return safeMcpResponse(runGenericPowershellCommand(config, command, {}));

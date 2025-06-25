@@ -4,7 +4,6 @@ import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../../simple/generic.js";
 import { PowershellCommandBuilder } from "../../command-builder.js";
-import { PowershellVariable } from "../../variable.js";
 import { getSwitchParameterValue } from "../../utils.js";
 
 export function switchRenderingByUniqueIdPowershellTool(server: McpServer, config: Config) {
@@ -29,13 +28,12 @@ export function switchRenderingByUniqueIdPowershellTool(server: McpServer, confi
             switchRenderingParameters["Id"] = params.itemId;
             switchRenderingParameters["UniqueId"] = params.uniqueId;
             switchRenderingParameters["Database"] = params.database;
-            switchRenderingParameters["NewRendering"] = new PowershellVariable("targetRendering");
             switchRenderingParameters["FinalLayout"] = getSwitchParameterValue(params.finalLayout);
             switchRenderingParameters["Language"] = params.language;
 
             const command = `
                 $targetRendering = New-Rendering -Id "${params.newRenderingId}" -Database "${params.database}"
-                ${commandBuilder.buildCommandString('Switch-Rendering', switchRenderingParameters)}
+                Switch-Rendering -NewRendering $targetRendering ${commandBuilder.buildParametersString(switchRenderingParameters)}
             `;
 
             return safeMcpResponse(runGenericPowershellCommand(config, command, {}));

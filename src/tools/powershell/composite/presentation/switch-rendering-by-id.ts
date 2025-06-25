@@ -4,7 +4,6 @@ import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../../simple/generic.js";
 import { PowershellCommandBuilder } from "../../command-builder.js";
-import { PowershellVariable } from "../../variable.js";
 import { getSwitchParameterValue } from "../../utils.js";
 
 export function switchRenderingByIdPowershellTool(server: McpServer, config: Config) {
@@ -15,7 +14,7 @@ export function switchRenderingByIdPowershellTool(server: McpServer, config: Con
             itemId: z.string().describe("The ID of the item holding the renderings."),
             oldRenderingId: z. string().describe("The ID of the rendering to switch."),
             newRenderingId: z.string().describe("The ID of the new rendering."),
-            database: z.string().describe("The context database.").default("master"),
+            database: z.string().describe("The context database.").default("master").optional(),
             finalLayout: z
                 .boolean()
                 .describe("Specifies the layout to update the rendering. If 'true', the final layout is used, otherwise - shared layout.")
@@ -38,16 +37,14 @@ export function switchRenderingByIdPowershellTool(server: McpServer, config: Con
             const switchRenderingParameters: Record<string, any> = {};
             switchRenderingParameters["Id"] = params.itemId;
             switchRenderingParameters["Database"] = params.database;
-            switchRenderingParameters["Instance"] = new PowershellVariable("sourceRendering");
-            switchRenderingParameters["NewRendering"] = new PowershellVariable("targetRendering");
             switchRenderingParameters["Language"] = params.language;
             switchRenderingParameters["FinalLayout"] = getSwitchParameterValue(params.finalLayout);
 
             const command = `
-                $sourceRenderings = ${commandBuilder.buildCommandString('Get-Rendering', getRenderingParameters)} | Where-Object { $_.ItemID -ceq "${params.oldRenderingId}" };
-                $targetRendering = ${commandBuilder.buildCommandString('New-Rendering', newRenderingParameters)}
+                $sourceRenderings = Get-Rendering ${commandBuilder.buildParametersString(getRenderingParameters)} | Where-Object { $_.ItemID -ceq "${params.oldRenderingId}" };
+                $targetRendering = New-Rendering ${commandBuilder.buildParametersString(newRenderingParameters)}
                 foreach($sourceRendering in $sourceRenderings) {
-                    ${commandBuilder.buildCommandString('Switch-Rendering', switchRenderingParameters)}
+                    Switch-Rendering -Instance $sourceRendering -NewRendering $targetRendering ${commandBuilder.buildParametersString(switchRenderingParameters)}
                 }                
             `;
 

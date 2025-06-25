@@ -4,7 +4,6 @@ import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../../simple/generic.js";
 import { PowershellCommandBuilder } from "../../command-builder.js";
-import { PowershellVariable } from "../../variable.js";
 import { getSwitchParameterValue } from "../../utils.js";
 
 export function switchRenderingByPathPowershellTool(server: McpServer, config: Config) {
@@ -34,17 +33,15 @@ export function switchRenderingByPathPowershellTool(server: McpServer, config: C
 
             const switchRenderingParameters: Record<string, any> = {};
             switchRenderingParameters["Path"] = params.itemPath;
-            switchRenderingParameters["Instance"] = new PowershellVariable("sourceRendering");
-            switchRenderingParameters["NewRendering"] = new PowershellVariable("targetRendering");
             switchRenderingParameters["Language"] = params.language;
             switchRenderingParameters["FinalLayout"] = getSwitchParameterValue(params.finalLayout);
 
             const command = `
                 $oldRendering = Get-Item -Path "${params.oldRenderingPath}"
-                $sourceRenderings = ${commandBuilder.buildCommandString('Get-Rendering', getRenderingParameters)} | Where-Object { $_.ItemID -ceq $oldRendering.ID.ToString() };
-                $targetRendering = ${commandBuilder.buildCommandString('New-Rendering', newRenderingParameters)}
+                $sourceRenderings = Get-Rendering ${commandBuilder.buildParametersString(getRenderingParameters)} | Where-Object { $_.ItemID -ceq $oldRendering.ID.ToString() };
+                $targetRendering = New-Rendering ${commandBuilder.buildParametersString(newRenderingParameters)}
                 foreach($sourceRendering in $sourceRenderings) {
-                    ${commandBuilder.buildCommandString('Switch-Rendering', switchRenderingParameters)}
+                    Switch-Rendering -Instance $sourceRendering  -NewRendering $targetRendering ${commandBuilder.buildParametersString(switchRenderingParameters)}
                 }  
             `;
 

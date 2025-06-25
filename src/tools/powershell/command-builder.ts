@@ -1,9 +1,11 @@
-import { PowershellVariable } from "./variable.js";
-
 export class PowershellCommandBuilder
 {
     buildCommandString(script: string, parameters: Record<string, any> = {}): string {
-        let scriptWithParameters = script;
+        return `${script}${this.buildParametersString(parameters)}`;
+    }
+
+    buildParametersString(parameters: Record<string, any> = {}): string {
+        let parametersString = '';
         if (parameters) {
             for (const parameter in parameters) {                
                 if (parameters[parameter] === undefined || parameters[parameter] === null)
@@ -12,29 +14,25 @@ export class PowershellCommandBuilder
                 }
 
                 if (parameters[parameter] === "") {
-                    scriptWithParameters += ` -${parameter}`;
+                    parametersString += ` -${parameter}`;
                 }
                 else if (Array.isArray(parameters[parameter])) {
-                    scriptWithParameters += ` -${parameter} "${parameters[parameter].join('","')}"`;
-                }      
-                else if (parameters[parameter] instanceof PowershellVariable)
-                {
-                    scriptWithParameters += ` -${parameter} ${parameters[parameter].getValue()}`;
+                    parametersString += ` -${parameter} "${parameters[parameter].join('","')}"`;
                 }
                 else if (this.isRecord(parameters[parameter])) {
                     // Check whether the record has any keys
                     if(Object.getOwnPropertyNames(parameters[parameter]).length > 0)
                     {
-                        scriptWithParameters += ` -${parameter} ${this.buildPowershellHashtableString(parameters[parameter])}`;
+                        parametersString += ` -${parameter} ${this.buildPowershellHashtableString(parameters[parameter])}`;
                     }                    
                 }          
                 else {
-                    scriptWithParameters += ` -${parameter} "${parameters[parameter]}"`;
+                    parametersString += ` -${parameter} "${parameters[parameter]}"`;
                 }
             }
         }
 
-        return scriptWithParameters;
+        return parametersString;
     }
 
     private buildPowershellHashtableString(parameters: Record<string, any>): string {
