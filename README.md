@@ -84,6 +84,17 @@
     - [x] `presentation-merge-layout-by-path`: Merges final and shared layouts by item path
     - [x] `presentation-get-layout-device`: Gets the layout for the device specified
     - [x] `presentation-get-default-layout-device`: Gets the default layout
+    - [x] `presentation-get-rendering-by-id`: Gets rendering definition by item id
+    - [x] `presentation-get-rendering-by-path`: Gets rendering definition by item path
+    - [x] `presentation-remove-rendering-by-path`: Removes renderings from an item by owners item path
+    - [x] `presentation-remove-rendering-by-id`: Removes renderings from an item by owners item ID
+    - [x] `presentation-add-rendering-by-path`: Adds a rendering to presentation of an item specified by path
+    - [x] `presentation-add-rendering-by-id`: Adds a rendering to presentation of an item specified by item ID
+    - [x] `presentation-set-rendering-by-path`: Updates rendering specified by item path with new values
+    - [x] `presentation-set-rendering-by-id`: Updates rendering specified by item ID with new values
+    - [x] `presentation-switch-rendering-by-id`: Switches an existing rendering specified by item ID with an alternate one for the item specified by item ID
+    - [x] `presentation-switch-rendering-by-path`: Switches an existing rendering specified by path with an alternate one for the item specified by path
+    - [x] `presentation-switch-rendering-by-unique-id`: Switches an existing rendering specified by unique ID with an alternate one for the item specified by item ID
   - [x] Indexing
     - [x] `indexing-initialize-search-index`: initializes one or more search indexes
     - [x] `indexing-get-search-index`: returns a search index

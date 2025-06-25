@@ -1,5 +1,6 @@
 import { generateUUID } from "@/utils.js";
 import { convertObject, parseXMLString } from "@antonytm/clixml-parser";
+import { PowershellCommandBuilder } from "./command-builder.js";
 
 class PowershellClient {
     private serverUrl: string;
@@ -7,6 +8,7 @@ class PowershellClient {
     private password: string;
     private domain: string;
     private bearertoken: string | null = null;
+    private commandBuilder: PowershellCommandBuilder = new PowershellCommandBuilder();
 
     constructor(serverUrl: string, username: string, password: string, domain: string = 'sitecore') {
         this.serverUrl = serverUrl;
@@ -26,22 +28,8 @@ class PowershellClient {
             'Content-Type': 'application/json',
         };
 
-        let scriptWithParameters = script;
-        if (parameters) {
-            for (const parameter in parameters) {
-                if (parameters[parameter] === "") {
-                    scriptWithParameters += ` -${parameter}`;
-                }
-                else if (Array.isArray(parameters[parameter])) {
-                    scriptWithParameters += ` -${parameter} "${parameters[parameter].join('","')}"`;
-                } else {
-                    scriptWithParameters += ` -${parameter} "${parameters[parameter]}"`;
-                }
-            }
-        }
-
+        const scriptWithParameters = this.commandBuilder.buildCommandString(script, parameters);
         const body = `${scriptWithParameters}\r\n <#${uuid}#>\r\n`;
-
         const response = await fetch(url, {
             method: 'POST',
             headers: headers,
