@@ -3,6 +3,7 @@ import type { Config } from "@/config.js";
 import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
+import { getSwitchParameterValue } from "../../utils.js";
 
 export function resetLayoutByIdPowershellTool(server: McpServer, config: Config) {
     server.tool(
@@ -18,16 +19,8 @@ export function resetLayoutByIdPowershellTool(server: McpServer, config: Config)
             const options: Record<string, any> = {};
 
             options["Id"] = params.id;
-
-            if (params.finalLayout === true)
-            {
-                options["FinalLayout"] = "";
-            }
-
-            if (params.language)
-            {
-                options["Language"] = params.language;
-            }
+            options["FinalLayout"] = getSwitchParameterValue(params.finalLayout);
+            options["Language"] = params.language;
 
             return safeMcpResponse(runGenericPowershellCommand(config, command, options));
         }

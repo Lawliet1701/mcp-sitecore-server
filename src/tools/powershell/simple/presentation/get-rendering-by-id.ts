@@ -3,6 +3,7 @@ import type { Config } from "@/config.js";
 import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
+import { getSwitchParameterValue } from "../../utils.js";
 
 export function getRenderingByIdPowershellTool(server: McpServer, config: Config) {
     server.tool(
@@ -24,30 +25,12 @@ export function getRenderingByIdPowershellTool(server: McpServer, config: Config
             const options: Record<string, any> = {};
 
             options["Id"] = params.itemId;
-
-            if (params.database) {
-                options["Database"] = params.database;
-            }
-
-            if (params.dataSource) {
-                options["DataSource"] = params.dataSource;
-            }
-
-            if (params.placeholder) {
-                options["Placeholder"] = params.placeholder;
-            }
-
-            if (params.language) {
-                options["Language"] = params.language;
-            }   
-
-            if (params.finalLayout === true) {
-                options["FinalLayout"] = "";
-            }
-
-            if (params.uniqueId) {
-                options["UniqueId"] = params.uniqueId;
-            }
+            options["Database"] = params.database;
+            options["DataSource"] = params.dataSource;
+            options["Placeholder"] = params.placeholder;
+            options["Language"] = params.language;  
+            options["FinalLayout"] = getSwitchParameterValue(params.finalLayout);
+            options["UniqueId"] = params.uniqueId;
 
             return safeMcpResponse(runGenericPowershellCommand(config, command, options));
         }

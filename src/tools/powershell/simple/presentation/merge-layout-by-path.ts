@@ -17,11 +17,7 @@ export function mergeLayoutByPathPowershellTool(server: McpServer, config: Confi
             const options: Record<string, any> = {};
 
             options["Path"] = params.path;
-
-            if (params.language)
-            {
-                options["Language"] = params.language;
-            }
+            options["Language"] = params.language;
 
             return safeMcpResponse(runGenericPowershellCommand(config, command, options));
         }

@@ -26,3 +26,13 @@ export function getSwitchParameterValue(value: boolean | undefined): string | un
     return undefined;
 }
 
+export function getNumberParameterValue(value: number | undefined): number | undefined
+{
+    if (value || value === 0)
+    {
+        return value;
+    }
+
+    return undefined;
+}
+

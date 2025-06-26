@@ -3,6 +3,7 @@ import type { Config } from "@/config.js";
 import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../generic.js";
+import { getSwitchParameterValue } from "../../utils.js";
 
 export function removeRenderingByPathPowershellTool(server: McpServer, config: Config) {
     server.tool(
@@ -25,22 +26,10 @@ export function removeRenderingByPathPowershellTool(server: McpServer, config: C
 
             options["Path"] = params.path;
             options["UniqueId"] = params.uniqueId;
-
-            if (params.dataSource) {
-                options["DataSource"] = params.dataSource;
-            }
-            
-            if (params.placeholder) {
-                options["Placeholder"] = params.placeholder;
-            }
-
-            if (params.language) {
-                options["Language"] = params.language;
-            }
-
-            if (params.finalLayout === true) {
-                options["FinalLayout"] = "";
-            }
+            options["DataSource"] = params.dataSource;
+            options["Placeholder"] = params.placeholder;
+            options["Language"] = params.language;
+            options["FinalLayout"] = getSwitchParameterValue(params.finalLayout);
 
             return safeMcpResponse(runGenericPowershellCommand(config, command, options));
         }
