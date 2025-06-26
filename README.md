@@ -97,6 +97,7 @@
     - [x] `presentation-switch-rendering-by-unique-id`: Switches an existing rendering specified by unique ID with an alternate one for the item specified by item ID
     - [x] `presentation-get-placeholder-setting-by-id`: Gets placeholder setting assigned on the item specified by ID
     - [x] `presentation-get-placeholder-setting-by-path`: Gets placeholder setting assigned on the item specified by path
+    - [x] `presentation-add-placeholder-setting-by-id`: Adds a placeholder setting to the item specified by ID
   - [x] Indexing
     - [x] `indexing-initialize-search-index`: initializes one or more search indexes
     - [x] `indexing-get-search-index`: returns a search index
