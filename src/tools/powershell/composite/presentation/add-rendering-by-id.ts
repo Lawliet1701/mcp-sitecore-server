@@ -4,6 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../../simple/generic.js";
 import { PowershellCommandBuilder } from "../../command-builder.js";
+import { getSwitchParameterValue, getNumberParameterValue } from "../../utils.js";
 
 export function addRenderingByIdPowershellTool(server: McpServer, config: Config) {
     server.tool(
@@ -27,35 +28,12 @@ export function addRenderingByIdPowershellTool(server: McpServer, config: Config
             const addRenderingParameters: Record<string, any> = {};
 
             addRenderingParameters["Id"] = params.itemId;
-            if (params.placeHolder)
-            {
-                addRenderingParameters["Placeholder"] = params.placeHolder;
-            }
-
-            if (params.dataSource)
-            {
-                addRenderingParameters["DataSource"] = params.dataSource;
-            }
-
-            if (params.finalLayout === true)
-            {
-                addRenderingParameters["FinalLayout"] = "";
-            }
-
-            if (params.database)
-            {
-                addRenderingParameters["Database"] = params.database;
-            }
-
-            if (params.language)
-            {
-                addRenderingParameters["Language"] = params.language;
-            }
-
-            if (params.index || params.index === 0)
-            {
-                addRenderingParameters["Index"] = params.index;
-            }
+            addRenderingParameters["Placeholder"] = params.placeHolder;
+            addRenderingParameters["DataSource"] = params.dataSource;
+            addRenderingParameters["FinalLayout"] = getSwitchParameterValue(params.finalLayout);
+            addRenderingParameters["Database"] = params.database;
+            addRenderingParameters["Language"] = params.language;
+            addRenderingParameters["Index"] = getNumberParameterValue(params.index);
             
             const command = `
                 $rendering = New-Rendering -Id ${params.renderingId} -Database ${params.database};

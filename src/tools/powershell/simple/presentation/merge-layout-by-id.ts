@@ -18,16 +18,8 @@ export function mergeLayoutByIdPowershellTool(server: McpServer, config: Config)
             const options: Record<string, any> = {};
 
             options["Id"] = params.id;
-
-            if (params.database)
-            {
-                options["Database"] = params.database; 
-            }
-
-            if (params.language)
-            {
-                options["Language"] = params.language;
-            }
+            options["Database"] = params.database;
+            options["Language"] = params.language;
 
             return safeMcpResponse(runGenericPowershellCommand(config, command, options));
         }

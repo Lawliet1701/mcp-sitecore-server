@@ -4,7 +4,7 @@ import { z } from "zod";
 import { safeMcpResponse } from "@/helper.js";
 import { runGenericPowershellCommand } from "../../simple/generic.js";
 import { PowershellCommandBuilder } from "../../command-builder.js";
-import { getSwitchParameterValue } from "../../utils.js";
+import { getSwitchParameterValue, getNumberParameterValue } from "../../utils.js";
 
 export function setRenderingByIdPowershellTool(server: McpServer, config: Config) {
     server.tool(
@@ -39,11 +39,7 @@ export function setRenderingByIdPowershellTool(server: McpServer, config: Config
             setRenderingParameters["DataSource"] = params.dataSource;
             setRenderingParameters["FinalLayout"] = getSwitchParameterValue(params.finalLayout);
             setRenderingParameters["Language"] = params.language;
-
-            if (params.index || params.index === 0)
-            {
-                setRenderingParameters["Index"] = params.index;
-            }
+            setRenderingParameters["Index"] = getNumberParameterValue(params.index);
             setRenderingParameters["Parameter"] = params.parameter;
 
             const command = `
