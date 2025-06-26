@@ -40,7 +40,7 @@ describe("powershell", () => {
 
     it("presentation-get-placeholder-setting-by-id-using-key", async () => {
         // Arrange
-        const args: Record<string, any> = {
+        const getPlaceholderSettingArgs: Record<string, any> = {
             itemId,
             database,
             key: overridenPlaceholderSettingKey,
@@ -49,7 +49,7 @@ describe("powershell", () => {
         };
 
         // Act
-        const result = await callTool(client, "presentation-get-placeholder-setting-by-id", args);
+        const result = await callTool(client, "presentation-get-placeholder-setting-by-id", getPlaceholderSettingArgs);
         
         // Assert
         const json = JSON.parse(result.content[0].text);

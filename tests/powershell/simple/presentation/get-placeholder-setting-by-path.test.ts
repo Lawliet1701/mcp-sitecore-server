@@ -16,7 +16,7 @@ const overridenPlaceholderSettingKey = "test_placeholder_override_key";
 describe("powershell", () => {
     it("presentation-get-placeholder-setting-by-path-using-uniqueid", async () => {
         // Arrange
-        const args: Record<string, any> = {
+        const getPlaceholderSettingArgs: Record<string, any> = {
             itemPath,
             uniqueId,
             language: "ja-jp",
@@ -24,7 +24,7 @@ describe("powershell", () => {
         };
 
         // Act
-        const result = await callTool(client, "presentation-get-placeholder-setting-by-path", args);
+        const result = await callTool(client, "presentation-get-placeholder-setting-by-path", getPlaceholderSettingArgs);
         
         // Assert
         const json = JSON.parse(result.content[0].text);
