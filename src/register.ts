@@ -90,6 +90,7 @@ import { switchRenderingByIdPowershellTool } from "./tools/powershell/composite/
 import { switchRenderingByPathPowershellTool } from "./tools/powershell/composite/presentation/switch-rendering-by-path.js";
 import { switchRenderingByUniqueIdPowershellTool } from "./tools/powershell/composite/presentation/switch-rendering-by-unique-id.js";
 import { getPlaceholderSettingByIdPowershellTool } from "./tools/powershell/simple/presentation/get-placeholder-setting-by-id.js";
+import { getPlaceholderSettingByPathPowershellTool } from "./tools/powershell/simple/presentation/get-placeholder-setting-by-path.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
 
 
@@ -186,6 +187,7 @@ export async function registerAll(server: McpServer, config: Config) {
         removeRenderingByPathPowershellTool,
         removeRenderingByIdPowershellTool,
         getPlaceholderSettingByIdPowershellTool,
+        getPlaceholderSettingByPathPowershellTool,
         //Composite Presentation PowerShell Tools
         setLayoutIdPowershellTool,
         setLayoutByPathPowershellTool,
