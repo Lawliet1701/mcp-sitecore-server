@@ -14,6 +14,9 @@ const sampleLayoutId = "{14030E9F-CE92-49C6-AD87-7D49B50E42EA}";
 // /sitecore/layout/Layouts/Feature/Tests/Reset-Layout/InitialLayout
 const initialLayoutId = "{C088204D-9C63-4A70-8846-D7233D660B0A}";
 
+const finalLayout = "true";
+const language = "ja-jp";
+
 describe("powershell", () => {
     it("presentation-reset-layout-by-id", async () => {
         // Arrange
@@ -21,8 +24,8 @@ describe("powershell", () => {
             itemId,
             layoutId: initialLayoutId,
             layoutPath: "master:",
-            language: "ja-jp",
-            finalLayout: "true",
+            language,
+            finalLayout,
         };
 
         // Initialize item initial state before test.
@@ -34,8 +37,8 @@ describe("powershell", () => {
 
         const resetLayoutArgs: Record<string, any> = {
             id: itemId,
-            finalLayout: "true",
-            language: "ja-jp",
+            finalLayout,
+            language,
         };
     
         // Act

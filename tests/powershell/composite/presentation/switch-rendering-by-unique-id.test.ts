@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { client, transport } from "../../../client";
+import { resetLayoutById } from "../../tools/reset-layout";
 
 await client.connect(transport);
 
@@ -19,14 +20,7 @@ describe("powershell", () => {
     it("presentation-switch-rendering-by-unique-id", async () => {
         // Arrange
         // Initialize item initial state before test.
-        const resetLayoutArgs: Record<string, any> = {
-            id: itemId,
-            database,
-            finalLayout: "true",
-            language,
-        };
-    
-        await callTool(client, "presentation-reset-layout-by-id", resetLayoutArgs);
+        await resetLayoutById(client, itemId, database, language, finalLayout);
 
         const switchRenderingArgs: Record<string, any> = {
             itemId,

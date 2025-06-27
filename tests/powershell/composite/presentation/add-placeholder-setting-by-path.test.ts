@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { client, transport } from "../../../client";
+import { resetLayoutByPath } from "../../tools/reset-layout";
 
 await client.connect(transport);
 
@@ -12,24 +13,19 @@ const placeholderSettingPath = "master:/sitecore/layout/Placeholder Settings/Fea
 const placeholderSettingKey = "new_placeholder_setting";
 
 const language = "ja-jp";
+const finalLayout = "true";
 
 describe("powershell", () => {
     it("presentation-add-placeholder-setting-by-path", async () => {
         // Arrange
         // Initialize item initial state before test.
-        const resetLayoutArgs: Record<string, any> = {
-            path: itemPath,
-            finalLayout: "true",
-            language,
-        };
-    
-        await callTool(client, "presentation-reset-layout-by-path", resetLayoutArgs);
+        await resetLayoutByPath(client, itemPath, language, finalLayout);
 
         const addPlaceholderSettingArgs: Record<string, any> = {
             itemPath,
             placeholderSettingPath,
             key: placeholderSettingKey,
-            finalLayout: "true",
+            finalLayout,
             language,
         };
 
@@ -40,7 +36,7 @@ describe("powershell", () => {
         const getPlaceholderSettingArgs: Record<string, any> = {
             itemPath,
             language: "ja-jp",
-            finalLayout: "true",
+            finalLayout,
         };
 
         const result = await callTool(client, "presentation-get-placeholder-setting-by-path", getPlaceholderSettingArgs);

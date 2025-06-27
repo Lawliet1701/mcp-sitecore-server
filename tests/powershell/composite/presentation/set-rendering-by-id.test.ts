@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { client, transport } from "../../../client";
+import { resetLayoutById } from "../../tools/reset-layout";
 
 await client.connect(transport);
 
@@ -12,19 +13,13 @@ const language = "ja-jp";
 const placeholder = "/test/placeholder";
 const dataSource = "test_datasource";
 const database = "master";
+const finalLayout = "true";
 
 describe("powershell", () => {
     it("presentation-set-rendering-by-id", async () => {
         // Arrange
         // Initialize item initial state before test.
-        const resetLayoutArgs: Record<string, any> = {
-            id: itemId,
-            finalLayout: "true",
-            language,
-            database,
-        };
-    
-        await callTool(client, "presentation-reset-layout-by-id", resetLayoutArgs);
+        await resetLayoutById(client, itemId, database, language, finalLayout);
 
         const setRenderingArgs: Record<string, any> = {
             itemId,
@@ -32,7 +27,7 @@ describe("powershell", () => {
             database,
             placeholder,
             dataSource,
-            finalLayout: "true",
+            finalLayout,
             language,
             index: 0,
             parameter: {
@@ -48,7 +43,7 @@ describe("powershell", () => {
             itemId,
             database,
             language,
-            finalLayout: "true",
+            finalLayout,
         };
 
         const result = await callTool(client, "presentation-get-rendering-by-id", getRenderingsArgs);
