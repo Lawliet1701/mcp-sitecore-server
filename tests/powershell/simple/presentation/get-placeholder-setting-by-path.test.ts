@@ -9,6 +9,9 @@ const itemPath = "master:/sitecore/content/Home/Tests/Presentation/Get-Placehold
 // /sitecore/layout/Placeholder Settings/Feature/Tests/Placeholder-Settings
 const placeholderSettingId = "{2B3B1A5E-E231-40DF-BB5F-3EB0061ACC41}";
 
+const language = "ja-jp";
+const finalLayout = "true";
+
 const uniqueId = "{E59BAEAE-9F59-44CB-BD23-61F5C8278BE1}";
 
 const overridenPlaceholderSettingKey = "test_placeholder_override_key";
@@ -19,8 +22,8 @@ describe("powershell", () => {
         const getPlaceholderSettingArgs: Record<string, any> = {
             itemPath,
             uniqueId,
-            language: "ja-jp",
-            finalLayout: "true",
+            language,
+            finalLayout,
         };
 
         // Act
@@ -39,8 +42,8 @@ describe("powershell", () => {
         const args: Record<string, any> = {
             itemPath,
             key: overridenPlaceholderSettingKey,
-            language: "ja-jp",
-            finalLayout: "true",
+            language,
+            finalLayout,
         };
 
         // Act

@@ -13,6 +13,8 @@ const placeholderSettingId = "{2B3B1A5E-E231-40DF-BB5F-3EB0061ACC41}";
 const uniqueId = "{E59BAEAE-9F59-44CB-BD23-61F5C8278BE1}";
 
 const database = "master";
+const language = "ja-jp";
+const finalLayout = "true";
 
 const overridenPlaceholderSettingKey = "test_placeholder_override_key";
 
@@ -23,8 +25,8 @@ describe("powershell", () => {
             itemId,
             database,
             uniqueId,
-            language: "ja-jp",
-            finalLayout: "true",
+            language,
+            finalLayout,
         };
 
         // Act
@@ -44,8 +46,8 @@ describe("powershell", () => {
             itemId,
             database,
             key: overridenPlaceholderSettingKey,
-            language: "ja-jp",
-            finalLayout: "true",
+            language,
+            finalLayout,
         };
 
         // Act

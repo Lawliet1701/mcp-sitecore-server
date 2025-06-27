@@ -35,7 +35,7 @@ describe("powershell", () => {
         // Assert
         const getPlaceholderSettingArgs: Record<string, any> = {
             itemPath,
-            language: "ja-jp",
+            language,
             finalLayout,
         };
 

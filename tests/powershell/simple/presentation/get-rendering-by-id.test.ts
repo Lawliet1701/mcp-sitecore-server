@@ -13,11 +13,14 @@ const sampleRenderingUniqueId = "{B343725A-3A93-446E-A9C8-3A2CBD3DB489}";
 
 const sampleRenderingPlaceholder = "/main/centercolumn/content";
 
+const database = "master";
+
 describe("powershell", () => {
     it("presentation-get-rendering-by-id-with-uniqueid", async () => {
         const args: Record<string, any> = {
             itemId,
             uniqueId: sampleRenderingUniqueId,       
+            database,
         };
 
         // Act
@@ -38,7 +41,7 @@ describe("powershell", () => {
             placeholder: sampleRenderingPlaceholder,
             language: "ja-jp",
             finalLayout: "true",
-            database: "master",
+            database,
         };
 
         // Act
