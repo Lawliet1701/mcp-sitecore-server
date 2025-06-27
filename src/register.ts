@@ -96,6 +96,7 @@ import { addPlaceholderSettingByPathPowershellTool } from "./tools/powershell/co
 import { removePlaceholderSettingByIdPowershellTool } from "./tools/powershell/simple/presentation/remove-placeholder-setting-by-id.js";
 import { removePlaceholderSettingByPathPowershellTool } from "./tools/powershell/simple/presentation/remove-placeholder-setting-by-path.js";
 import { getRenderingParameterByIdPowershellTool } from "./tools/powershell/composite/presentation/get-rendering-parameter-by-id.js";
+import { getRenderingParameterByPathPowershellTool } from "./tools/powershell/composite/presentation/get-rendering-parameter-by-path.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
 
 
@@ -208,6 +209,7 @@ export async function registerAll(server: McpServer, config: Config) {
         addPlaceholderSettingByIdPowershellTool,
         addPlaceholderSettingByPathPowershellTool,
         getRenderingParameterByIdPowershellTool,
+        getRenderingParameterByPathPowershellTool,
 
         //Logging
         getLogsPowerShellTool,
