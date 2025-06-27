@@ -9,7 +9,7 @@ export function setLayoutByPathPowershellTool(server: McpServer, config: Config)
         "presentation-set-layout-by-path",
         "Sets layout for an item specified by path.",
         {
-            itemId: z.string().describe("The Id of the item to set the layout for."),
+            itemPath: z.string().describe("The Path of the item to set the layout for.").default("master:"),
             layoutPath: z.string().describe("The path of the layout.").default("master:"),
             language: z.string().describe("The language of the item to set layout for.").optional(),
             finalLayout: z
@@ -21,7 +21,7 @@ export function setLayoutByPathPowershellTool(server: McpServer, config: Config)
             const command = `
                 $layout = Get-Item -Path '${params.layoutPath}';
                 $device = Get-LayoutDevice -Default;
-                Set-Layout -Id ${params.itemId} -Layout $layout -Device $device ${params.language ? `-Language ${params.language}` : ""}
+                Set-Layout -Path ${params.itemPath} -Layout $layout -Device $device ${params.language ? `-Language ${params.language}` : ""}
                     ${params.finalLayout ? "-FinalLayout" : ""};
             `.replaceAll(/[\n]+/g, "");
 
