@@ -78,6 +78,17 @@ import { mergeLayoutByIdPowershellTool } from "./tools/powershell/simple/present
 import { mergeLayoutByPathPowershellTool } from "./tools/powershell/simple/presentation/merge-layout-by-path.js";
 import { getLayoutDevicePowershellTool } from "./tools/powershell/simple/presentation/get-layout-device.js";
 import { getDefaultLayoutDevicePowershellTool } from "./tools/powershell/simple/presentation/get-default-layout-device.js";
+import { getRenderingByIdPowershellTool } from "./tools/powershell/simple/presentation/get-rendering-by-id.js";
+import { getRenderingByPathPowershellTool } from "./tools/powershell/simple/presentation/get-rendering-by-path.js";
+import { removeRenderingByPathPowershellTool } from "./tools/powershell/simple/presentation/remove-rendering-by-path.js";
+import { removeRenderingByIdPowershellTool } from "./tools/powershell/simple/presentation/remove-rendering-by-id.js";
+import { addRenderingByPathPowershellTool } from "./tools/powershell/composite/presentation/add-rendering-by-path.js";
+import { addRenderingByIdPowershellTool } from "./tools/powershell/composite/presentation/add-rendering-by-id.js";
+import { setRenderingByPathPowershellTool } from "./tools/powershell/composite/presentation/set-rendering-by-path.js";
+import { setRenderingByIdPowershellTool } from "./tools/powershell/composite/presentation/set-rendering-by-id.js";
+import { switchRenderingByIdPowershellTool } from "./tools/powershell/composite/presentation/switch-rendering-by-id.js";
+import { switchRenderingByPathPowershellTool } from "./tools/powershell/composite/presentation/switch-rendering-by-path.js";
+import { switchRenderingByUniqueIdPowershellTool } from "./tools/powershell/composite/presentation/switch-rendering-by-unique-id.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
 
 
@@ -169,13 +180,23 @@ export async function registerAll(server: McpServer, config: Config) {
         mergeLayoutByPathPowershellTool,
         getLayoutDevicePowershellTool,
         getDefaultLayoutDevicePowershellTool,
-        //Composite Layout PowerShell Tools
+        getRenderingByIdPowershellTool,
+        getRenderingByPathPowershellTool,
+        removeRenderingByPathPowershellTool,
+        removeRenderingByIdPowershellTool,
+        //Composite Presentation PowerShell Tools
         setLayoutIdPowershellTool,
         setLayoutByPathPowershellTool,
+        addRenderingByPathPowershellTool,
+        addRenderingByIdPowershellTool,
+        setRenderingByPathPowershellTool,
+        setRenderingByIdPowershellTool,
+        switchRenderingByIdPowershellTool,
+        switchRenderingByPathPowershellTool,
+        switchRenderingByUniqueIdPowershellTool,
 
         //Logging
         getLogsPowerShellTool,
-
 
         //Provider
         getItemPowerShellTool,        

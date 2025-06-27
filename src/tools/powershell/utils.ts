@@ -16,3 +16,23 @@ export function prepareArgsString(parameters: Record<string, any>): string {
     return scriptWithParameters;
 }
 
+export function getSwitchParameterValue(value: boolean | undefined): string | undefined 
+{
+    if (value === true)
+    {
+        return "";
+    }
+
+    return undefined;
+}
+
+export function getNumberParameterValue(value: number | undefined): number | undefined
+{
+    if (value || value === 0)
+    {
+        return value;
+    }
+
+    return undefined;
+}
+
