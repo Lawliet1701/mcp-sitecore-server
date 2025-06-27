@@ -93,6 +93,7 @@ import { getPlaceholderSettingByIdPowershellTool } from "./tools/powershell/simp
 import { getPlaceholderSettingByPathPowershellTool } from "./tools/powershell/simple/presentation/get-placeholder-setting-by-path.js";
 import { addPlaceholderSettingByIdPowershellTool } from "./tools/powershell/composite/presentation/add-placeholder-setting-by-id.js";
 import { addPlaceholderSettingByPathPowershellTool } from "./tools/powershell/composite/presentation/add-placeholder-setting-by-path.js";
+import { removePlaceholderSettingByIdPowershellTool } from "./tools/powershell/simple/presentation/remove-placeholder-setting-by-id.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
 
 
@@ -175,7 +176,7 @@ export async function registerAll(server: McpServer, config: Config) {
 
 
         //Presentation
-        //Simple Layout PowerShell Tools
+        //Simple Presentation PowerShell Tools
         getLayoutByIdPowershellTool,
         getLayoutByPathPowershellTool,
         resetLayoutByIdPowershellTool,
@@ -190,6 +191,7 @@ export async function registerAll(server: McpServer, config: Config) {
         removeRenderingByIdPowershellTool,
         getPlaceholderSettingByIdPowershellTool,
         getPlaceholderSettingByPathPowershellTool,
+        removePlaceholderSettingByIdPowershellTool,
         //Composite Presentation PowerShell Tools
         setLayoutIdPowershellTool,
         setLayoutByPathPowershellTool,
