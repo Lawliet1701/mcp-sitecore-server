@@ -2,6 +2,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import fs from "node:fs";
+import 'dotenv/config.js';
 
 const ConfigSchema = z.object({
     name: z.string().default("mcp-sitecore-server"),
