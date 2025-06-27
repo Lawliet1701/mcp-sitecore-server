@@ -101,6 +101,7 @@
     - [x] `presentation-add-placeholder-setting-by-path`: Adds a placeholder setting to the item specified by path
     - [x] `presentation-remove-placeholder-setting-by-id`: Removes placeholder setting from the item specified by ID
     - [x] `presentation-remove-placeholder-setting-by-path`: Removes placeholder setting from the item specified by path
+    - [x] `presentation-get-rendering-parameter-by-id`: Gets rendering parameter for the item specified by ID
   - [x] Indexing
     - [x] `indexing-initialize-search-index`: initializes one or more search indexes
     - [x] `indexing-get-search-index`: returns a search index

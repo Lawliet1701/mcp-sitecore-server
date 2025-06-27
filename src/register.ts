@@ -95,6 +95,7 @@ import { addPlaceholderSettingByIdPowershellTool } from "./tools/powershell/comp
 import { addPlaceholderSettingByPathPowershellTool } from "./tools/powershell/composite/presentation/add-placeholder-setting-by-path.js";
 import { removePlaceholderSettingByIdPowershellTool } from "./tools/powershell/simple/presentation/remove-placeholder-setting-by-id.js";
 import { removePlaceholderSettingByPathPowershellTool } from "./tools/powershell/simple/presentation/remove-placeholder-setting-by-path.js";
+import { getRenderingParameterByIdPowershellTool } from "./tools/powershell/composite/presentation/get-rendering-parameter-by-id.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
 
 
@@ -175,7 +176,6 @@ export async function registerAll(server: McpServer, config: Config) {
         getItemReferrerByIdPowerShellTool,
         getItemReferrerByPathPowerShellTool,
 
-
         //Presentation
         //Simple Presentation PowerShell Tools
         getLayoutByIdPowershellTool,
@@ -194,6 +194,7 @@ export async function registerAll(server: McpServer, config: Config) {
         getPlaceholderSettingByPathPowershellTool,
         removePlaceholderSettingByIdPowershellTool,
         removePlaceholderSettingByPathPowershellTool,
+        
         //Composite Presentation PowerShell Tools
         setLayoutIdPowershellTool,
         setLayoutByPathPowershellTool,
@@ -206,6 +207,7 @@ export async function registerAll(server: McpServer, config: Config) {
         switchRenderingByUniqueIdPowershellTool,
         addPlaceholderSettingByIdPowershellTool,
         addPlaceholderSettingByPathPowershellTool,
+        getRenderingParameterByIdPowershellTool,
 
         //Logging
         getLogsPowerShellTool,
