@@ -1,7 +1,7 @@
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 
-export async function getRenderingByItemId(
+export async function getRenderingById(
     client: Client,
     itemId: string,
     database: string,

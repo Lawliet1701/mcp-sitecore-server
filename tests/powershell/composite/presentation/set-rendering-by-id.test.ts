@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { client, transport } from "../../../client";
 import { resetLayoutById } from "../../tools/reset-layout";
-import { getRenderingByItemId } from "../../tools/get-rendering";
+import { getRenderingById } from "../../tools/get-rendering";
 
 await client.connect(transport);
 
@@ -40,7 +40,7 @@ describe("powershell", () => {
         await callTool(client, "presentation-set-rendering-by-id", setRenderingArgs);
 
         // Assert
-        const renderings = await getRenderingByItemId(client, itemId, database, undefined, language, finalLayout);
+        const renderings = await getRenderingById(client, itemId, database, undefined, language, finalLayout);
         
         const rendering = renderings[0];
         expect(rendering.ItemID).toBe(sampleRenderingId);
