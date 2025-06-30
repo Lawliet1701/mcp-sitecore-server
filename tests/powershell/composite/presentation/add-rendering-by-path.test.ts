@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { client, transport } from "../../../client";
 import { resetLayoutByPath } from "../../tools/reset-layout";
+import { getRenderingByPath } from "../../tools/get-rendering";
 
 await client.connect(transport);
 
@@ -33,16 +34,10 @@ describe("powershell", () => {
         await callTool(client, "presentation-add-rendering-by-path", addRenderingArgs);
 
         // Assert
-        const getRenderingsArgs: Record<string, any> = {
-            path: itemPath,
-            language,
-            finalLayout,
-        };
+        const renderings = await getRenderingByPath(client, itemPath, undefined, language, finalLayout);;
 
-        const result = await callTool(client, "presentation-get-rendering-by-path", getRenderingsArgs);
-        const resultJson = JSON.parse(result.content[0].text);
-        expect(resultJson.Obj.length).toBe(4);
-        const addedRendering = resultJson.Obj[0];
+        expect(renderings.length).toBe(4);
+        const addedRendering = renderings[0];
         expect(addedRendering.ItemID).toBe(sampleRenderingId);
         expect(addedRendering.Placeholder).toBe(placeHolder);
         expect(addedRendering.Datasource).toBe(dataSource );

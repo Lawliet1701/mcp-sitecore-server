@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { client, transport } from "../../../client";
 import { resetLayoutById } from "../../tools/reset-layout";
+import { getRenderingByItemId } from "../../tools/get-rendering";
 
 await client.connect(transport);
 
@@ -35,16 +36,9 @@ describe("powershell", () => {
         await callTool(client, "presentation-switch-rendering-by-unique-id", switchRenderingArgs);
 
         // Assert
-        const getRenderingsArgs: Record<string, any> = {
-            itemId,
-            database,
-            language,
-            finalLayout,
-        };
+        const renderings = await getRenderingByItemId(client, itemId, database, undefined, language, finalLayout);
         
-        const result = await callTool(client, "presentation-get-rendering-by-id", getRenderingsArgs);
-        const resultJson = JSON.parse(result.content[0].text);
-        const rendering = resultJson.Obj[2];
+        const rendering = renderings[2];
         expect(rendering.ItemID.toLowerCase()).toBe(newRenderingId.toLowerCase());
     });
 });
