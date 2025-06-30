@@ -106,6 +106,7 @@
     - [x] `presentation-remove-rendering-parameter-by-id`: Removes the specified rendering parameter from the rendering placed on the item specified by ID
     - [x] `presentation-remove-rendering-parameter-by-path`: Removes the specified rendering parameter from the rendering placed on the item specified by path
     - [x] `presentation-set-rendering-parameter-by-id`: Adds and updates the specified rendering parameter from the rendering placed on the item specified by ID
+    - [x] `presentation-set-rendering-parameter-by-path`: Adds and updates the specified rendering parameter from the rendering placed on the item specified by path
   - [x] Indexing
     - [x] `indexing-initialize-search-index`: initializes one or more search indexes
     - [x] `indexing-get-search-index`: returns a search index
