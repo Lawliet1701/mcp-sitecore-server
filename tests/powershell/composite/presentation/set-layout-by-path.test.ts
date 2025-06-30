@@ -5,8 +5,10 @@ import { getCurrentLayoutId } from "../../tools/get-current-layout-id";
 
 await client.connect(transport);
 
-// /sitecore/content/Home/Tests/Presentation/Set-Layout-By-Path
 const itemId = "{1CDCD795-B650-4FB0-AF60-77BAEC572C32}";
+
+// /sitecore/content/Home/Tests/Presentation/Set-Layout-By-Path
+const itemPath = "master:/sitecore/content/Home/Tests/Presentation/Set-Layout-By-Path";
 
 const testData: Record<string, Record<string, string>> = {
     layoutOne: {
@@ -27,7 +29,7 @@ describe("powershell", () => {
             testData.layoutTwo : testData.layoutOne;
 
         const setLayoutArgs: Record<string, any> = {
-            itemId: itemId,
+            itemPath: itemPath,
             layoutPath: expectedLayout.path,
             language: "ja-jp",
             finalLayout: "true",

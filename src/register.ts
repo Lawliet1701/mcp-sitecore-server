@@ -89,6 +89,18 @@ import { setRenderingByIdPowershellTool } from "./tools/powershell/composite/pre
 import { switchRenderingByIdPowershellTool } from "./tools/powershell/composite/presentation/switch-rendering-by-id.js";
 import { switchRenderingByPathPowershellTool } from "./tools/powershell/composite/presentation/switch-rendering-by-path.js";
 import { switchRenderingByUniqueIdPowershellTool } from "./tools/powershell/composite/presentation/switch-rendering-by-unique-id.js";
+import { getPlaceholderSettingByIdPowershellTool } from "./tools/powershell/simple/presentation/get-placeholder-setting-by-id.js";
+import { getPlaceholderSettingByPathPowershellTool } from "./tools/powershell/simple/presentation/get-placeholder-setting-by-path.js";
+import { addPlaceholderSettingByIdPowershellTool } from "./tools/powershell/composite/presentation/add-placeholder-setting-by-id.js";
+import { addPlaceholderSettingByPathPowershellTool } from "./tools/powershell/composite/presentation/add-placeholder-setting-by-path.js";
+import { removePlaceholderSettingByIdPowershellTool } from "./tools/powershell/simple/presentation/remove-placeholder-setting-by-id.js";
+import { removePlaceholderSettingByPathPowershellTool } from "./tools/powershell/simple/presentation/remove-placeholder-setting-by-path.js";
+import { getRenderingParameterByIdPowershellTool } from "./tools/powershell/composite/presentation/get-rendering-parameter-by-id.js";
+import { getRenderingParameterByPathPowershellTool } from "./tools/powershell/composite/presentation/get-rendering-parameter-by-path.js";
+import { removeRenderingParameterByIdPowershellTool } from "./tools/powershell/composite/presentation/remove-rendering-parameter-by-id.js";
+import { removeRenderingParameterByPathPowershellTool } from "./tools/powershell/composite/presentation/remove-rendering-parameter-by-path.js";
+import { setRenderingParameterByIdPowershellTool } from "./tools/powershell/composite/presentation/set-rendering-parameter-by-id.js";
+import { setRenderingParameterByPathPowershellTool } from "./tools/powershell/composite/presentation/set-rendering-parameter-by-path.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
 
 
@@ -169,9 +181,8 @@ export async function registerAll(server: McpServer, config: Config) {
         getItemReferrerByIdPowerShellTool,
         getItemReferrerByPathPowerShellTool,
 
-
         //Presentation
-        //Simple Layout PowerShell Tools
+        //Simple Presentation PowerShell Tools
         getLayoutByIdPowershellTool,
         getLayoutByPathPowershellTool,
         resetLayoutByIdPowershellTool,
@@ -184,6 +195,11 @@ export async function registerAll(server: McpServer, config: Config) {
         getRenderingByPathPowershellTool,
         removeRenderingByPathPowershellTool,
         removeRenderingByIdPowershellTool,
+        getPlaceholderSettingByIdPowershellTool,
+        getPlaceholderSettingByPathPowershellTool,
+        removePlaceholderSettingByIdPowershellTool,
+        removePlaceholderSettingByPathPowershellTool,
+        
         //Composite Presentation PowerShell Tools
         setLayoutIdPowershellTool,
         setLayoutByPathPowershellTool,
@@ -194,6 +210,14 @@ export async function registerAll(server: McpServer, config: Config) {
         switchRenderingByIdPowershellTool,
         switchRenderingByPathPowershellTool,
         switchRenderingByUniqueIdPowershellTool,
+        addPlaceholderSettingByIdPowershellTool,
+        addPlaceholderSettingByPathPowershellTool,
+        getRenderingParameterByIdPowershellTool,
+        getRenderingParameterByPathPowershellTool,
+        removeRenderingParameterByIdPowershellTool,
+        removeRenderingParameterByPathPowershellTool,
+        setRenderingParameterByIdPowershellTool,
+        setRenderingParameterByPathPowershellTool,
 
         //Logging
         getLogsPowerShellTool,

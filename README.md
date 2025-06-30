@@ -95,6 +95,18 @@
     - [x] `presentation-switch-rendering-by-id`: Switches an existing rendering specified by item ID with an alternate one for the item specified by item ID
     - [x] `presentation-switch-rendering-by-path`: Switches an existing rendering specified by path with an alternate one for the item specified by path
     - [x] `presentation-switch-rendering-by-unique-id`: Switches an existing rendering specified by unique ID with an alternate one for the item specified by item ID
+    - [x] `presentation-get-placeholder-setting-by-id`: Gets placeholder setting assigned on the item specified by ID
+    - [x] `presentation-get-placeholder-setting-by-path`: Gets placeholder setting assigned on the item specified by path
+    - [x] `presentation-add-placeholder-setting-by-id`: Adds a placeholder setting to the item specified by ID
+    - [x] `presentation-add-placeholder-setting-by-path`: Adds a placeholder setting to the item specified by path
+    - [x] `presentation-remove-placeholder-setting-by-id`: Removes placeholder setting from the item specified by ID
+    - [x] `presentation-remove-placeholder-setting-by-path`: Removes placeholder setting from the item specified by path
+    - [x] `presentation-get-rendering-parameter-by-id`: Gets rendering parameter for the item specified by ID
+    - [x] `presentation-get-rendering-parameter-by-path`: Gets rendering parameter for the item specified by path
+    - [x] `presentation-remove-rendering-parameter-by-id`: Removes the specified rendering parameter from the rendering placed on the item specified by ID
+    - [x] `presentation-remove-rendering-parameter-by-path`: Removes the specified rendering parameter from the rendering placed on the item specified by path
+    - [x] `presentation-set-rendering-parameter-by-id`: Adds and updates the specified rendering parameter from the rendering placed on the item specified by ID
+    - [x] `presentation-set-rendering-parameter-by-path`: Adds and updates the specified rendering parameter from the rendering placed on the item specified by path
   - [x] Indexing
     - [x] `indexing-initialize-search-index`: initializes one or more search indexes
     - [x] `indexing-get-search-index`: returns a search index

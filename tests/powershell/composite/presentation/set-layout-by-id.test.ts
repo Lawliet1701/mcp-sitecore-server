@@ -23,6 +23,7 @@ describe("powershell", () => {
             layoutPath: "master:",
             language: "ja-jp",
             finalLayout: "true",
+            database: "master",
         };
 
         // Act

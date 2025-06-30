@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { callTool } from "@modelcontextprotocol/inspector/cli/build/client/tools.js";
 import { client, transport } from "../../../client";
+import { resetLayoutById } from "../../tools/reset-layout";
+import { getRenderingById } from "../../tools/get-rendering";
 
 await client.connect(transport);
 
@@ -21,14 +23,7 @@ describe("powershell", () => {
     it("presentation-switch-rendering-by-id", async () => {
         // Arrange
         // Initialize item initial state before test.
-        const resetLayoutArgs: Record<string, any> = {
-            id: itemId,
-            database,
-            finalLayout: "true",
-            language,
-        };
-    
-        await callTool(client, "presentation-reset-layout-by-id", resetLayoutArgs);
+        await resetLayoutById(client, itemId, database, language, finalLayout);
 
         const switchRenderingArgs: Record<string, any> = {
             itemId,
@@ -43,16 +38,9 @@ describe("powershell", () => {
         await callTool(client, "presentation-switch-rendering-by-id", switchRenderingArgs);
 
         // Assert
-        const getRenderingsArgs: Record<string, any> = {
-            itemId,
-            database,
-            language,
-            finalLayout,
-        };
+        const renderings = await getRenderingById(client, itemId, database, undefined, language, finalLayout);
         
-        const result = await callTool(client, "presentation-get-rendering-by-id", getRenderingsArgs);
-        const resultJson = JSON.parse(result.content[0].text);
-        const rendering = resultJson.Obj[2];
+        const rendering = renderings[2];
         expect(rendering.ItemID.toLowerCase()).toBe(newRenderingId.toLowerCase());
     });
 });
