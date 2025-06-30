@@ -99,6 +99,7 @@ import { getRenderingParameterByIdPowershellTool } from "./tools/powershell/comp
 import { getRenderingParameterByPathPowershellTool } from "./tools/powershell/composite/presentation/get-rendering-parameter-by-path.js";
 import { removeRenderingParameterByIdPowershellTool } from "./tools/powershell/composite/presentation/remove-rendering-parameter-by-id.js";
 import { removeRenderingParameterByPathPowershellTool } from "./tools/powershell/composite/presentation/remove-rendering-parameter-by-path.js";
+import { setRenderingParameterByIdPowershellTool } from "./tools/powershell/composite/presentation/set-rendering-parameter-by-id.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
 
 
@@ -214,6 +215,7 @@ export async function registerAll(server: McpServer, config: Config) {
         getRenderingParameterByPathPowershellTool,
         removeRenderingParameterByIdPowershellTool,
         removeRenderingParameterByPathPowershellTool,
+        setRenderingParameterByIdPowershellTool,
 
         //Logging
         getLogsPowerShellTool,
