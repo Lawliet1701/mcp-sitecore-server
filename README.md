@@ -120,6 +120,8 @@
     - [x] `indexing-remove-search-index-item-by-path`: removes the item with the specified path from the search index
     - [ ] ~~`indexing-initialize-item`: initializes items with the PowerShell automatic properties for each field.~~ Skipped, no value for MCP server.
   - [x] Common
+    - [x] `common-add-item-version-by-id`: creates a version of the item (by its id) in a new language based on an existing language version
+    - [x] `common-add-item-version-by-path`: creates a version of the item (by its path) in a new language based on an existing language version
     - [x] `common-get-database`: returns information about Sitecore databases
     - [x] `common-get-cache`: returns information about Sitecore caches
     - [x] `common-get-item-template-by-id`: returns template information for a Sitecore item by ID
@@ -128,6 +130,8 @@
     - [x] `common-get-item-reference-by-path`: returns item references (where it is used) for a Sitecore item by path
     - [x] `common-get-item-referrer-by-id`: returns items referring to a Sitecore item by ID (which items reference it)
     - [x] `common-get-item-referrer-by-path`: returns items referring to a Sitecore item by path (which items reference it)
+    - [x] `common-remove-item-version-by-id`: removes a version of a Sitecore item by ID.
+    - [x] `common-remove-item-version-by-path`: removes a version of a Sitecore item by path.
   - [x] Logging
     - [x] `logging-get-logs`: retrieves Sitecore logs from the log directory with filtering options
 

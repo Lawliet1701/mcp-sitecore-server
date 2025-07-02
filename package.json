@@ -40,7 +40,7 @@
     "graphql": "^16.10.0"
   },
   "devDependencies": {
-    "@modelcontextprotocol/inspector": "^0.11.0",
+    "@modelcontextprotocol/inspector": "^0.15.0",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-json": "^6.1.0",

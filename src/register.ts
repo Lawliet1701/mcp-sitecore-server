@@ -67,6 +67,10 @@ import { getItemReferenceByIdPowerShellTool } from "./tools/powershell/simple/co
 import { getItemReferenceByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-reference-by-path.js";
 import { getItemReferrerByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-referrer-by-id.js";
 import { getItemReferrerByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-referrer-by-path.js";
+import { addItemVersionByIdPowerShellTool } from "./tools/powershell/simple/common/add-item-version-by-id.js";
+import { addItemVersionByPathPowerShellTool } from "./tools/powershell/simple/common/add-item-version-by-path.js";
+import { removeItemVersionByIdPowerShellTool } from "./tools/powershell/simple/common/remove-item-version-by-id.js";
+import { removeItemVersionByPathPowerShellTool } from "./tools/powershell/simple/common/remove-item-version-by-path.js";
 
 import { getLayoutByIdPowershellTool } from "./tools/powershell/simple/presentation/get-layout-by-id.js";
 import { getLayoutByPathPowershellTool } from "./tools/powershell/simple/presentation/get-layout-by-path.js";
@@ -102,7 +106,6 @@ import { removeRenderingParameterByPathPowershellTool } from "./tools/powershell
 import { setRenderingParameterByIdPowershellTool } from "./tools/powershell/composite/presentation/set-rendering-parameter-by-id.js";
 import { setRenderingParameterByPathPowershellTool } from "./tools/powershell/composite/presentation/set-rendering-parameter-by-path.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
-
 
 export async function register(array: Array<(server: McpServer, config: Config) => void>,
     server: McpServer,
@@ -180,6 +183,10 @@ export async function registerAll(server: McpServer, config: Config) {
         getItemReferenceByPathPowerShellTool,
         getItemReferrerByIdPowerShellTool,
         getItemReferrerByPathPowerShellTool,
+        addItemVersionByIdPowerShellTool,
+        addItemVersionByPathPowerShellTool,
+        removeItemVersionByIdPowerShellTool,
+        removeItemVersionByPathPowerShellTool,
 
         //Presentation
         //Simple Presentation PowerShell Tools
