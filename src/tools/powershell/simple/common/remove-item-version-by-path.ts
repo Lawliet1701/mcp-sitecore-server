@@ -17,13 +17,13 @@ export function removeItemVersionByPathPowerShellTool(server: McpServer, config:
             version: z.string().optional()
                 .describe("Version that should be deleted form the provided item. Version parameter supports globbing so you can delete whole version groups using wildcards."),
             recurse: z.boolean().optional()
-                .describe("Remove language versions from the item and all of its children."),
+                .describe("Removes language versions from the item and all of its children."),
             maxRecentVersions: z.number().optional()
-                .describe("Trim the selected language to value specified by this parameter."),
+                .describe("Trims the selected language to value specified by this parameter."),
             database: z.string().optional()
                 .describe("The database containing the item (defaults to the context database)."),
             archive: z.boolean().optional()
-                .describe("Move the items to the archive rather than recycle bin."),
+                .describe("Moves the items to the archive rather than recycle bin."),
         },
         async (params) => {
             const options: Record<string, any> = {

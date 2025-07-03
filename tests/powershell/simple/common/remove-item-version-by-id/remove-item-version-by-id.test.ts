@@ -7,6 +7,7 @@ await client.connect(transport);
 describe("powershell", () => {
     it("common-remove-item-version-by-id-language", async () => {
         // Arrange
+        // /sitecore/content/Home/Tests/Common/Remove-Item-Version-By-Id
         const itemId = "{FD02997A-5477-4E17-88A1-EDB9D879AA77}";
         const language = "fr-CA";
 

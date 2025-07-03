@@ -71,6 +71,8 @@ import { addItemVersionByIdPowerShellTool } from "./tools/powershell/simple/comm
 import { addItemVersionByPathPowerShellTool } from "./tools/powershell/simple/common/add-item-version-by-path.js";
 import { removeItemVersionByIdPowerShellTool } from "./tools/powershell/simple/common/remove-item-version-by-id.js";
 import { removeItemVersionByPathPowerShellTool } from "./tools/powershell/simple/common/remove-item-version-by-path.js";
+import { resetItemFieldByIdPowerShellTool } from "./tools/powershell/simple/common/reset-item-field-by-id.js";
+import { resetItemFieldByPathPowerShellTool } from "./tools/powershell/simple/common/reset-item-field-by-path.js";
 
 import { getLayoutByIdPowershellTool } from "./tools/powershell/simple/presentation/get-layout-by-id.js";
 import { getLayoutByPathPowershellTool } from "./tools/powershell/simple/presentation/get-layout-by-path.js";
@@ -187,6 +189,8 @@ export async function registerAll(server: McpServer, config: Config) {
         addItemVersionByPathPowerShellTool,
         removeItemVersionByIdPowerShellTool,
         removeItemVersionByPathPowerShellTool,
+        resetItemFieldByIdPowerShellTool,
+        resetItemFieldByPathPowerShellTool,
 
         //Presentation
         //Simple Presentation PowerShell Tools

@@ -130,8 +130,10 @@
     - [x] `common-get-item-reference-by-path`: returns item references (where it is used) for a Sitecore item by path
     - [x] `common-get-item-referrer-by-id`: returns items referring to a Sitecore item by ID (which items reference it)
     - [x] `common-get-item-referrer-by-path`: returns items referring to a Sitecore item by path (which items reference it)
-    - [x] `common-remove-item-version-by-id`: removes a version of a Sitecore item by ID.
-    - [x] `common-remove-item-version-by-path`: removes a version of a Sitecore item by path.
+    - [x] `common-remove-item-version-by-id`: removes a version of a Sitecore item by ID
+    - [x] `common-remove-item-version-by-path`: removes a version of a Sitecore item by path
+    - [x] `common-reset-item-field-by-id`: resets item fields, specified as either names, fields or template fields by ID
+    - [x] `common-reset-item-field-by-path`: resets item fields, specified as either names, fields or template fields by path
   - [x] Logging
     - [x] `logging-get-logs`: retrieves Sitecore logs from the log directory with filtering options
 
