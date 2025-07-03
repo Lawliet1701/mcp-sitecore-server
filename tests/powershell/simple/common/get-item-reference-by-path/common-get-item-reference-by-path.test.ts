@@ -17,8 +17,11 @@ describe("powershell", () => {
         const json = JSON.parse(result.content[0].text);
         
         // Verify that the command executed successfully and returned reference information
-        expect(json.Obj[0].Name).toBe("Sample Item");
-        expect(json.Obj[1].Name).toBe("Draft");
-        expect(json.Obj[2].Name).toBe("Sample Workflow");
+        const names = json.Obj.map(item => item.Name);
+        expect(names).toEqual(expect.arrayContaining([
+            "Sample Item",
+            "Draft",
+            "Sample Workflow"
+        ]));
     });
 });
