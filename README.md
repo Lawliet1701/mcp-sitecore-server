@@ -126,6 +126,8 @@
     - [x] `common-get-cache`: returns information about Sitecore caches
     - [x] `common-get-item-template-by-id`: returns template information for a Sitecore item by ID
     - [x] `common-get-item-template-by-path`: returns template information for a Sitecore item by path
+    - [x] `common-set-item-template-by-id`: sets the item template by ID
+    - [x] `common-set-item-template-by-path`: sets the item template by path
     - [x] `common-get-item-reference-by-id`: returns item references (where it is used) for a Sitecore item by ID
     - [x] `common-get-item-reference-by-path`: returns item references (where it is used) for a Sitecore item by path
     - [x] `common-get-item-referrer-by-id`: returns items referring to a Sitecore item by ID (which items reference it)

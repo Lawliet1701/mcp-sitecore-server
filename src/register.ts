@@ -63,6 +63,8 @@ import { getDatabasePowerShellTool } from "./tools/powershell/simple/common/get-
 import { getCachePowerShellTool } from "./tools/powershell/simple/common/get-cache.js";
 import { getItemTemplateByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-template-by-id.js";
 import { getItemTemplateByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-template-by-path.js";
+import { setItemTemplateByIdPowerShellTool } from "./tools/powershell/simple/common/set-item-template-by-id.js";
+import { setItemTemplateByPathPowerShellTool } from "./tools/powershell/simple/common/set-item-template-by-path.js";
 import { getItemReferenceByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-reference-by-id.js";
 import { getItemReferenceByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-reference-by-path.js";
 import { getItemReferrerByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-referrer-by-id.js";
@@ -179,6 +181,8 @@ export async function registerAll(server: McpServer, config: Config) {
         getCachePowerShellTool,
         getItemTemplateByIdPowerShellTool,        
         getItemTemplateByPathPowerShellTool,
+        setItemTemplateByIdPowerShellTool,
+        setItemTemplateByPathPowerShellTool,
         getItemReferenceByIdPowerShellTool,
         getItemReferenceByPathPowerShellTool,
         getItemReferrerByIdPowerShellTool,
