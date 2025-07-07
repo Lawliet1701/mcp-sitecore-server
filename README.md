@@ -120,26 +120,32 @@
     - [x] `indexing-remove-search-index-item-by-path`: removes the item with the specified path from the search index
     - [ ] ~~`indexing-initialize-item`: initializes items with the PowerShell automatic properties for each field.~~ Skipped, no value for MCP server.
   - [x] Common
+    - [x] `common-add-base-template-by-id`: adds a base template to a template item by ID
+    - [x] `common-add-base-template-by-path`: adds a base template to a template item by path
     - [x] `common-add-item-version-by-id`: creates a version of the item (by its id) in a new language based on an existing language version
     - [x] `common-add-item-version-by-path`: creates a version of the item (by its path) in a new language based on an existing language version
-    - [x] `common-get-database`: returns information about Sitecore databases
+    - [x] `common-convert-from-item-clone-by-id`: converts an item from a clone to a fully independent item by ID
+    - [x] `common-convert-from-item-clone-by-path`: converts an item from a clone to a fully independent item by path
     - [x] `common-get-cache`: returns information about Sitecore caches
-    - [x] `common-get-item-template-by-id`: returns template information for a Sitecore item by ID
-    - [x] `common-get-item-template-by-path`: returns template information for a Sitecore item by path
-    - [x] `common-set-item-template-by-id`: sets the item template by ID
-    - [x] `common-set-item-template-by-path`: sets the item template by path
-    - [x] `common-add-base-template-by-path`: adds a base template to a template item by ID
-    - [x] `common-add-base-template-by-path`: adds a base template to a template item by path
-    - [x] `common-remove-base-template-by-path`: removes a base template from a template item by ID
-    - [x] `common-remove-base-template-by-path`: removes a base template from a template item by path
+    - [x] `common-get-database`: returns information about Sitecore databases
+    - [x] `common-get-item-clone-by-id`: returns all the clones for the specified item by ID
+    - [x] `common-get-item-clone-by-path`: returns all the clones for the specified item by path
     - [x] `common-get-item-reference-by-id`: returns item references (where it is used) for a Sitecore item by ID
     - [x] `common-get-item-reference-by-path`: returns item references (where it is used) for a Sitecore item by path
     - [x] `common-get-item-referrer-by-id`: returns items referring to a Sitecore item by ID (which items reference it)
     - [x] `common-get-item-referrer-by-path`: returns items referring to a Sitecore item by path (which items reference it)
+    - [x] `common-get-item-template-by-id`: returns template information for a Sitecore item by ID
+    - [x] `common-get-item-template-by-path`: returns template information for a Sitecore item by path
+    - [x] `common-new-item-clone-by-id`: creates a new item clone based on the item provided by ID
+    - [x] `common-new-item-clone-by-path`: creates a new item clone based on the item provided by path
+    - [x] `common-remove-base-template-by-id`: removes a base template from a template item by ID
+    - [x] `common-remove-base-template-by-path`: removes a base template from a template item by path
     - [x] `common-remove-item-version-by-id`: removes a version of a Sitecore item by ID
     - [x] `common-remove-item-version-by-path`: removes a version of a Sitecore item by path
     - [x] `common-reset-item-field-by-id`: resets item fields, specified as either names, fields or template fields by ID
     - [x] `common-reset-item-field-by-path`: resets item fields, specified as either names, fields or template fields by path
+    - [x] `common-set-item-template-by-id`: sets the item template by ID
+    - [x] `common-set-item-template-by-path`: sets the item template by path
   - [x] Logging
     - [x] `logging-get-logs`: retrieves Sitecore logs from the log directory with filtering options
 

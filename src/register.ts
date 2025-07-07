@@ -79,6 +79,12 @@ import { removeItemVersionByIdPowerShellTool } from "./tools/powershell/simple/c
 import { removeItemVersionByPathPowerShellTool } from "./tools/powershell/simple/common/remove-item-version-by-path.js";
 import { resetItemFieldByIdPowerShellTool } from "./tools/powershell/simple/common/reset-item-field-by-id.js";
 import { resetItemFieldByPathPowerShellTool } from "./tools/powershell/simple/common/reset-item-field-by-path.js";
+import { getItemCloneByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-clone-by-id.js";
+import { getItemCloneByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-clone-by-path.js";
+import { convertFromItemCloneByIdPowerShellTool } from "./tools/powershell/simple/common/convert-from-item-clone-by-id.js";
+import { convertFromItemCloneByPathPowerShellTool } from "./tools/powershell/simple/common/convert-from-item-clone-by-path.js";
+import { newItemCloneByIdPowerShellTool } from "./tools/powershell/composite/common/new-item-clone-by-id.js";
+import { newItemCloneByPathPowerShellTool } from "./tools/powershell/composite/common/new-item-clone-by-path.js";
 
 import { getLayoutByIdPowershellTool } from "./tools/powershell/simple/presentation/get-layout-by-id.js";
 import { getLayoutByPathPowershellTool } from "./tools/powershell/simple/presentation/get-layout-by-path.js";
@@ -178,31 +184,41 @@ export async function registerAll(server: McpServer, config: Config) {
         testItemAclPowerShellTool,
         addItemAclPowerShellTool,
         clearItemAclPowerShellTool,
+        
         //Composite Security PowerShell Tools
         setItemAclByIdPowerShellTool,
-        setItemAclByPathPowerShellTool,        
+        setItemAclByPathPowerShellTool,
+
         //Common PowerShell Tools
-        //Simple Common PowerShell Tools        
-        getDatabasePowerShellTool,
-        getCachePowerShellTool,
-        getItemTemplateByIdPowerShellTool,        
-        getItemTemplateByPathPowerShellTool,
-        setItemTemplateByIdPowerShellTool,
-        setItemTemplateByPathPowerShellTool,
+        //Simple Common PowerShell Tools
         addBaseTemplateByIdPowerShellTool,
         addBaseTemplateByPathPowerShellTool,
-        removeBaseTemplateByIdPowerShellTool,
-        removeBaseTemplateByPathPowerShellTool,
+        addItemVersionByIdPowerShellTool,
+        addItemVersionByPathPowerShellTool,
+        convertFromItemCloneByIdPowerShellTool,
+        convertFromItemCloneByPathPowerShellTool,
+        getCachePowerShellTool,
+        getDatabasePowerShellTool,
+        getItemCloneByIdPowerShellTool,
+        getItemCloneByPathPowerShellTool,
         getItemReferenceByIdPowerShellTool,
         getItemReferenceByPathPowerShellTool,
         getItemReferrerByIdPowerShellTool,
         getItemReferrerByPathPowerShellTool,
-        addItemVersionByIdPowerShellTool,
-        addItemVersionByPathPowerShellTool,
+        getItemTemplateByIdPowerShellTool,        
+        getItemTemplateByPathPowerShellTool,     
+        removeBaseTemplateByIdPowerShellTool,
+        removeBaseTemplateByPathPowerShellTool,
         removeItemVersionByIdPowerShellTool,
         removeItemVersionByPathPowerShellTool,
         resetItemFieldByIdPowerShellTool,
         resetItemFieldByPathPowerShellTool,
+        setItemTemplateByIdPowerShellTool,
+        setItemTemplateByPathPowerShellTool,
+
+        //Composite Common PowerShell Tools 
+        newItemCloneByIdPowerShellTool,
+        newItemCloneByPathPowerShellTool,
 
         //Presentation
         //Simple Presentation PowerShell Tools
