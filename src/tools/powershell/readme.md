@@ -89,11 +89,32 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 
 ### Simple Common Tools
 
-- `common-get-database`: Get information about Sitecore databases
+- `common-add-base-template-by-id`: Add a base template to a template item by ID
+- `common-add-base-template-by-path`: Add a base template to a template item by path
+- `common-add-item-version-by-id`: Create a version of the item (by its id) in a new language based on an existing language version
+- `common-add-item-version-by-path`: Create a version of the item (by its path) in a new language based on an existing language version
+- `common-convert-from-item-clone-by-id`: Convert an item from a clone to a fully independent item by ID
+- `common-convert-from-item-clone-by-path`: Convert an item from a clone to a fully independent item by path
 - `common-get-cache`: Get information about Sitecore caches
-- `common-get-item-template-by-id`: Get template information for a Sitecore item by ID
-- `common-get-item-template-by-path`: Get template information for a Sitecore item by path
+- `common-get-database`: Get information about Sitecore databases
+- `common-get-item-clone-by-id`: Return all the clones for the specified item by ID
+- `common-get-item-clone-by-path`: Return all the clones for the specified item by path
 - `common-get-item-reference-by-id`: Get item references (where it is used) for a Sitecore item by ID
 - `common-get-item-reference-by-path`: Get item references (where it is used) for a Sitecore item by path
 - `common-get-item-referrer-by-id`: Get items referring to a Sitecore item by ID (which items reference it)
 - `common-get-item-referrer-by-path`: Get items referring to a Sitecore item by path (which items reference it)
+- `common-get-item-template-by-id`: Get template information for a Sitecore item by ID
+- `common-get-item-template-by-path`: Get template information for a Sitecore item by path
+- `common-remove-base-template-by-id`: Remove a base template from a template item by ID
+- `common-remove-base-template-by-path`: Remove a base template from a template item by path
+- `common-remove-item-version-by-id`: Remove a version of a Sitecore item by ID
+- `common-remove-item-version-by-path`: Remove a version of a Sitecore item by path
+- `common-reset-item-field-by-id`: Reset item fields, specified as either names, fields or template fields by ID
+- `common-reset-item-field-by-path`: Reset item fields, specified as either names, fields or template fields by path
+- `common-set-item-template-by-id`: Set the item template by ID
+- `common-set-item-template-by-path`: Set the item template by path
+
+### Composite Common Tools
+
+- `common-new-item-clone-by-id`: Create a new item clone based on the item provided by ID
+- `common-new-item-clone-by-path`: Create a new item clone based on the item provided by path
