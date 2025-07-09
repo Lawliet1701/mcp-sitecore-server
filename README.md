@@ -138,6 +138,8 @@
     - [x] `common-get-item-referrer-by-path`: returns items referring to a Sitecore item by path (which items reference it)
     - [x] `common-get-item-template-by-id`: returns template information for a Sitecore item by ID
     - [x] `common-get-item-template-by-path`: returns template information for a Sitecore item by path
+    - [x] `common-get-item-field-by-id`: gets item fields as either names or fields or template fields by ID
+    - [x] `common-get-item-field-by-path`: gets item fields as either names or fields or template fields by path
     - [x] `common-new-item-clone-by-id`: creates a new item clone based on the item provided by ID
     - [x] `common-new-item-clone-by-path`: creates a new item clone based on the item provided by path
     - [x] `common-remove-archive-item`: removes items permanently from the specified archive

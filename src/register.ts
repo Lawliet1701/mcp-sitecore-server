@@ -71,6 +71,8 @@ import { addBaseTemplateByIdPowerShellTool } from "./tools/powershell/simple/com
 import { addBaseTemplateByPathPowerShellTool } from "./tools/powershell/simple/common/add-base-template-by-path.js";
 import { removeBaseTemplateByIdPowerShellTool } from "./tools/powershell/simple/common/remove-base-template-by-id.js";
 import { removeBaseTemplateByPathPowerShellTool } from "./tools/powershell/simple/common/remove-base-template-by-path.js";
+import { getItemFieldByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-field-by-id.js";
+import { getItemFieldByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-field-by-path.js";
 import { getItemReferenceByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-reference-by-id.js";
 import { getItemReferenceByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-reference-by-path.js";
 import { getItemReferrerByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-referrer-by-id.js";
@@ -205,12 +207,14 @@ export async function registerAll(server: McpServer, config: Config) {
         getDatabasePowerShellTool,
         getItemCloneByIdPowerShellTool,
         getItemCloneByPathPowerShellTool,
+        getItemFieldByIdPowerShellTool,
+        getItemFieldByPathPowerShellTool,
         getItemReferenceByIdPowerShellTool,
         getItemReferenceByPathPowerShellTool,
         getItemReferrerByIdPowerShellTool,
         getItemReferrerByPathPowerShellTool,
-        getItemTemplateByIdPowerShellTool,        
-        getItemTemplateByPathPowerShellTool,     
+        getItemTemplateByIdPowerShellTool, 
+        getItemTemplateByPathPowerShellTool,
         removeBaseTemplateByIdPowerShellTool,
         removeBaseTemplateByPathPowerShellTool,
         removeItemVersionByIdPowerShellTool,

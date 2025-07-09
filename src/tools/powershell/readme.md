@@ -97,8 +97,10 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `common-convert-from-item-clone-by-path`: Convert an item from a clone to a fully independent item by path
 - `common-get-cache`: Get information about Sitecore caches
 - `common-get-database`: Get information about Sitecore databases
-- `common-get-item-clone-by-id`: Return all the clones for the specified item by ID
-- `common-get-item-clone-by-path`: Return all the clones for the specified item by path
+- `common-get-item-clone-by-id`: Get all the clones for the specified item by ID
+- `common-get-item-clone-by-path`: Get all the clones for the specified item by path
+- `common-get-item-field-by-id`: Get item fields as either names or fields or template fields by ID
+- `common-get-item-field-by-path`: Get item fields as either names or fields or template fields by path
 - `common-get-item-reference-by-id`: Get item references (where it is used) for a Sitecore item by ID
 - `common-get-item-reference-by-path`: Get item references (where it is used) for a Sitecore item by path
 - `common-get-item-referrer-by-id`: Get items referring to a Sitecore item by ID (which items reference it)
@@ -116,8 +118,8 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 
 ### Composite Common Tools
 
-- `common-get-archive`: Return Sitecore database archives
-- `common-get-archive-item`: Return a list of items found in the specified archive
+- `common-get-archive`: Get Sitecore database archives
+- `common-get-archive-item`: Get a list of items found in the specified archive
 - `common-new-item-clone-by-id`: Create a new item clone based on the item provided by ID
 - `common-new-item-clone-by-path`: Create a new item clone based on the item provided by path
 - `common-remove-archive-item`: Remove items permanently from the specified archive
