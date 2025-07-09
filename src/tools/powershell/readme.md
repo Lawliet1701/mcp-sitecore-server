@@ -109,6 +109,7 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `common-get-item-template-by-path`: Get template information for a Sitecore item by path
 - `common-get-item-workflow-event-by-id`: Get entries from the workflow history for the specified item by ID
 - `common-get-item-workflow-event-by-path`: Get entries from the workflow history for the specified item by path
+- `common-get-sitecore-job`: Get list of the current Sitecore jobs
 - `common-remove-base-template-by-id`: Remove a base template from a template item by ID
 - `common-remove-base-template-by-path`: Remove a base template from a template item by path
 - `common-remove-item-version-by-id`: Remove a version of a Sitecore item by ID

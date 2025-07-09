@@ -79,6 +79,7 @@ import { getItemReferrerByIdPowerShellTool } from "./tools/powershell/simple/com
 import { getItemReferrerByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-referrer-by-path.js";
 import { getItemWorkflowEventByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-workflow-event-by-id.js";
 import { getItemWorkflowEventByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-workflow-event-by-path.js";
+import { getSitecoreJobPowerShellTool } from "./tools/powershell/simple/common/get-sitecore-job.js";
 import { addItemVersionByIdPowerShellTool } from "./tools/powershell/simple/common/add-item-version-by-id.js";
 import { addItemVersionByPathPowerShellTool } from "./tools/powershell/simple/common/add-item-version-by-path.js";
 import { removeArchiveItemPowerShellTool } from "./tools/powershell/composite/common/remove-archive-item.js";
@@ -219,6 +220,7 @@ export async function registerAll(server: McpServer, config: Config) {
         getItemTemplateByPathPowerShellTool,
         getItemWorkflowEventByIdPowerShellTool,
         getItemWorkflowEventByPathPowerShellTool,
+        getSitecoreJobPowerShellTool,
         removeBaseTemplateByIdPowerShellTool,
         removeBaseTemplateByPathPowerShellTool,
         removeItemVersionByIdPowerShellTool,

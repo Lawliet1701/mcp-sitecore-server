@@ -142,6 +142,7 @@
     - [x] `common-get-item-field-by-path`: gets item fields as either names or fields or template fields by path
     - [x] `common-get-item-workflow-event-by-id`: gets entries from the workflow history for the specified item by ID
     - [x] `common-get-item-workflow-event-by-path`: gets entries from the workflow history for the specified item by path
+    - [x] `common-get-sitecore-job`: gets list of the current Sitecore jobs
     - [x] `common-new-item-clone-by-id`: creates a new item clone based on the item provided by ID
     - [x] `common-new-item-clone-by-path`: creates a new item clone based on the item provided by path
     - [x] `common-remove-archive-item`: removes items permanently from the specified archive
