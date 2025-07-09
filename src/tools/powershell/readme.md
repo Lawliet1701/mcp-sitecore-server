@@ -116,5 +116,9 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 
 ### Composite Common Tools
 
+- `common-get-archive`: Return Sitecore database archives
+- `common-get-archive-item`: Return a list of items found in the specified archive
 - `common-new-item-clone-by-id`: Create a new item clone based on the item provided by ID
 - `common-new-item-clone-by-path`: Create a new item clone based on the item provided by path
+- `common-remove-archive-item`: Remove items permanently from the specified archive
+- `common-restore-archive-item`: Restore items to the original database from the specified archive

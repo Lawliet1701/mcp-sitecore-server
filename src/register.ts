@@ -59,6 +59,8 @@ import { unprotectItemByIdPowerShellTool } from "./tools/powershell/simple/secur
 import { unprotectItemByPathPowerShellTool } from "./tools/powershell/simple/security/unprotect-item-by-path.js";
 import { getDomainByNamePowerShellTool } from "./tools/powershell/simple/security/get-domain-by-name.js";
 import { getAllDomainsPowerShellTool } from "./tools/powershell/simple/security/get-all-domains.js";
+import { getArchivePowerShellTool } from "./tools/powershell/composite/common/get-archive.js";
+import { getArchiveItemPowerShellTool } from "./tools/powershell/composite/common/get-archive-item.js";
 import { getDatabasePowerShellTool } from "./tools/powershell/simple/common/get-database.js";
 import { getCachePowerShellTool } from "./tools/powershell/simple/common/get-cache.js";
 import { getItemTemplateByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-template-by-id.js";
@@ -75,10 +77,12 @@ import { getItemReferrerByIdPowerShellTool } from "./tools/powershell/simple/com
 import { getItemReferrerByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-referrer-by-path.js";
 import { addItemVersionByIdPowerShellTool } from "./tools/powershell/simple/common/add-item-version-by-id.js";
 import { addItemVersionByPathPowerShellTool } from "./tools/powershell/simple/common/add-item-version-by-path.js";
+import { removeArchiveItemPowerShellTool } from "./tools/powershell/composite/common/remove-archive-item.js";
 import { removeItemVersionByIdPowerShellTool } from "./tools/powershell/simple/common/remove-item-version-by-id.js";
 import { removeItemVersionByPathPowerShellTool } from "./tools/powershell/simple/common/remove-item-version-by-path.js";
 import { resetItemFieldByIdPowerShellTool } from "./tools/powershell/simple/common/reset-item-field-by-id.js";
 import { resetItemFieldByPathPowerShellTool } from "./tools/powershell/simple/common/reset-item-field-by-path.js";
+import { restoreArchiveItemPowerShellTool } from "./tools/powershell/composite/common/restore-archive-item.js";
 import { getItemCloneByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-clone-by-id.js";
 import { getItemCloneByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-clone-by-path.js";
 import { convertFromItemCloneByIdPowerShellTool } from "./tools/powershell/simple/common/convert-from-item-clone-by-id.js";
@@ -217,8 +221,12 @@ export async function registerAll(server: McpServer, config: Config) {
         setItemTemplateByPathPowerShellTool,
 
         //Composite Common PowerShell Tools 
+        getArchivePowerShellTool,
+        getArchiveItemPowerShellTool,
         newItemCloneByIdPowerShellTool,
         newItemCloneByPathPowerShellTool,
+        removeArchiveItemPowerShellTool,
+        restoreArchiveItemPowerShellTool,
 
         //Presentation
         //Simple Presentation PowerShell Tools

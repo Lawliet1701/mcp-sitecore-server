@@ -126,6 +126,8 @@
     - [x] `common-add-item-version-by-path`: creates a version of the item (by its path) in a new language based on an existing language version
     - [x] `common-convert-from-item-clone-by-id`: converts an item from a clone to a fully independent item by ID
     - [x] `common-convert-from-item-clone-by-path`: converts an item from a clone to a fully independent item by path
+    - [x] `common-get-archive`: returns Sitecore database archives
+    - [x] `common-get-archive-item`: returns a list of items found in the specified archive
     - [x] `common-get-cache`: returns information about Sitecore caches
     - [x] `common-get-database`: returns information about Sitecore databases
     - [x] `common-get-item-clone-by-id`: returns all the clones for the specified item by ID
@@ -138,12 +140,14 @@
     - [x] `common-get-item-template-by-path`: returns template information for a Sitecore item by path
     - [x] `common-new-item-clone-by-id`: creates a new item clone based on the item provided by ID
     - [x] `common-new-item-clone-by-path`: creates a new item clone based on the item provided by path
+    - [x] `common-remove-archive-item`: removes items permanently from the specified archive
     - [x] `common-remove-base-template-by-id`: removes a base template from a template item by ID
     - [x] `common-remove-base-template-by-path`: removes a base template from a template item by path
     - [x] `common-remove-item-version-by-id`: removes a version of a Sitecore item by ID
     - [x] `common-remove-item-version-by-path`: removes a version of a Sitecore item by path
     - [x] `common-reset-item-field-by-id`: resets item fields, specified as either names, fields or template fields by ID
     - [x] `common-reset-item-field-by-path`: resets item fields, specified as either names, fields or template fields by path
+    - [x] `common-restore-archive-item`: restores items to the original database from the specified archive
     - [x] `common-set-item-template-by-id`: sets the item template by ID
     - [x] `common-set-item-template-by-path`: sets the item template by path
   - [x] Logging

@@ -28,8 +28,14 @@ export function newItemCloneByIdPowerShellTool(server: McpServer, config: Config
 
             addParameters["Id"] = params.id;
             addParameters["Name"] = params.name;
-            addParameters["Recurse"] = getSwitchParameterValue(params.recurse);
-            addParameters["Database"] = params.database;
+
+            if (params.recurse) {
+                addParameters["Recurse"] = getSwitchParameterValue(params.recurse);
+            }
+
+            if (params.database) {
+                addParameters["Database"] = params.database;
+            }
 
             const command = `
                 $destinationItem = Get-Item -Path ${params.destination};
