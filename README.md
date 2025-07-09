@@ -126,23 +126,25 @@
     - [x] `common-add-item-version-by-path`: creates a version of the item (by its path) in a new language based on an existing language version
     - [x] `common-convert-from-item-clone-by-id`: converts an item from a clone to a fully independent item by ID
     - [x] `common-convert-from-item-clone-by-path`: converts an item from a clone to a fully independent item by path
-    - [x] `common-get-archive`: returns Sitecore database archives
-    - [x] `common-get-archive-item`: returns a list of items found in the specified archive
-    - [x] `common-get-cache`: returns information about Sitecore caches
-    - [x] `common-get-database`: returns information about Sitecore databases
-    - [x] `common-get-item-clone-by-id`: returns all the clones for the specified item by ID
-    - [x] `common-get-item-clone-by-path`: returns all the clones for the specified item by path
-    - [x] `common-get-item-reference-by-id`: returns item references (where it is used) for a Sitecore item by ID
-    - [x] `common-get-item-reference-by-path`: returns item references (where it is used) for a Sitecore item by path
-    - [x] `common-get-item-referrer-by-id`: returns items referring to a Sitecore item by ID (which items reference it)
-    - [x] `common-get-item-referrer-by-path`: returns items referring to a Sitecore item by path (which items reference it)
-    - [x] `common-get-item-template-by-id`: returns template information for a Sitecore item by ID
-    - [x] `common-get-item-template-by-path`: returns template information for a Sitecore item by path
+    - [x] `common-get-archive`: gets Sitecore database archives
+    - [x] `common-get-archive-item`: gets a list of items found in the specified archive
+    - [x] `common-get-cache`: gets information about Sitecore caches
+    - [x] `common-get-database`: gets information about Sitecore databases
     - [x] `common-get-item-field-by-id`: gets item fields as either names or fields or template fields by ID
     - [x] `common-get-item-field-by-path`: gets item fields as either names or fields or template fields by path
+    - [x] `common-get-item-clone-by-id`: gets all the clones for the specified item by ID
+    - [x] `common-get-item-clone-by-path`: gets all the clones for the specified item by path
+    - [x] `common-get-item-reference-by-id`: gets item references (where it is used) for a Sitecore item by ID
+    - [x] `common-get-item-reference-by-path`: gets item references (where it is used) for a Sitecore item by path
+    - [x] `common-get-item-referrer-by-id`: gets items referring to a Sitecore item by ID (which items reference it)
+    - [x] `common-get-item-referrer-by-path`: gets items referring to a Sitecore item by path (which items reference it)
+    - [x] `common-get-item-template-by-id`: gets template information for a Sitecore item by ID
+    - [x] `common-get-item-template-by-path`: gets template information for a Sitecore item by path
     - [x] `common-get-item-workflow-event-by-id`: gets entries from the workflow history for the specified item by ID
     - [x] `common-get-item-workflow-event-by-path`: gets entries from the workflow history for the specified item by path
     - [x] `common-get-sitecore-job`: gets list of the current Sitecore jobs
+    - [x] `common-get-spe-module-by-id`: gets the object that describes a Sitecore PowerShell Extensions Module by ID of a module, script or library defined within the module
+    - [x] `common-get-spe-module-by-path`: gets the object that describes a Sitecore PowerShell Extensions Module by path of a module, script or library defined within the module
     - [x] `common-new-item-clone-by-id`: creates a new item clone based on the item provided by ID
     - [x] `common-new-item-clone-by-path`: creates a new item clone based on the item provided by path
     - [x] `common-remove-archive-item`: removes items permanently from the specified archive
