@@ -157,6 +157,8 @@
     - [x] `common-set-item-template-by-path`: sets the item template by path
     - [x] `common-test-base-template-by-id`: checks if the item inherits from the specified template by ID
     - [x] `common-test-base-template-by-path`: checks if the item inherits from the specified template by path
+    - [x] `common-update-item-referrer-by-id`: updates all references to the specified item (by ID) to point to a new provided in the -NewTarget or removes links to the item
+    - [x] `common-update-item-referrer-by-path`: updates all references to the specified item (by path) to point to a new provided in the -NewTarget or removes links to the item
   - [x] Logging
     - [x] `logging-get-logs`: retrieves Sitecore logs from the log directory with filtering options
 

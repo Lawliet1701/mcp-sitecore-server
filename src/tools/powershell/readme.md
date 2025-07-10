@@ -129,3 +129,5 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `common-new-item-clone-by-path`: Create a new item clone based on the item provided by path
 - `common-remove-archive-item`: Remove items permanently from the specified archive
 - `common-restore-archive-item`: Restore items to the original database from the specified archive
+- `common-update-item-referrer-by-id`: Update all references to the specified item (by ID) to point to a new provided in the -NewTarget or removes links to the item
+- `common-update-item-referrer-by-path`: Update all references to the specified item (by path) to point to a new provided in the -NewTarget or removes links to the item

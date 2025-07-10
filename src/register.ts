@@ -90,6 +90,8 @@ import { resetItemFieldByPathPowerShellTool } from "./tools/powershell/simple/co
 import { restoreArchiveItemPowerShellTool } from "./tools/powershell/composite/common/restore-archive-item.js";
 import { testBaseTemplateByIdPowerShellTool } from "./tools/powershell/simple/common/test-base-template-by-id.js";
 import { testBaseTemplateByPathPowerShellTool } from "./tools/powershell/simple/common/test-base-template-by-path.js";
+import { updateItemReferrerByIdPowerShellTool } from "./tools/powershell/composite/common/update-item-referrer-by-id.js";
+import { updateItemReferrerByPathPowerShellTool } from "./tools/powershell/composite/common/update-item-referrer-by-path.js";
 import { getItemCloneByIdPowerShellTool } from "./tools/powershell/simple/common/get-item-clone-by-id.js";
 import { getItemCloneByPathPowerShellTool } from "./tools/powershell/simple/common/get-item-clone-by-path.js";
 import { convertFromItemCloneByIdPowerShellTool } from "./tools/powershell/simple/common/convert-from-item-clone-by-id.js";
@@ -241,6 +243,8 @@ export async function registerAll(server: McpServer, config: Config) {
         newItemCloneByPathPowerShellTool,
         removeArchiveItemPowerShellTool,
         restoreArchiveItemPowerShellTool,
+        updateItemReferrerByIdPowerShellTool,
+        updateItemReferrerByPathPowerShellTool,
 
         //Presentation
         //Simple Presentation PowerShell Tools
