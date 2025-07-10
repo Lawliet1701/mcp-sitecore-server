@@ -118,6 +118,8 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `common-reset-item-field-by-path`: Reset item fields, specified as either names, fields or template fields by path
 - `common-set-item-template-by-id`: Set the item template by ID
 - `common-set-item-template-by-path`: Set the item template by path
+- `common-test-base-template-by-id`: Check if the item inherits from the specified template by ID
+- `common-test-base-template-by-path`: Check if the item inherits from the specified template by path
 
 ### Composite Common Tools
 

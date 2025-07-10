@@ -155,6 +155,8 @@
     - [x] `common-restore-archive-item`: restores items to the original database from the specified archive
     - [x] `common-set-item-template-by-id`: sets the item template by ID
     - [x] `common-set-item-template-by-path`: sets the item template by path
+    - [x] `common-test-base-template-by-id`: checks if the item inherits from the specified template by ID
+    - [x] `common-test-base-template-by-path`: checks if the item inherits from the specified template by path
   - [x] Logging
     - [x] `logging-get-logs`: retrieves Sitecore logs from the log directory with filtering options
 
