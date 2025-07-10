@@ -143,8 +143,6 @@
     - [x] `common-get-item-workflow-event-by-id`: gets entries from the workflow history for the specified item by ID
     - [x] `common-get-item-workflow-event-by-path`: gets entries from the workflow history for the specified item by path
     - [x] `common-get-sitecore-job`: gets list of the current Sitecore jobs
-    - [x] `common-get-spe-module-by-id`: gets the object that describes a Sitecore PowerShell Extensions Module by ID of a module, script or library defined within the module
-    - [x] `common-get-spe-module-by-path`: gets the object that describes a Sitecore PowerShell Extensions Module by path of a module, script or library defined within the module
     - [x] `common-new-item-clone-by-id`: creates a new item clone based on the item provided by ID
     - [x] `common-new-item-clone-by-path`: creates a new item clone based on the item provided by path
     - [x] `common-remove-archive-item`: removes items permanently from the specified archive
