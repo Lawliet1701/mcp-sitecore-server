@@ -145,6 +145,8 @@
     - [x] `common-get-sitecore-job`: gets list of the current Sitecore jobs
     - [x] `common-new-item-clone-by-id`: creates a new item clone based on the item provided by ID
     - [x] `common-new-item-clone-by-path`: creates a new item clone based on the item provided by path
+    - [x] `common-publish-item-by-id`: publishes a Sitecore item by ID
+    - [x] `common-publish-item-by-path`: publishes a Sitecore item by path
     - [x] `common-remove-archive-item`: removes items permanently from the specified archive
     - [x] `common-remove-base-template-by-id`: removes a base template from a template item by ID
     - [x] `common-remove-base-template-by-path`: removes a base template from a template item by path
