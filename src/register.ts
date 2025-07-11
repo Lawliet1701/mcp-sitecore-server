@@ -87,6 +87,7 @@ import { removeItemVersionByIdPowerShellTool } from "./tools/powershell/simple/c
 import { removeItemVersionByPathPowerShellTool } from "./tools/powershell/simple/common/remove-item-version-by-path.js";
 import { resetItemFieldByIdPowerShellTool } from "./tools/powershell/simple/common/reset-item-field-by-id.js";
 import { resetItemFieldByPathPowerShellTool } from "./tools/powershell/simple/common/reset-item-field-by-path.js";
+import { restartApplicationPowerShellTool } from "./tools/powershell/simple/common/restart-application.js";
 import { restoreArchiveItemPowerShellTool } from "./tools/powershell/composite/common/restore-archive-item.js";
 import { testBaseTemplateByIdPowerShellTool } from "./tools/powershell/simple/common/test-base-template-by-id.js";
 import { testBaseTemplateByPathPowerShellTool } from "./tools/powershell/simple/common/test-base-template-by-path.js";
@@ -231,6 +232,7 @@ export async function registerAll(server: McpServer, config: Config) {
         removeItemVersionByPathPowerShellTool,
         resetItemFieldByIdPowerShellTool,
         resetItemFieldByPathPowerShellTool,
+        restartApplicationPowerShellTool,
         setItemTemplateByIdPowerShellTool,
         setItemTemplateByPathPowerShellTool,
         testBaseTemplateByIdPowerShellTool,

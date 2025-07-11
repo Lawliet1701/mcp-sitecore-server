@@ -152,6 +152,7 @@
     - [x] `common-remove-item-version-by-path`: removes a version of a Sitecore item by path
     - [x] `common-reset-item-field-by-id`: resets item fields, specified as either names, fields or template fields by ID
     - [x] `common-reset-item-field-by-path`: resets item fields, specified as either names, fields or template fields by path
+    - [x] `common-restart-application`: restarts the Sitecore Application pool
     - [x] `common-restore-archive-item`: restores items to the original database from the specified archive
     - [x] `common-set-item-template-by-id`: sets the item template by ID
     - [x] `common-set-item-template-by-path`: sets the item template by path
