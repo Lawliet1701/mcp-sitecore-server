@@ -112,6 +112,8 @@ This folder contains implementations of MCP tools that interact with Sitecore Po
 - `common-get-sitecore-job`: Get list of the current Sitecore jobs
 - `common-invoke-workflow-by-id`: Execute workflow action for a Sitecore item by ID
 - `common-invoke-workflow-by-path`: Execute workflow action for a Sitecore item by path
+- `common-new-item-workflow-event-by-id`: Create a new entry in the workflow history for a Sitecore item by ID
+- `common-new-item-workflow-event-by-path`: Create a new entry in the workflow history for a Sitecore item by path
 - `common-publish-item-by-id`: Publish a Sitecore item by ID
 - `common-publish-item-by-path`: Publish a Sitecore item by path
 - `common-remove-base-template-by-id`: Remove a base template from a template item by ID

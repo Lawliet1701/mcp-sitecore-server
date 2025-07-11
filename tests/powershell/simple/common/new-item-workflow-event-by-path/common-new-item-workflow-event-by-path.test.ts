@@ -5,25 +5,25 @@ import { client, transport } from "../../../../client";
 await client.connect(transport);
 
 describe("powershell", () => {
-    it("common-invoke-workflow-by-path", async () => {
+    it("common-new-item-workflow-event-by-path", async () => {
         // Arrange
-        const itemId = "{25C1BAEA-DA84-495D-9656-4CE1A5342F8C}";
-        const itemPath = "/sitecore/content/Home/Tests/Common/Invoke-Workflow-By-Path";
-        
+        const itemPath = "sitecore/content/Home/Tests/Common/New-Item-Workflow-Event-By-Path";
+
         const args: Record<string, any> = {
             path: itemPath,
-            commandName: "Submit"
+            newState: "{46DA5376-10DC-4B66-B464-AFDAA29DE84F}",
+            text: "Action Comment"
         };
 
         // Act
-        await callTool(client, "common-invoke-workflow-by-path", args);
+        await callTool(client, "common-new-item-workflow-event-by-path", args);
         
         // Assert
         const getWorkflowArgs: Record<string, any> = {
-            id: itemId,
+            path: itemPath,
         };
 
-        const result = await callTool(client, "common-get-item-workflow-event-by-id", getWorkflowArgs);
+        const result = await callTool(client, "common-get-item-workflow-event-by-path", getWorkflowArgs);
 
         const json = JSON.parse(result.content[0].text);
         const lastEvent = json.Obj[json.Obj.length - 1];
@@ -34,14 +34,15 @@ describe("powershell", () => {
         // /sitecore/system/Workflows/Sample Workflow/Awaiting Approval
         expect(lastEvent.NewState).toBe("{46DA5376-10DC-4B66-B464-AFDAA29DE84F}");
 
+        expect(lastEvent.CommentFields[0].Value).toBe("Action Comment");
+
         // Cleanup
-        const editItemArgs: Record<string, any> = {
-            id: itemId,
-            data: {
-                "__Workflow State": "{190B1C84-F1BE-47ED-AA41-F42193D9C8FC}"
-            }
+        const revertStateArgs: Record<string, any> = {
+            path: itemPath,
+            newState: "{190B1C84-F1BE-47ED-AA41-F42193D9C8FC}",
         };
 
-        await callTool(client, "item-service-edit-item", editItemArgs);
+        // Act
+        await callTool(client, "common-new-item-workflow-event-by-path", revertStateArgs);
     });
 });

@@ -5,18 +5,19 @@ import { client, transport } from "../../../../client";
 await client.connect(transport);
 
 describe("powershell", () => {
-    it("common-invoke-workflow-by-path", async () => {
+    it("common-new-item-workflow-event-by-id", async () => {
         // Arrange
-        const itemId = "{25C1BAEA-DA84-495D-9656-4CE1A5342F8C}";
-        const itemPath = "/sitecore/content/Home/Tests/Common/Invoke-Workflow-By-Path";
-        
+        // /sitecore/content/Home/Tests/Common/New-Item-Workflow-Event-By-Id
+        const itemId = "{4C44C305-54B2-4145-8B8C-CD56EF0B9908}";
+
         const args: Record<string, any> = {
-            path: itemPath,
-            commandName: "Submit"
+            id: itemId,
+            newState: "{46DA5376-10DC-4B66-B464-AFDAA29DE84F}",
+            text: "Action Comment"
         };
 
         // Act
-        await callTool(client, "common-invoke-workflow-by-path", args);
+        await callTool(client, "common-new-item-workflow-event-by-id", args);
         
         // Assert
         const getWorkflowArgs: Record<string, any> = {
@@ -34,14 +35,15 @@ describe("powershell", () => {
         // /sitecore/system/Workflows/Sample Workflow/Awaiting Approval
         expect(lastEvent.NewState).toBe("{46DA5376-10DC-4B66-B464-AFDAA29DE84F}");
 
+        expect(lastEvent.CommentFields[0].Value).toBe("Action Comment");
+
         // Cleanup
-        const editItemArgs: Record<string, any> = {
+        const revertStateArgs: Record<string, any> = {
             id: itemId,
-            data: {
-                "__Workflow State": "{190B1C84-F1BE-47ED-AA41-F42193D9C8FC}"
-            }
+            newState: "{190B1C84-F1BE-47ED-AA41-F42193D9C8FC}",
         };
 
-        await callTool(client, "item-service-edit-item", editItemArgs);
+        // Act
+        await callTool(client, "common-new-item-workflow-event-by-id", revertStateArgs);
     });
 });

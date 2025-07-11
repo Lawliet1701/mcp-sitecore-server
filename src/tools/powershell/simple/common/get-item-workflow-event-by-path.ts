@@ -10,7 +10,7 @@ export function getItemWorkflowEventByPathPowerShellTool(server: McpServer, conf
         "Gets entries from the workflow history for the specified item by its path.",
         {
             path: z.string()
-                .describe("The path of the the item to have its history items returned."),
+                .describe("The path of the item to have its history items returned."),
             identity : z.string().optional()
                 .describe("The user that has been associated with the enteries. Wildcards are supported."),
             language: z.string().optional()

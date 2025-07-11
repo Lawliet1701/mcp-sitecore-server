@@ -10,7 +10,7 @@ export function getItemWorkflowEventByIdPowerShellTool(server: McpServer, config
         "Gets entries from the workflow history for the specified item by its ID.",
         {
             id: z.string()
-                .describe("The ID of the the item to have its history items returned."),
+                .describe("The ID of the item to have its history items returned."),
             identity : z.string().optional()
                 .describe("The user that has been associated with the enteries. Wildcards are supported."),
             language: z.string().optional()

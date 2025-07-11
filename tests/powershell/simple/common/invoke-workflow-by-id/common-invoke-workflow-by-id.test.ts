@@ -28,8 +28,6 @@ describe("powershell", () => {
         const json = JSON.parse(result.content[0].text);
         const lastEvent = json.Obj[json.Obj.length - 1];
 
-        console.log("Last", lastEvent);
-
         // sitecore/system/Workflows/Sample Workflow/Draft
         expect(lastEvent.OldState).toBe("{190B1C84-F1BE-47ED-AA41-F42193D9C8FC}");
 
