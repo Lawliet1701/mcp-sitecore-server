@@ -143,6 +143,8 @@
     - [x] `common-get-item-workflow-event-by-id`: gets entries from the workflow history for the specified item by ID
     - [x] `common-get-item-workflow-event-by-path`: gets entries from the workflow history for the specified item by path
     - [x] `common-get-sitecore-job`: gets list of the current Sitecore jobs
+    - [x] `common-invoke-workflow-by-id`: executes workflow action for a Sitecore item by ID
+    - [x] `common-invoke-workflow-by-path`: executes workflow action for a Sitecore item by path
     - [x] `common-new-item-clone-by-id`: creates a new item clone based on the item provided by ID
     - [x] `common-new-item-clone-by-path`: creates a new item clone based on the item provided by path
     - [x] `common-publish-item-by-id`: publishes a Sitecore item by ID
