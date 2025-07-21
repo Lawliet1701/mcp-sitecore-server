@@ -154,6 +154,7 @@
     - [x] `logging-get-logs`: retrieves Sitecore logs from the log directory with filtering options
 
 - [ ] Sitecore CLI
+  - [x] `sitecore-cli-documentation`: gets sitecore cli documentation to provide more context for LLM 
 
 ### Tools selection
 
