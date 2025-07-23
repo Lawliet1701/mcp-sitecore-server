@@ -24,6 +24,7 @@
     - [x] `item-service-get-item-descendants`: returns the descendants of an item by ID
 - [ ] Sitecore Powershell
   - [x] `get-powershell-documentation`: returns the documentation describing all Sitecore Powershell commands
+  - [x] `run-powershell-script`: runs a PowerShell script and returns the output
   - [ ] Security
     - [x] `security-get-current-user`: returns the current user
     - [x] `security-get-user-by-identity`: returns a user by name
