@@ -4,7 +4,7 @@ on:
     types: [created]
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-2022
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -12,7 +12,7 @@ jobs:
         name: Build & push Docker image
         with:
           image: antonytm/mcp-sitecore-windows
-          tags: 0.21.0, latest
+          tags: 1.0.0, latest
           registry: docker.io
           dockerfile: ./docker/windows/Dockerfile
           platform: windows/amd64
