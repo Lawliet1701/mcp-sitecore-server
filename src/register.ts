@@ -142,6 +142,7 @@ import { removeRenderingParameterByPathPowershellTool } from "./tools/powershell
 import { setRenderingParameterByIdPowershellTool } from "./tools/powershell/composite/presentation/set-rendering-parameter-by-id.js";
 import { setRenderingParameterByPathPowershellTool } from "./tools/powershell/composite/presentation/set-rendering-parameter-by-path.js";
 import { getLogsPowerShellTool } from "./tools/powershell/composite/logging/get-logs.js";
+import { getSitecoreCliDocumentation } from "./tools/sitecore-cli/get-sitecore-cli-documentation.js";
 
 export async function register(array: Array<(server: McpServer, config: Config) => void>,
     server: McpServer,
@@ -320,6 +321,9 @@ export async function registerAll(server: McpServer, config: Config) {
         initializeSearchIndexingItemByPathPowerShellTool,
         removeSearchIndexItemByIdPowerShellTool,
         removeSearchIndexItemByPathPowerShellTool,
+
+        //Sitecore CLI
+        getSitecoreCliDocumentation,
 
     ], server, config);
 }

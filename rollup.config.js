@@ -24,6 +24,7 @@ export default {
     }),
     copy({
       targets: [
+        { src: 'src/tools/sitecore-cli/sitecore-cli-documentation.md', dest: 'dist/tools/sitecore-cli' },
         { src: 'src/tools/powershell/documentation/**/*.md', dest: 'dist/tools/powershell/documentation' }
       ]
     })
